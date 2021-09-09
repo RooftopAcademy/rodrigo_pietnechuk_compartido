@@ -1,0 +1,36 @@
+.logo {
+  font-size: 4rem;
+  margin-top: 1rem;
+}
+
+.categories {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.categories-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.categories-item {
+  outline: thin solid #202020;
+  padding: 0 .5em;
+  margin: .5em;
+  flex: 1 1 0px
+
+}
+
+.categories-item-heading {
+  margin: 0;
+}
+
+.categories-item-icon {
+  font-size: 3rem;
+  padding-bottom: .5em;
+}
+
+.social-media {
+  font-size: large;
+}

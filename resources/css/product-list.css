@@ -1,0 +1,11 @@
+.product-image {
+  max-width: 40%;
+  height: auto;
+}
+
+.products-item {
+  display: flex;
+  flex-direction: row;
+  padding: 5%;
+}
+
