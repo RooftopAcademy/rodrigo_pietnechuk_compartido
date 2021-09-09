@@ -21,11 +21,15 @@ header {
   top: 0;
 }
 
+main {
+  width: 100%;
+  flex: 1 0;
+}
+
 footer {
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-top: auto;
   background-color: #3af070;
   color: #202020;
   text-align: left;
