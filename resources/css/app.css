@@ -36,6 +36,12 @@ footer {
   padding-left: 1%;
 }
 
+#burguer-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .link {
   color: #202020;
   text-decoration: none;
@@ -48,11 +54,22 @@ footer {
 .menubar {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
   background-color: #3af070;
   font-size: 1.4em;
-  padding: .5rem 0;
+  padding: .5rem;
+}
+
+.menu-buttons-container {
+  display: flex;
+  flex: 1 1 60%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  flex: 2 1 40%;
+  text-align: left;
 }
 
 .menu-show {
