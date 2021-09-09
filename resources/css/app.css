@@ -34,12 +34,7 @@ footer {
   color: #202020;
   text-align: left;
   padding-left: 1%;
-}
-
-#burguer-button {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+  font-size: small;
 }
 
 .link {
@@ -47,11 +42,11 @@ footer {
   text-decoration: none;
 }
 
-.x-small-text {
-  font-size: x-small;
+.social-media {
+  font-size: x-large;
 }
 
-.menubar {
+.navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,18 +67,20 @@ footer {
   text-align: left;
 }
 
-.menu-show {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #796f6f;
-}
-
-.menu > .link {
-  padding: 2%;
-  color: #ffecff;
-}
-
-.menu-hide {
+.desktop-only {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .desktop-only {
+    display: contents;
+  }
+
+  .logo-container {
+    flex-basis: auto;
+  }
+
+  .menu-buttons-container {
+    flex-basis: auto;
+  }
 }
