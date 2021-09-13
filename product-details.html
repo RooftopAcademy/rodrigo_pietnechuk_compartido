@@ -16,15 +16,15 @@
   <link rel="stylesheet" href="resources/css/product-details.css">
   <title>Detalles del producto</title>
 </head>
-<body>
-  <header>
-    <nav class="navigation">
-      <div class="logo-container">
+<body class="d-flex flex-column">
+  <header class="max-width">
+    <nav class="navigation d-flex">
+      <div class="text-left logo-container">
         <a href="index.html" class="link">
           <i class="fas fa-store-alt"></i><span class="desktop-only"> Inicio</span>
         </a>
       </div>
-      <div class="menu-buttons-container">
+      <div class="menu-buttons-container d-flex space-between">
         <a class="link" href="product-list.html">
           <i class="fas fa-list-ul"></i><span class="desktop-only"> Lista de productos</span>
         </a>
@@ -40,14 +40,14 @@
       </div>
     </nav>
   </header>
-  <main>
+  <main class="max-width">
     <h1>EMPRESA S.A.</h1>
-    <section class="product">
+    <section class="d-flex flex-column product">
       <img class="product-image" src="resources/assets/white-tshirt.png" alt="imagen del producto">
-      <section class="product-description">
-        <h2 class="product-name">Remera Blanca Algodón</h2>
-        <p class="price">$399,99</p>
-        <p class="description-text">
+      <section class="d-flex flex-column product-description">
+        <h2 class="text-left">Remera Blanca Algodón</h2>
+        <p class="text-left price">$399,99</p>
+        <p class="small-text description-text">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -56,7 +56,7 @@
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <p>Talles</p>
-        <section class="sizes">
+        <section class="d-flex flex-wrap sizes">
           <p>XS</p>
           <p>S</p>
           <p>M</p>
@@ -65,12 +65,12 @@
         </section class="sizes">
       </section>
     </section>
-    <div class="cart-button-container">
+    <div class="d-flex cart-button-container">
       <button class="add-to-cart">Agregar al carrito</button>
       <i class="far fa-heart heart-icon"></i>
     </div>
   </main>
-  <footer>
+  <footer class="footer max-width d-flex flex-column text-left small-text">
     <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
     <address>
       Calle 123, Ciudad, País.<br>

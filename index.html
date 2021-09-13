@@ -16,15 +16,15 @@
   <link rel="stylesheet" href="resources/css/index.css">
   <title>Inicio - Empresa S.A.</title>
 </head>
-<body>
-  <header>
-    <nav class="navigation">
-      <div class="logo-container">
+<body class="d-flex flex-column">
+  <header class="max-width">
+    <nav class="navigation d-flex">
+      <div class="text-left logo-container">
         <a href="index.html" class="link">
           <i class="fas fa-store-alt"></i><span class="desktop-only"> Inicio</span>
         </a>
       </div>
-      <div class="menu-buttons-container">
+      <div class="menu-buttons-container d-flex space-between">
         <a class="link" href="product-list.html">
           <i class="fas fa-list-ul"></i><span class="desktop-only"> Lista de productos</span>
         </a>
@@ -40,7 +40,7 @@
       </div>
     </nav>
   </header>
-  <main>
+  <main class="max-width">
     <section class="brand">
       <i class="fas fa-store-alt logo"></i>
       <h1>EMPRESA S.A.</h1>
@@ -48,7 +48,7 @@
     </section>
     <section class="categories">
       <h2>CATEGORÍAS</h2>
-      <div class="categories-container">
+      <div class="categories-container d-flex flex-wrap space-between">
         <a class="link categories-item" href="product-list.html">
           <h3>ALIMENTOS</h3>
           <i class="fas fa-utensils categories-item-icon"></i>
@@ -68,7 +68,7 @@
       </div>
     </section>
   </main>
-  <footer>
+  <footer class="footer max-width d-flex flex-column text-left small-text">
     <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
     <address>
       Calle 123, Ciudad, País.<br>
