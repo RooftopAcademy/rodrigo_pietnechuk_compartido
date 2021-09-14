@@ -15,49 +15,51 @@
   <link rel="stylesheet" href="resources/css/product-list.css">
   <title>Lista de productos</title>
 </head>
-<body class="d-flex flex-column">
-  <header class="max-width">
-    <nav class="navigation d-flex">
-      <div class="text-left logo-container">
-        <a href="index.html" class="link">
-          <i class="fas fa-store-alt"></i><span class="desktop-only"> Inicio</span>
-        </a>
-      </div>
-      <div class="menu-buttons-container d-flex space-between">
-        <a class="link" href="product-list.html">
-          <i class="fas fa-list-ul"></i><span class="desktop-only"> Lista de productos</span>
-        </a>
-        <a class="link" href="#">
-          <i class="fas fa-search"></i><span class="desktop-only"> Buscar</span>
-        </a>
-        <a class="link" href="#">
-          <i class="fas fa-shopping-cart"></i><span class="desktop-only"> Carrito</span>
-        </a>
-        <a class="link" href="#">
-          <i class="fas fa-user"></i><span class="desktop-only"> Iniciar sesión</span>
-        </a>
-      </div>
+<body class="d-flex flex-column min-height-100vh">
+  <header>
+    <button class="burger-menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="hidden d-flex flex-column text-left navigation">
+      <a class="link" href="index.html">
+        <i class="fas fa-store-alt"></i> Inicio
+      </a>
+      <a class="link" href="product-list.html">
+        <i class="fas fa-list-ul"></i> Lista de productos
+      </a>
+      <a class="link" href="#">
+        <i class="fas fa-search"></i> Buscar
+      </a>
+      <a class="link" href="#">
+        <i class="fas fa-shopping-cart"></i> Carrito
+      </a>
+      <a class="link" href="#">
+        <i class="fas fa-user"></i> Iniciar sesión
+      </a>
     </nav>
   </header>
-  <main class="max-width d-flex flex-column small-text products">
-  </main>
-  <footer class="footer max-width d-flex flex-column text-left small-text">
-    <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
-    <address>
-      Calle 123, Ciudad, País.<br>
-      <a class="link" href="tel:1234567890">
-        <i class="fas fa-phone"></i> 1234567890
-      </a><br>
-      <a class="link" href="mailto:contacto@empresa-sa.com">
-        <i class="far fa-envelope"></i> contacto@empresa-sa.com
-      </a><br>
-      <div class="social-media">
-        <a class="link" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-        <a class="link" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
-        <a class="link" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-      </div>
-    </address>
-  </footer>
+  <div class="d-flex flex-column max-width main-container">
+    <main class="max-width d-flex flex-column small-text products">
+    </main>
+    <footer class="footer max-width d-flex flex-column text-left small-text">
+      <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
+      <address>
+        Calle 123, Ciudad, País.<br>
+        <a class="link" href="tel:1234567890">
+          <i class="fas fa-phone"></i> 1234567890
+        </a><br>
+        <a class="link" href="mailto:contacto@empresa-sa.com">
+          <i class="far fa-envelope"></i> contacto@empresa-sa.com
+        </a><br>
+        <div class="social-media">
+          <a class="link" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+          <a class="link" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+          <a class="link" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        </div>
+      </address>
+    </footer>
+  </div>
+  <script src="resources/js/app.js"></script>
   <script src="resources/js/product-list.js"></script>
 </body>
 </html>
