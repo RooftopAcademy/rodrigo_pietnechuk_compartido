@@ -24,9 +24,15 @@
   margin: 1%;
 }
 
-.heart-icon {
+.heart-button {
   font-size: 1.5em;
   padding-left: 1%;
+  border: none;
+  cursor: pointer;
+}
+
+.heart-icon-colored {
+  color: #d2042d;
 }
 
 .description-text {
