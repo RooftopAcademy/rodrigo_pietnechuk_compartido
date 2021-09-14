@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+  <link rel="stylesheet" href="resources/css/app.css">
+  <link rel="stylesheet" href="resources/css/signup.css">
+  <script src="resources/js/app.js" defer></script>
+  <script src="resources/js/signup.js" defer></script>
+  <title>Registrarse - Empresa S.A.</title>
+</head>
+<body class="d-flex flex-column min-height-100vh">
+  <header>
+    <nav class="hidden d-flex flex-column text-left navigation">
+      <a class="link" href="index.html">
+        <i class="fas fa-store-alt"></i> Inicio
+      </a>
+      <a class="link" href="product-list.html">
+        <i class="fas fa-list-ul"></i> Lista de productos
+      </a>
+      <a class="link" href="#">
+        <i class="fas fa-search"></i> Buscar
+      </a>
+      <a class="link" href="#">
+        <i class="fas fa-shopping-cart"></i> Carrito
+      </a>
+      <a class="link" href="signup.html">
+        <i class="fas fa-user"></i> Iniciar sesión
+      </a>
+    </nav>
+    <button class="burger-menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+  <div class="d-flex flex-column max-width main-container">
+    <section class="brand">
+      <i class="fas fa-store-alt logo"></i>
+      <h1>EMPRESA S.A.</h1>
+      <h2>Crear cuenta</h2>
+    </section>
+    <main class="d-flex flex-column justify-align-center">
+      <form class="d-flex flex-column">
+        <input class="form-input" name="last-name" type="text" placeholder="Apellido" required>
+        <input class="form-input" name="first-name" type="text" placeholder="Nombre" required>
+        <input class="form-input" name="username" type="text" placeholder="Usuario" required>
+        <input class="form-input" name="email" type="email" placeholder="Correo electrónico" required>
+        <input class="form-input" name="password" type="password" placeholder="Contraseña" required>
+        <input class="form-input" name="confirm-password" type="password" placeholder="Confirmar contraseña" required>
+        <button class="button" type="submit">Registrarse</button>
+      </form>
+    </main>
+    <footer class="footer max-width d-flex flex-column text-left small-text">
+      <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
+      <address>
+        Calle 123, Ciudad, País.<br>
+        <a class="link" href="tel:1234567890">
+          <i class="fas fa-phone"></i> 1234567890
+        </a><br>
+        <a class="link" href="mailto:contacto@empresa-sa.com">
+          <i class="far fa-envelope"></i> contacto@empresa-sa.com
+        </a><br>
+        <div class="social-media">
+          <a class="link" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+          <a class="link" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+          <a class="link" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        </div>
+      </address>
+    </footer>
+  </div>
+</body>
+</html>

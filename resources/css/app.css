@@ -105,6 +105,30 @@ main {
   height: auto;
 }
 
+.justify-align-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  box-shadow:inset 0px 1px 0px 0px #cf866c;
+  background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color:#d0451b;
+  border-radius:3px;
+  border:1px solid #942911;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  padding:.5em 1em;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #854629;
+}
+
+.logo {
+  font-size: 4rem;
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 768px) {
   .burger-menu {
     display: none;
