@@ -1,16 +1,15 @@
-const password = document.querySelector("[name=password]");
-const confirmPassword = document.querySelector("[name=confirm-password]");
+const signupForm = document.querySelector("#signup-form");
 
-password.addEventListener("input", () => {
+signupForm.password.addEventListener("input", function () {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/;
-  const validityMessage = regex.test(password.value) ? "" :
+  const validityMessage = regex.test(this.value) ? "" :
     "La contraseña debe contener entre 8 y 30 caracteres, y por lo menos una minúscula" +
     " una mayúscula y un número"
 
-  password.setCustomValidity(validityMessage);
+  this.setCustomValidity(validityMessage);
 });
 
-confirmPassword.addEventListener("input", () => {
-  const validityMessage = password.value === confirmPassword.value ? "" : "Las contraseñas no son iguales";
-  confirmPassword.setCustomValidity(validityMessage);
+signupForm.confirmpassword.addEventListener("input", function () {
+  const validityMessage = signupForm.password.value === this.value ? "" : "Las contraseñas no son iguales";
+  this.setCustomValidity(validityMessage);
 });
