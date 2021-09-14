@@ -7,11 +7,6 @@
   box-sizing: content-box;
 }
 
-.products-item > .link {
-  align-items: center;
-  justify-content: center;
-}
-
 .caption {
   display: inline-block;
 }
