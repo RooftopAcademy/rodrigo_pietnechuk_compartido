@@ -44,7 +44,11 @@ export default class Book {
   set price(value) {
     const type = typeof value;
     if (type === "number") {
-      this._price = value
+      if (value > 0) {
+        this._price = value
+      } else {
+        throw new RangeError("Value must be greater than 0.");
+      }
     } else {
       throw new TypeError(`Number expected, received ${type}.`);
     }
