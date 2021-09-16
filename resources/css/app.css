@@ -49,6 +49,10 @@ main {
   text-align: left;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .small-text {
   font-size: small;
 }
