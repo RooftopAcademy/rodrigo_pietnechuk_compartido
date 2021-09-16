@@ -2,7 +2,7 @@ export default class Book {
   constructor() {
     this._id = String();
     this._name = String();
-    this._price = Number();
+    this._price = 0.01;
     this._description = String();
     this._imageURL = String();
     this._author = String();
