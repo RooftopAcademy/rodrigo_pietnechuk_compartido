@@ -1,14 +1,14 @@
 export default class Book {
   constructor() {
-    this._id = String;
-    this._name = String;
-    this._price = Number;
-    this._description = String;
-    this._imageURL = String;
-    this._author = String;
-    this._isbn = String;
-    this._pages = String;
-    this._publicationYear = String;
+    this._id = String();
+    this._name = String();
+    this._price = Number();
+    this._description = String();
+    this._imageURL = String();
+    this._author = String();
+    this._isbn = String();
+    this._pages = String();
+    this._publicationYear = String();
   }
 
   get id() {
