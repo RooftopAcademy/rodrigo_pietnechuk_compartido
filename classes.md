@@ -116,9 +116,8 @@ Representa un libro vendido en la tienda.
 * `name: String`
 * `price: Number`
 * `description: String`
-* `stock: Number`
 * `imageURL: String`
 * `author: String`
 * `isbn: String`
-* `pages: Number`
-* `publicationYear: Number`
+* `pages: String`
+* `publicationYear: String`
