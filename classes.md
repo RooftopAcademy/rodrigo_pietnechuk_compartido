@@ -9,7 +9,7 @@ Representa a la propia tienda.
 * `users: UserBase`
 * `products: Catalog`
 
-## Métodos
+### Métodos
 
 * getters
 
