@@ -1,6 +1,4 @@
-import Book from "./Book";
-
-export default class CartItem {
+class CartItem {
   constructor() {
     this._product = new Book();
     this._amount = 1;

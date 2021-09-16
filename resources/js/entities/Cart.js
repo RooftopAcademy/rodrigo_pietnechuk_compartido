@@ -1,6 +1,4 @@
-import CartItem from "./CartItem";
-
-export default class Cart {
+class Cart {
   constructor() {
     this._items = [];
   }

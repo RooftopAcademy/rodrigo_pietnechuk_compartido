@@ -1,6 +1,4 @@
-import Book from "./Book"
-
-export default class FavoritesCollection {
+class FavoritesCollection {
   constructor() {
     this._favorites = [];
   }

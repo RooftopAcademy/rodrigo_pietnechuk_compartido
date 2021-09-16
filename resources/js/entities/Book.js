@@ -1,4 +1,4 @@
-export default class Book {
+class Book {
   constructor() {
     this._id = String();
     this._name = String();

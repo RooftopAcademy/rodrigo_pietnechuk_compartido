@@ -1,6 +1,4 @@
-import Book from "./Book"
-
-export default class Catalog {
+class Catalog {
   constructor() {
     this._products = [];
   }

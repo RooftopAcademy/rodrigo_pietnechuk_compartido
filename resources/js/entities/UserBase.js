@@ -1,6 +1,4 @@
-import User from "./User";
-
-export default class UserBase {
+class UserBase {
   constructor() {
     this._users = [];
   }

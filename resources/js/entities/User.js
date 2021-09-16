@@ -1,7 +1,4 @@
-import Cart from "./Cart";
-import FavoritesCollection from "./FavoritesCollection";
-
-export default class User {
+class User {
   constructor() {
     this._id = String();
     this._lastName = String();
