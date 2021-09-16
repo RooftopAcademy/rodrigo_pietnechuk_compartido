@@ -9,26 +9,30 @@ export default class Cart {
     return this._items;
   }
 
+  _findByProductId(id) {
+    return this.items.find((ci) => ci.product.id === id);
+  }
+
   add(item) {
-    if (item instanceof CartItem) {
-      const oldItem = this.items.find((item) => item.product.id === productId);
-      if (oldItem !== undefined) {
-        oldItem.amount += item.amount;
-      } else {
-        item.push(this.items);
-      }
-    } else {
+    if (!(item instanceof CartItem)) {
       throw new TypeError(`CartItem expected, got ${typeof item}.`);
+    }
+
+    const oldItem = this._findByProductId(item.product.id);
+    if (oldItem !== undefined) {
+      oldItem.amount += item.amount;
+    } else {
+      item.push(this.items);
     }
   }
 
   remove(productId) {
     const type = typeof productId;
-    if (type === "string") {
-      this._items = this._items.filter((item) => item.product.id !== productId);
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, got ${typeof item}.`);
     }
+
+    this._items = this._items.filter((item) => item.product.id !== productId);
   }
 
   removeAll() {

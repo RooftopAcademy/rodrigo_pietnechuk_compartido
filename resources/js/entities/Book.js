@@ -17,11 +17,11 @@ export default class Book {
 
   set id(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._id = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._id = value;
   }
 
   get name() {
@@ -30,11 +30,11 @@ export default class Book {
 
   set name(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._name = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._name = value;
   }
 
   get price() {
@@ -43,15 +43,15 @@ export default class Book {
 
   set price(value) {
     const type = typeof value;
-    if (type === "number") {
-      if (value > 0) {
-        this._price = value
-      } else {
-        throw new RangeError("Value must be greater than 0.");
-      }
-    } else {
+    if (type !== "number") {
       throw new TypeError(`Number expected, received ${type}.`);
     }
+
+    if (value <= 0) {
+      throw new RangeError("Value must be greater than 0.");
+    }
+
+    this._price = value;
   }
 
   get description() {
@@ -60,11 +60,11 @@ export default class Book {
 
   set description(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._description = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._description = value;
   }
 
   get imageURL() {
@@ -73,11 +73,11 @@ export default class Book {
 
   set imageURL(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._imageURL = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._imageURL = value
   }
 
   get author() {
@@ -86,11 +86,11 @@ export default class Book {
 
   set author(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._author = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._author = value
   }
 
   get isbn() {
@@ -99,11 +99,11 @@ export default class Book {
 
   set isbn(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._isbn = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._isbn = value;
   }
 
   get pages() {
@@ -112,11 +112,11 @@ export default class Book {
 
   set pages(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._pages = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._pages = value;
   }
 
   get publicationYear() {
@@ -125,10 +125,10 @@ export default class Book {
 
   set publicationYear(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._publicationYear = value
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, received ${type}.`);
     }
+
+    this._publicationYear = value;
   }
 }

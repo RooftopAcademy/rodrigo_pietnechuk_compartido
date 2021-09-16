@@ -10,11 +10,11 @@ export default class Catalog {
   }
 
   add(item) {
-    if (item instanceof Book) {
-      this.products.push(item);
-    } else {
+    if (!(item instanceof Book)) {
       throw new TypeError(`Book expected, received ${typeof item}.`);
     }
+
+    this.products.push(item);
   }
 
   remove(id) {

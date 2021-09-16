@@ -18,11 +18,11 @@ export default class User {
 
   set id(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._id = value;
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, got ${type}.`);
     }
+
+    this._id = value;
   }
 
   get lastName() {
@@ -31,11 +31,11 @@ export default class User {
 
   set lastName(value) {
     const type = typeof value;
-    if (type === "string") {
-      this.__lastName = value;
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, got ${type}.`);
     }
+
+    this.__lastName = value;
   }
 
   get firstName() {
@@ -44,11 +44,11 @@ export default class User {
 
   set firstName(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._firstName = value;
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, got ${type}.`);
     }
+
+    this._firstName = value;
   }
 
   get username() {
@@ -57,11 +57,11 @@ export default class User {
 
   set username(value) {
     const type = typeof value;
-    if (type === "string") {
-      this._username = value;
-    } else {
+    if (type !== "string") {
       throw new TypeError(`String expected, got ${type}.`);
     }
+
+    this._username = value;
   }
 
   get cart() {
@@ -73,14 +73,14 @@ export default class User {
   }
 
   setPassword(newPw, oldPw) {
-    if (typeof newPw === "string" && typeof oldPw === "string") {
-      if (oldPw === this._password) {
-        this._password = newPw;
-      } else {
-        throw new Error("Old password is incorrect.");
-      }
-    } else {
+    if (typeof newPw !== "string" || typeof oldPw !== "string") {
       throw new TypeError("Expected two strings.");
     }
+
+    if (oldPw !== newPw) {
+      throw new Error("Old password is incorrect.");
+    }
+
+    this._password = newPw;
   }
 }

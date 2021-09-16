@@ -18,18 +18,18 @@ export default class UserBase {
   }
 
   add(user) {
-    if (user instanceof User) {
-      if (this._usernameExists(user.username)) {
-        throw new Error("This username already exists");
-      }
-
-      if (this._emailExists(user.email)) {
-        throw new Error("This email already exists");
-      }
-
-      this.users.push(user);
-    } else {
+    if (!(user instanceof User)) {
       throw new TypeError(`User expected, got ${typeof user}.`);
     }
+
+    if (this._usernameExists(user.username)) {
+      throw new Error("This username already exists");
+    }
+
+    if (this._emailExists(user.email)) {
+      throw new Error("This email already exists");
+    }
+
+    this.users.push(user);
   }
 }

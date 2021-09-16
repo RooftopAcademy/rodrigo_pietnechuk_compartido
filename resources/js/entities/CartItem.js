@@ -11,11 +11,11 @@ export default class CartItem {
   }
 
   set product(value) {
-    if (value instanceof Book) {
-      this._product = value;
-    } else {
+    if (!(value instanceof Book)) {
       throw new TypeError(`Book expected, received ${typeof value}`);
     }
+
+    this._product = value;
   }
 
   get amount() {
@@ -24,15 +24,15 @@ export default class CartItem {
 
   set amount(value) {
     const type = typeof value;
-    if (type === "number") {
-      if (value > 0) {
-        this._amount = value;
-      } else {
-        throw new RangeError("The value provided must be greater than 0.")
-      }
-    } else {
+    if (type !== "number") {
       throw new TypeError(`Expected Number, got ${type}`);
     }
+
+    if (value <= 0) {
+      throw new RangeError("The value provided must be greater than 0.");
+    }
+
+    this._amount = value;
   }
 
   getPrice() {
