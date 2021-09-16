@@ -2,7 +2,7 @@ import Book from "./Book";
 
 export default class CartItem {
   constructor() {
-    this._product = Book();
+    this._product = new Book();
     this._amount = 1;
   }
 

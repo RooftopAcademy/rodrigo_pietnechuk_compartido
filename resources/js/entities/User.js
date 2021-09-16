@@ -8,8 +8,8 @@ export default class User {
     this._firstName = String();
     this._username = String();
     this._password = String();
-    this._cart = Cart();
-    this._favorites = FavoritesCollection();
+    this._cart = new Cart();
+    this._favorites = new FavoritesCollection();
   }
 
   get id() {
