@@ -39,7 +39,7 @@ Representa los productos que un usuario tiene un su lista de favoritos.
 
 ### Atributos
 
-* `favorites: Array<Product>`
+* `favorites: Array<Book>`
 
 ### Métodos
 
@@ -57,8 +57,8 @@ Representa el catálogo de productos de la tienda.
 
 ### Métodos
 
-* `addProduct(product: Product): void`
-* `removeProduct(id: String): void`
+* `addBook(product: Book): void`
+* `removeBook(id: String): void`
 * getters
 
 ## UserBase
@@ -98,7 +98,7 @@ Representa un item dentro del carrito de un usuario.
 
 ### Atributos
 
-* `product: Product`
+* `product: Book`
 * `amount: Number`
 
 ### Métodos
