@@ -7,11 +7,12 @@ Representa a la propia tienda.
 ### Atributos
 
 * `users: UserBase`
-* `products: Catalog`
+* `catalog: Catalog`
 
 ### Métodos
 
-* getters
+* `getUsers(): UserBase`
+* `getCatalog(): Catalog`
 
 ## User
 
@@ -30,8 +31,17 @@ Representa a un usuario del sitio.
 ### Métodos
 
 * `changePassword(oldPassword: String, newPassword: String): void`
-* getters
-* setters
+* `getId(): String`
+* `setId(value: String): void`
+* `getLastName(): String`
+* `setLastName(value: String): void`
+* `getFirstName(): String`
+* `setFirstName(value: String): void`
+* `getUserName(): String`
+* `setUserName(value: String): void`
+* `setPassword(newPw: String, oldPw: String): void`
+* `getCart(): Cart`
+* `getFavorites(): FavoritesCollection`
 
 ## FavoritesCollection
 
@@ -43,9 +53,9 @@ Representa los productos que un usuario tiene un su lista de favoritos.
 
 ### Métodos
 
-* `addToFavorites(productId: String): void`
-* `removeFromFavorites(productId: String): void`
-* getters
+* `add(item: Book): void`
+* `remove(id: String): void`
+* `getFavorites(): Array<Book>`
 
 ## Catalog
 
@@ -57,9 +67,9 @@ Representa el catálogo de productos de la tienda.
 
 ### Métodos
 
-* `addBook(product: Book): void`
-* `removeBook(id: String): void`
-* getters
+* `add(item: Book): void`
+* `remove(id: String): void`
+* `getProducts(): Array<Book>`
 
 ## UserBase
 
@@ -71,9 +81,9 @@ Representa el conjunto de usuario que tienen cuentas en la tienda.
 
 ### Métodos
 
-* `addUser(user: User): void`
-* `removeUser(id: String): void`
-* getters
+* `add(user: User): void`
+* `remove(id: String): void`
+* `getUsers(): Array<User>`
 
 ## Cart
 
@@ -89,8 +99,8 @@ Representa un carrito de compras. Pertenece a un usuario.
 * `remove(productId: String): void`
 * `removeAll(): void`
 * `findById(productId: String): CartItem`
-* `getTotalPrice(): Number`´
-* getters
+* `getTotalPrice(): Number`
+* `getItems(): Array<CartItem>`
 
 ## CartItem
 
@@ -103,7 +113,10 @@ Representa un item dentro del carrito de un usuario.
 
 ### Métodos
 
-* setAmount(amount: Number): void
+* `getAmount(): Number`
+* `setAmount(amount: Number): void`
+* `getProduct(): Book`
+* `setProduct(value; Book): void`
 * `getPrice(): Number`
 
 ## Book
@@ -121,3 +134,24 @@ Representa un libro vendido en la tienda.
 * `isbn: String`
 * `pages: String`
 * `publicationYear: String`
+
+### Métodos
+
+* `getId(): String`
+* `setId(value: String): void`
+* `getName(): String`
+* `setName(value: String): void`
+* `getPrice(): Number`
+* `setPrice(value: Number): void`
+* `getDescription(): String`
+* `setDescription(value: String): void`
+* `getImageURL(): String`
+* `setImageURL(value: String): void`
+* `getAuthor(): String`
+* `setAuthor(value: String): void`
+* `getIsbn(): String`
+* `setIsbn(value: String): void`
+* `getPages(): String`
+* `setPages(value: String): void`
+* `getPublicationYear(): String`
+* `setPublicationYear(value: String): void`
