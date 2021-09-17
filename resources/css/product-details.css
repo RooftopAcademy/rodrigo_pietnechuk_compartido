@@ -14,10 +14,6 @@
   font-weight: bold;
 }
 
-.sizes {
-  justify-content: space-around;
-}
-
 .cart-button-container {
   align-items: center;
   justify-content: right;
@@ -47,5 +43,6 @@
 
   .product-image {
     max-width: 25%;
+    margin: 2%;
   }
 }
