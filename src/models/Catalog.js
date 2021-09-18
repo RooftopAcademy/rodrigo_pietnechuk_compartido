@@ -7,9 +7,17 @@ class Catalog {
     return this._products;
   }
 
+  set products(value) {
+    if (!(value instanceof Array)) {
+      throw new TypeError(`Array expected, got ${typeof value}.`);
+    }
+
+    this._products = value;
+  };
+
   add(item) {
     if (!(item instanceof Book)) {
-      throw new TypeError(`Book expected, received ${typeof item}.`);
+      throw new TypeError(`Book expected, got ${typeof item}.`);
     }
 
     this.products.push(item);
