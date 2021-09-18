@@ -4,3 +4,5 @@ burguerMenu.addEventListener("click", () => {
   const navigation = document.querySelector(".navigation");
   navigation.classList.toggle("hidden");
 });
+
+const store = new Store();

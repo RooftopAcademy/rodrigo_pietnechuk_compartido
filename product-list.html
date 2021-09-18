@@ -13,6 +13,13 @@
   >
   <link rel="stylesheet" href="resources/css/app.css">
   <link rel="stylesheet" href="resources/css/product-list.css">
+  <script src="src/models/Store.js" defer></script>
+  <script src="src/models/UserBase.js" defer></script>
+  <script src="src/models/Catalog.js" defer></script>
+  <script src="src/models/Book.js"></script>
+  <script src="src/services/MockAPI.js" defer></script>
+  <script src="src/factories/BookFactory.js" defer></script>
+  <script src="src/views/renderProductListItem.js"></script>
   <script src="resources/js/app.js" defer></script>
   <script src="resources/js/product-list.js" defer></script>
   <title>Lista de productos</title>
@@ -47,7 +54,8 @@
       <p><em>Una empresa que vende libros</em></p>
       <h2>Productos</h2>
     </section>
-    <main class="max-width d-flex flex-column small-text products">
+    <main class="max-width d-flex flex-column space-between small-text products">
+      <!-- code dinamically generated -->
     </main>
     <footer class="footer max-width d-flex flex-column text-left small-text">
       <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
