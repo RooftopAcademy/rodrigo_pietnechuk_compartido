@@ -23,7 +23,7 @@ class User {
   }
 
   get lastName() {
-    return this.__lastName;
+    return this._lastName;
   }
 
   set lastName(value) {
@@ -32,7 +32,7 @@ class User {
       throw new TypeError(`String expected, got ${type}.`);
     }
 
-    this.__lastName = value;
+    this._lastName = value;
   }
 
   get firstName() {
@@ -74,7 +74,7 @@ class User {
       throw new TypeError("Expected two strings.");
     }
 
-    if (oldPw !== newPw) {
+    if (oldPw !== this._password) {
       throw new Error("Old password is incorrect.");
     }
 
