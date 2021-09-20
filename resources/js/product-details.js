@@ -15,6 +15,6 @@
       });
     });
   } else {
-    product.innerHTML = `<h3 class="text-red">Error: ${res.status}</h3>`
+    renderErrorMessage(res.status, product);
   }
 })();

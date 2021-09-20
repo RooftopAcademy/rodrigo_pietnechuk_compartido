@@ -15,7 +15,7 @@ class Store {
   async fetchCatalog() {
     const res = await StoreApi.getCatalog();
     if (!res.ok) {
-      throw new Error(`Error: ${res.status}`);
+      throw new Error(res.status);
     }
 
     const data = await res.json();
