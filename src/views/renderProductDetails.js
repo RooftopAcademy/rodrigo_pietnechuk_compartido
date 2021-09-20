@@ -1,9 +1,9 @@
-function renderProductDetails(product) {
+function renderProductDetails(product, domElement) {
   if (!(product instanceof Book)) {
     throw new TypeError(`Book expected, got ${typeof product}`);
   }
 
-  return (`
+  domElement.innerHTML = `
   <div class="d-flex flex-column product-info">
     <img class="image product-image" src="${product.imageURL}" alt="imagen del producto">
     <div class="d-flex flex-column product-description text-justify">
@@ -26,5 +26,5 @@ function renderProductDetails(product) {
     <button class="button">Agregar al carrito</button>
     <button class="heart-button"><i class="far fa-heart heart-icon"></i></button>
   </div>
-  `);
+  `;
 }
