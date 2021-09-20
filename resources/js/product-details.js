@@ -1,29 +1,20 @@
-const product = document.querySelector(".product");
+(async function () {
+  const product = document.querySelector(".product");
 
-function getProductDetailsHTML() {
-  const productDeatailsparams = new URLSearchParams(window.location.search);
-  const notFound = "<p>No se ha encontrado el artículo especificado en nuestra base de datos.</p>";
+  const id = new URLSearchParams(window.location.search).get('id');
+  const res = await MockAPI.getBookById(id);
+  if (res.ok) {
+    const data = await res.json();
+    product.innerHTML = renderProductDetails(BookFactory.createBook(data));
 
-  if (!productDeatailsparams.has('id')) {
-    return notFound;
+    const heartButton = product.querySelector(".heart-button");
+    heartButton.addEventListener("click", () => {
+      const heartIcon = heartButton.querySelector(".heart-icon");
+      ["far", "fa", "heart-icon-colored"].forEach(function(cssClass) {
+        heartIcon.classList.toggle(cssClass);
+      });
+    });
+  } else {
+    product.innerHTML = `<h3 class="text-red">Error: ${res.status}</h3>`
   }
-
-  const book = store.catalog.getBookById(productDeatailsparams.get('id'));
-  if (!book) {
-    return notFound;
-  }
-
-  return renderProductDetails(book);
-}
-
-product.innerHTML = getProductDetailsHTML();
-
-const heartButton = product.querySelector(".heart-button");
-if (heartButton) {
-  heartButton.addEventListener("click", () => {
-    const heartIcon = product.querySelector(".heart-icon");
-    heartIcon.classList.toggle("far");
-    heartIcon.classList.toggle("fa");
-    heartIcon.classList.toggle("heart-icon-colored");
-  });
-}
+})();
