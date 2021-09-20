@@ -1,5 +1,5 @@
 class BookFactory {
-  static createBook(obj) {
+  static create(obj) {
     const book = new Book();
     book.id = obj.id;
     book.name = obj.name;

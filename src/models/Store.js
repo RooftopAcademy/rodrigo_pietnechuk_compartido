@@ -19,6 +19,6 @@ class Store {
     }
 
     const data = await res.json();
-    this.catalog.products = data.map((item) => BookFactory.createBook(item));
+    this.catalog.products = data.map((item) => BookFactory.create(item));
   }
 }

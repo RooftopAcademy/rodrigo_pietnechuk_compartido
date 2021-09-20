@@ -5,7 +5,7 @@
   const res = await StoreApi.getBookById(id);
   if (res.ok) {
     const data = await res.json();
-    product.innerHTML = renderProductDetails(BookFactory.createBook(data));
+    product.innerHTML = renderProductDetails(BookFactory.create(data));
 
     const heartButton = product.querySelector(".heart-button");
     heartButton.addEventListener("click", () => {
