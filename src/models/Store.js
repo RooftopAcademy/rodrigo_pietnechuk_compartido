@@ -2,7 +2,6 @@ class Store {
   constructor() {
     this._users = new UserBase();
     this._catalog = new Catalog();
-    this.fetchCatalog();
   }
 
   get users() {
@@ -13,7 +12,13 @@ class Store {
     return this._catalog;
   }
 
-  fetchCatalog() {
-    this.catalog.products = MockAPI.getCatalog().map((item) => BookFactory.createBook(item));
+  async fetchCatalog() {
+    const res = await MockAPI.getCatalog();
+    if (!res.ok) {
+      throw new Error(`Error: ${res.status}`);
+    }
+
+    const data = await res.json();
+    this.catalog.products = data.map((item) => BookFactory.createBook(item));
   }
 }
