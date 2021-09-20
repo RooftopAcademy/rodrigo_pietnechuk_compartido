@@ -15,6 +15,15 @@ class Catalog {
     this._products = value;
   };
 
+  getBookById(id) {
+    const type = typeof id;
+    if (type !== "string") {
+      throw new TypeError(`String expected, got ${type}.`);
+    }
+
+    return this.products.find((item) => item.id === id);
+  }
+
   add(item) {
     if (!(item instanceof Book)) {
       throw new TypeError(`Book expected, got ${typeof item}.`);

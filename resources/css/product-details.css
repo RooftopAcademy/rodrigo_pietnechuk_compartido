@@ -1,4 +1,4 @@
-.product {
+.product-info {
   align-items: center;
 }
 
@@ -12,19 +12,21 @@
 
 .price {
   font-weight: bold;
+  font-size: x-large;
+  margin-right: .5rem;
 }
 
 .cart-button-container {
   align-items: center;
   justify-content: right;
-  margin: 1%;
+  margin-bottom: 1%;
 }
 
 .heart-button {
   font-size: 1.5em;
-  padding-left: 1%;
   border: none;
   cursor: pointer;
+  margin: 0 1%;
 }
 
 .heart-icon-colored {
@@ -37,7 +39,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .product {
+  .product-info {
     flex-direction: row;
   }
 

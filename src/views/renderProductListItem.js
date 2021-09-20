@@ -5,7 +5,7 @@ function renderProductListItem(product) {
 
   return (`
     <article class="products-item">
-      <a class="link d-flex text-left" href="product-details.html">
+      <a class="link d-flex text-left" href="product-details?id=${product.id}">
         <img class="image product-image" src="${product.imageURL}">
         <div class="caption">
           <p class="larger-text"><em>${product.name}</em></p>

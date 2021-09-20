@@ -14,7 +14,14 @@
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="resources/css/app.css">
   <link rel="stylesheet" href="resources/css/product-details.css">
+  <script src="src/models/Store.js" defer></script>
+  <script src="src/models/UserBase.js" defer></script>
+  <script src="src/models/Catalog.js" defer></script>
+  <script src="src/services/MockAPI.js" defer></script>
+  <script src="src/models/Book.js"></script>
+  <script src="src/factories/BookFactory.js"></script>
   <script src="resources/js/app.js" defer></script>
+  <script src="src/views/renderProductDetails.js" defer></script>
   <script src="resources/js/product-details.js" defer></script>
   <title>Detalles del producto</title>
 </head>
@@ -48,34 +55,9 @@
         <h1>EMPRESA S.A.</h1>
         <p><em>Una empresa que vende libros</em></p>
       </section>
-      <section class="d-flex flex-column product">
-        <img class="image product-image" src="https://catalogos.libooks.com/9789500765183_md.jpg" alt="imagen del producto">
-        <section class="d-flex flex-column product-description text-justify">
-          <h2 class="text-left">Los pájaros negros</h2>
-          <p class="text-left price">$399,99</p>
-          <p class="authoor">Alejandro Parisi</p>
-          <p class="small-text description-text">
-            Tres jóvenes huyen de la guerra.
-            Cuando sus hogares se transformaron en un campo minado la única opción para sobrevivir
-            es partir. Llegan a la ciudad de Mar del Plata escapando cada uno de sus desgracias.
-            Aún no se conocen. Estos adolescentes solitarios se hacen amigos en esa playa que,
-            dicen, llega hasta el fin del mundo. Crecen juntos hasta que ocurre algo inesperado
-            que los separa para siempre.
-          </p>
-          <p>Ficha técnica</p>
-          <section class="product-details">
-            <ul>
-              <li>Año de publicación: 2021</li>
-              <li>Páginas: 336</li>
-              <li>ISBN: 978-950-07-6518-3</li>
-            </ul>
-          </section class="sizes">
-        </section>
+      <section class="product">
+        <!-- code generated dinamically -->
       </section>
-      <div class="d-flex cart-button-container">
-        <button class="button">Agregar al carrito</button>
-        <button class="heart-button"><i class="far fa-heart heart-icon"></i></button>
-      </div>
     </main>
     <footer class="footer max-width d-flex flex-column text-left small-text">
       <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
