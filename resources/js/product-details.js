@@ -22,8 +22,8 @@ const heartButton = product.querySelector(".heart-button");
 if (heartButton) {
   heartButton.addEventListener("click", () => {
     const heartIcon = product.querySelector(".heart-icon");
-    heartIcon.classList.toggle("far");
-    heartIcon.classList.toggle("fa");
-    heartIcon.classList.toggle("heart-icon-colored");
+    ["far", "fa", "heart-icon-colored"].forEach(function(cssClass) {
+      heartIcon.classList.toggle(cssClass);
+    });
   });
 }
