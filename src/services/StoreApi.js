@@ -1,4 +1,4 @@
-class MockAPI {
+class StoreApi {
   static getCatalog() {
     return fetch("https://my-json-server.typicode.com/ghnoob/rooftop-mock-db/catalog");
   }

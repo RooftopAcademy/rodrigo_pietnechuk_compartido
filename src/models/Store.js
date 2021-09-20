@@ -13,7 +13,7 @@ class Store {
   }
 
   async fetchCatalog() {
-    const res = await MockAPI.getCatalog();
+    const res = await StoreApi.getCatalog();
     if (!res.ok) {
       throw new Error(`Error: ${res.status}`);
     }
