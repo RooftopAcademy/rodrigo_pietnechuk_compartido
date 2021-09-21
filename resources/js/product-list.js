@@ -1,2 +1,9 @@
-const products = document.querySelector(".products");
-products.innerHTML = store.catalog.products.reduce((a, b) => a + renderProductListItem(b), "");
+(async function() {
+  const products = document.querySelector(".products");
+  try {
+    await store.fetchCatalog();
+    renderProductList(store.catalog.products, products);
+  } catch (error) {
+    renderErrorMessage(error.message, products);
+  }
+})();

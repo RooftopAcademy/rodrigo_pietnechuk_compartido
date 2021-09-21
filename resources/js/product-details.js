@@ -1,29 +1,20 @@
-const product = document.querySelector(".product");
+(async function () {
+  const product = document.querySelector(".product");
 
-function getProductDetailsHTML() {
-  const productDeatailsparams = new URLSearchParams(window.location.search);
-  const notFound = "<p>No se ha encontrado el artículo especificado en nuestra base de datos.</p>";
+  const id = new URLSearchParams(window.location.search).get('id');
+  const res = await StoreApi.getBookById(id);
+  if (res.ok) {
+    const data = await res.json();
+    renderProductDetails(BookFactory.create(data), product);
 
-  if (!productDeatailsparams.has('id')) {
-    return notFound;
-  }
-
-  const book = store.catalog.getBookById(productDeatailsparams.get('id'));
-  if (!book) {
-    return notFound;
-  }
-
-  return renderProductDetails(book);
-}
-
-product.innerHTML = getProductDetailsHTML();
-
-const heartButton = product.querySelector(".heart-button");
-if (heartButton) {
-  heartButton.addEventListener("click", () => {
-    const heartIcon = product.querySelector(".heart-icon");
-    ["far", "fa", "heart-icon-colored"].forEach(function(cssClass) {
-      heartIcon.classList.toggle(cssClass);
+    const heartButton = product.querySelector(".heart-button");
+    heartButton.addEventListener("click", () => {
+      const heartIcon = heartButton.querySelector(".heart-icon");
+      ["far", "fa", "heart-icon-colored"].forEach(function(cssClass) {
+        heartIcon.classList.toggle(cssClass);
+      });
     });
-  });
-}
+  } else {
+    renderErrorMessage(res.status, product);
+  }
+})();

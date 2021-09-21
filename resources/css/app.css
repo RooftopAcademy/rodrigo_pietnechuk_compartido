@@ -143,6 +143,10 @@ main {
   margin-top: 1rem;
 }
 
+.text-red {
+  color: red;
+}
+
 @media screen and (min-width: 768px) {
   .burger-menu {
     display: none;
