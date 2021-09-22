@@ -1,9 +1,11 @@
 class StoreApi {
+  static _baseURL = "https://my-json-server.typicode.com/ghnoob/rooftop-mock-db";
+
   static getCatalog() {
-    return fetch("https://my-json-server.typicode.com/ghnoob/rooftop-mock-db/catalog");
+    return fetch(`${this._baseURL}/catalog`);
   }
 
   static getBookById(id) {
-    return fetch(`https://my-json-server.typicode.com/ghnoob/rooftop-mock-db/catalog/${id}`);
+    return fetch(`${this._baseURL}/catalog/${id}`);
   }
 }
