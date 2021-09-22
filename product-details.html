@@ -24,59 +24,21 @@
   <script src="src/views/renderProductDetails.js" defer></script>
   <script src="src/views/renderErrorMessage.js" defer></script>
   <script src="resources/js/product-details.js" defer></script>
+  <script src="src/components/Header.js"></script>
+  <script src="src/components/Footer.js"></script>
+  <script src="src/components/Brand.js"></script>
   <title>Detalles del producto</title>
 </head>
 <body class="d-flex flex-column min-height-100vh">
-  <header>
-    <nav class="hidden d-flex flex-column text-left navigation">
-      <a class="link" href="index.html">
-        <i class="fas fa-store-alt"></i> Inicio
-      </a>
-      <a class="link" href="product-list.html">
-        <i class="fas fa-list-ul"></i> Lista de productos
-      </a>
-      <a class="link" href="#">
-        <i class="fas fa-search"></i> Buscar
-      </a>
-      <a class="link" href="#">
-        <i class="fas fa-shopping-cart"></i> Carrito
-      </a>
-      <a class="link" href="signup.html">
-        <i class="fas fa-user"></i> Iniciar sesión
-      </a>
-    </nav>
-    <button class="burger-menu">
-      <i class="fas fa-bars"></i>
-    </button>
-  </header>
+  <header-component></header-component>
   <div class="d-flex flex-column max-width main-container">
     <main class="max-width">
-      <section class="brand">
-        <i class="fas fa-store-alt logo"></i>
-        <h1>EMPRESA S.A.</h1>
-        <p><em>Una empresa que vende libros</em></p>
-      </section>
+      <brand-component></brand-component>
       <section class="product">
         <!-- code generated dinamically -->
       </section>
     </main>
-    <footer class="footer max-width d-flex flex-column text-left small-text">
-      <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
-      <address>
-        Calle 123, Ciudad, País.<br>
-        <a class="link" href="tel:1234567890">
-          <i class="fas fa-phone"></i> 1234567890
-        </a><br>
-        <a class="link" href="mailto:contacto@empresa-sa.com">
-          <i class="far fa-envelope"></i> contacto@empresa-sa.com
-        </a><br>
-        <div class="social-media">
-          <a class="link" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-          <a class="link" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
-          <a class="link" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-        </div>
-      </address>
-    </footer>
+    <footer-component class="max-width"></footer-component>
   </div>
 </body>
 </html>
