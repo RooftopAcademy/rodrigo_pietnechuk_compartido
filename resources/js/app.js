@@ -1,7 +1,7 @@
-const burguerMenu = document.querySelector(".burger-menu");
+const header = document.querySelector(".header");
+const navigation = header.querySelector(".navigation");
 
-burguerMenu.addEventListener("click", () => {
-  const navigation = document.querySelector(".navigation");
+header.querySelector(".burger-menu").addEventListener("click", () => {
   navigation.classList.toggle("hidden");
 });
 
