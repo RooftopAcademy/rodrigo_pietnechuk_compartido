@@ -1,9 +1,5 @@
-class Brand extends HTMLElement {
-  constructor() {
-    super();
-  }
-
-  connectedCallback() {
+export default class Brand extends HTMLElement {
+  private connectedCallback() {
     this.innerHTML = `
     <section class="brand">
       <i class="fas fa-store-alt logo"></i>
@@ -13,5 +9,3 @@ class Brand extends HTMLElement {
     `;
   }
 }
-
-customElements.define('brand-component', Brand);

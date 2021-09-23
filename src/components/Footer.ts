@@ -1,12 +1,12 @@
-class Footer extends HTMLElement {
-  constructor() {
-    super();
-  }
-
-  connectedCallback() {
+export default class Footer extends HTMLElement {
+  private connectedCallback() {
     this.innerHTML = `
     <footer class="footer max-width d-flex flex-column text-left small-text">
-      <p>Copyright &copy; <time datetime="2021-1-1">2021</time> Empresa S.A. Todos los derechos reservados.</p>
+      <p>
+        Copyright &copy;
+        <time datetime="2021-1-1">2021</time>
+        Empresa S.A. Todos los derechos reservados.
+      </p>
       <address>
         Calle 123, Ciudad, País.<br>
         <a class="link" href="tel:1234567890">
@@ -25,5 +25,3 @@ class Footer extends HTMLElement {
     `;
   }
 }
-
-customElements.define('footer-component', Footer);
