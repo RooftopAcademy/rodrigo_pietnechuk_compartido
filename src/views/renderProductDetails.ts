@@ -1,8 +1,6 @@
-function renderProductDetails(product, domElement) {
-  if (!(product instanceof Book)) {
-    throw new TypeError(`Book expected, got ${typeof product}`);
-  }
+import type Book from "../models/Book";
 
+export default function renderProductDetails(product: Book, domElement: HTMLElement): void {
   domElement.innerHTML = `
   <div class="d-flex flex-column product-info">
     <img class="image product-image" src="${product.imageURL}" alt="imagen del producto">

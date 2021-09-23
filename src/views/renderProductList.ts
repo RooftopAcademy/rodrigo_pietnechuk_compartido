@@ -1,9 +1,8 @@
-function renderProductList(productList, domElement) {
-  if (!(productList instanceof Array)) {
-    throw new TypeError(`Array expected, got ${typeof productList}`);
-  }
+import type Catalog from "../models/Catalog";
+import type Book from "../models/Book";
 
-  const listItem = (item) =>`
+export default function renderProductList(catalog: Catalog, domElement: HTMLElement): void {
+  const listItem = (item: Book): string => `
     <article class="products-item">
       <a class="link d-flex text-left" href="product-details?id=${item.id}">
         <img class="image product-image" src="${item.imageURL}">
@@ -16,5 +15,7 @@ function renderProductList(productList, domElement) {
     </article>
   `;
 
-  domElement.innerHTML = productList.reduce((a, b) => a + listItem(b), "");
+  domElement.innerHTML = catalog
+    .products
+    .reduce((a: string, b: Book): string => a + listItem(b), "");
 }
