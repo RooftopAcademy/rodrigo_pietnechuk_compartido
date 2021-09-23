@@ -1,5 +1,8 @@
-class BookFactory {
-  static create(obj) {
+import IBook from "../interfaces/IBook";
+import Book from "../models/Book";
+
+export default class BookFactory {
+  public static create(obj: IBook): Book {
     const book = new Book();
     book.id = obj.id;
     book.name = obj.name;
