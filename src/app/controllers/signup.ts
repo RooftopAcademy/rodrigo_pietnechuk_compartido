@@ -1,4 +1,4 @@
-import getHTMLElement from "../../src/helpers/getHTMLElement";
+import getHTMLElement from "../helpers/getHTMLElement";
 
 export default function loadSignupForm(): void {
   const signupForm: HTMLFormElement = getHTMLElement("#signup-form") as HTMLFormElement;

@@ -1,12 +1,12 @@
-import getHTMLElement from "../../src/helpers/getHTMLElement";
-import StoreApi from "../../src/services/StoreApi";
-import renderSuggestions from "../../src/views/renderSuggestions";
-import loadProductDetails from "./product-details";
-import loadProductList from "./product-list";
-import loadSignupForm from "./signup";
-import Header from "../../src/components/Header";
-import Brand from "../../src/components/Brand";
-import Footer from "../../src/components/Footer";
+import getHTMLElement from "./helpers/getHTMLElement";
+import StoreApi from "./services/StoreApi";
+import renderSuggestions from "./views/renderSuggestions";
+import loadProductDetails from "./controllers/product-details";
+import loadProductList from "./controllers/product-list";
+import loadSignupForm from "./controllers/signup";
+import Header from "./components/Header";
+import Brand from "./components/Brand";
+import Footer from "./components/Footer";
 
 customElements.define("header-component", Header);
 customElements.define("brand-component", Brand);

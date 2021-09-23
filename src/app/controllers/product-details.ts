@@ -1,10 +1,10 @@
-import StoreApi from "../../src/services/StoreApi";
-import renderProductDetails from "../../src/views/renderProductDetails";
-import renderErrorMessage from "../../src/views/renderErrorMessage";
-import BookFactory from "../../src/factories/BookFactory";
-import type IBook from "../../src/interfaces/IBook";
-import getHTMLElement from "../../src/helpers/getHTMLElement";
-import getURLSearchParams from "../../src/helpers/getURLSearchParam";
+import StoreApi from "../services/StoreApi";
+import renderProductDetails from "../views/renderProductDetails";
+import renderErrorMessage from "../views/renderErrorMessage";
+import BookFactory from "../factories/BookFactory";
+import type IBook from "../interfaces/IBook";
+import getHTMLElement from "../helpers/getHTMLElement";
+import getURLSearchParams from "../helpers/getURLSearchParam";
 
 async function fetchBookFromAPI(id: string): Promise<IBook> {
   const res: Response = await StoreApi.getBookById(id);
