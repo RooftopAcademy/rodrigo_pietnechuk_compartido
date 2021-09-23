@@ -147,6 +147,24 @@ main {
   color: red;
 }
 
+.suggestions {
+  list-style-type: none;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: small;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+}
+
+.option > .link {
+  display: inline-block;
+}
+
+.option:hover {
+  background-color: lightgreen;
+}
+
 @media screen and (min-width: 768px) {
   .burger-menu {
     display: none;
