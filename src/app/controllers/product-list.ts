@@ -1,8 +1,8 @@
 import "../../public/resources/css/product-list.css";
 
 import Store from "../models/Store";
-import renderProductList from "../views/renderProductList";
-import renderErrorMessage from "../views/renderErrorMessage";
+import renderProductList from "../components/renderProductList";
+import renderErrorMessage from "../components/renderErrorMessage";
 import getHTMLElement from "../helpers/getHTMLElement";
 
 export default async function loadProductList(): Promise<void> {

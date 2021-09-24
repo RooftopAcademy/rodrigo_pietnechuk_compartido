@@ -3,7 +3,7 @@ import Brand from "../components/Brand";
 import Footer from "../components/Footer";
 import getHTMLElement from "./getHTMLElement";
 import StoreApi from "../services/StoreApi";
-import renderSuggestions from "../views/renderSuggestions";
+import renderSuggestions from "../components/renderSuggestions";
 
 export default function loadComponents(): void {
   // add components

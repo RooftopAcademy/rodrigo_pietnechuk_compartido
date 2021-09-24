@@ -1,8 +1,8 @@
 import "../../public/resources/css/product-details.css";
 
 import StoreApi from "../services/StoreApi";
-import renderProductDetails from "../views/renderProductDetails";
-import renderErrorMessage from "../views/renderErrorMessage";
+import renderProductDetails from "../components/renderProductDetails";
+import renderErrorMessage from "../components/renderErrorMessage";
 import BookFactory from "../factories/BookFactory";
 import type IBook from "../interfaces/IBook";
 import getHTMLElement from "../helpers/getHTMLElement";
