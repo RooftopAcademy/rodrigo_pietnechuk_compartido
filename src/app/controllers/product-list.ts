@@ -1,3 +1,5 @@
+import "../../public/resources/css/product-list.css";
+
 import Store from "../models/Store";
 import renderProductList from "../views/renderProductList";
 import renderErrorMessage from "../views/renderErrorMessage";

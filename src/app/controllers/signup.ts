@@ -1,3 +1,5 @@
+import "../../public/resources/css/signup.css";
+
 import getHTMLElement from "../helpers/getHTMLElement";
 
 export default function loadSignupForm(): void {

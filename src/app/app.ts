@@ -1,3 +1,7 @@
+import "../public/resources/css/app.css";
+import "../public/resources/css/index.css";
+
+import loadIcons from "./helpers/fontAwesomeIcons";
 import getHTMLElement from "./helpers/getHTMLElement";
 import StoreApi from "./services/StoreApi";
 import renderSuggestions from "./views/renderSuggestions";
@@ -7,6 +11,8 @@ import loadSignupForm from "./controllers/signup";
 import Header from "./components/Header";
 import Brand from "./components/Brand";
 import Footer from "./components/Footer";
+
+loadIcons();
 
 customElements.define("header-component", Header);
 customElements.define("brand-component", Brand);
