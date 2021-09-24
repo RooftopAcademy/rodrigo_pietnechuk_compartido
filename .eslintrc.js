@@ -24,6 +24,7 @@ module.exports = {
       },
     },
   },
+  ignorePatterns: ["dist/"],
   rules: {
     "quotes": ["warn", "double"],
     "quote-props": ["warn", "consistent-as-needed"],
@@ -35,6 +36,7 @@ module.exports = {
     "max-len": ["warn", 100],
     "@typescript-eslint/explicit-member-accessibility": "off",
     "func-names": "off",
+    "@typescript-eslint/no-var-requires": "off",
   },
   overrides: [
     {
