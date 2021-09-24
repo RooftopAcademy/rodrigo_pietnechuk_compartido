@@ -12,6 +12,7 @@ export default async function loadProductList(): Promise<void> {
     await store.fetchCatalog();
     renderProductList(store.catalog, products);
   } catch (error) {
-    renderErrorMessage(error.message, products);
+    const err: Error = error as Error;
+    renderErrorMessage(err.message, products);
   }
 }

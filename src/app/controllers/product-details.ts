@@ -37,6 +37,7 @@ export default async function loadProductDetails(): Promise<void> {
     const heartIcon: HTMLElement = getHTMLElement(".heart-icon", heartButton);
     addClassToggler(heartButton, heartIcon);
   } catch (error) {
-    renderErrorMessage(error.message, product);
+    const err: Error = error as Error;
+    renderErrorMessage(err.message, product);
   }
 }
