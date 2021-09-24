@@ -45,13 +45,13 @@ searchBar.addEventListener("input", async function () {
 });
 
 switch (window.location.pathname) {
-  case "/product-list":
+  case "/product-list.html":
     loadProductList();
     break;
-  case "/product-details":
+  case "/product-details.html":
     loadProductDetails();
     break;
-  case "/signup":
+  case "/signup.html":
     loadSignupForm();
     break;
   default:
