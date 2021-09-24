@@ -9,9 +9,11 @@ export default class Header extends HTMLElement {
         <a class="link" href="product-list.html">
           <i class="fas fa-list-ul"></i> Lista de productos
         </a>
-        <a class="link" href="#">
-          <i class="fas fa-search"></i> Buscar
-        </a>
+        <div class="link">
+          <i class="fas fa-search"></i>
+          <input id="search-bar" type="text" placeholder="Buscar">
+          <ul class="max-width suggestions" id="suggestions" class="suggestions"></ul>
+        </div>
         <a class="link" href="#">
           <i class="fas fa-shopping-cart"></i> Carrito
         </a>
