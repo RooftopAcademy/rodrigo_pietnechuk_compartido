@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "public": "false",
+  "homepage": "https://rooftopacademy.github.io/rodrigo_pietnechuk_compartido/",
   "repository": "git@github.com:RooftopAcademy/rodrigo_pietnechuk_compartido.git",
   "author": "ghnoob <ptnchk.rodrigo@gmail.com>",
   "license": "MIT",
@@ -11,7 +12,9 @@
     "fix": "eslint ./src --fix",
     "build": "webpack --mode production",
     "builddev": "webpack --mode development",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -26,6 +29,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.2",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.3.2",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.0",
