@@ -10,7 +10,8 @@ import loadSignupForm from "./controllers/signup";
 loadIcons();
 loadComponents();
 
-switch (window.location.pathname) {
+const link: string = window.location.pathname.split(".html")[0];
+switch (link) {
   case "/product-list":
     loadProductList();
     break;
