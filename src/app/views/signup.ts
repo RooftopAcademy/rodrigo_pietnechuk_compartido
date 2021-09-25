@@ -1,3 +1,5 @@
+import "../../public/resources/css/signup.css";
+
 export default function signup(): string {
   return `
   <form id="signup-form" class="d-flex flex-column">
