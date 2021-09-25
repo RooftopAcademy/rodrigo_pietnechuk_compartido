@@ -10,21 +10,6 @@ module.exports = {
       template: "src/public/index.html",
       favicon: "src/public/resources/favicon.ico",
     }),
-    new HtmlWebpackPlugin({
-      filename: "product-list.html",
-      template: "src/public/product-list.html",
-      favicon: "src/public/resources/favicon.ico",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "product-details.html",
-      template: "src/public/product-details.html",
-      favicon: "src/public/resources/favicon.ico",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "signup.html",
-      template: "src/public/signup.html",
-      favicon: "src/public/resources/favicon.ico",
-    }),
   ],
   module: {
     rules: [
