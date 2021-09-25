@@ -5,6 +5,10 @@ import getHTMLElement from "../helpers/getHTMLElement";
 export default function loadSignupForm(): void {
   const signupForm: HTMLFormElement = getHTMLElement("#signup-form") as HTMLFormElement;
 
+  signupForm.addEventListener("submit", (e: Event) => {
+    e.preventDefault();
+  });
+
   const password: HTMLInputElement = getHTMLElement(
     "input[name=password]",
     signupForm,

@@ -1,23 +1,5 @@
 import "../../public/resources/css/product-details.css";
-
-import StoreApi from "../services/StoreApi";
-import renderProductDetails from "../components/renderProductDetails";
-import renderErrorMessage from "../components/renderErrorMessage";
-import BookFactory from "../factories/BookFactory";
-import type IBook from "../interfaces/IBook";
 import getHTMLElement from "../helpers/getHTMLElement";
-import getURLSearchParams from "../helpers/getURLSearchParam";
-
-async function fetchBookFromAPI(id: string): Promise<IBook> {
-  const res: Response = await StoreApi.getBookById(id);
-
-  if (!res.ok) {
-    throw new Error(res.status.toString());
-  }
-
-  const data: IBook = await res.json();
-  return data;
-}
 
 function addClassToggler(button: HTMLElement, icon: HTMLElement): void {
   button.addEventListener("click", () => {
@@ -28,16 +10,7 @@ function addClassToggler(button: HTMLElement, icon: HTMLElement): void {
 }
 
 export default async function loadProductDetails(): Promise<void> {
-  const product: HTMLElement = getHTMLElement(".product");
-  try {
-    const id: string = getURLSearchParams("id", "404");
-    const book: IBook = await fetchBookFromAPI(id);
-    renderProductDetails(BookFactory.create(book), product);
-    const heartButton: HTMLElement = getHTMLElement(".heart-button", product);
-    const heartIcon: HTMLElement = getHTMLElement(".heart-icon", heartButton);
-    addClassToggler(heartButton, heartIcon);
-  } catch (error) {
-    const err: Error = error as Error;
-    renderErrorMessage(err.message, product);
-  }
+  const heartButton: HTMLElement = getHTMLElement(".product .heart-button");
+  const heartIcon: HTMLElement = getHTMLElement(".heart-icon", heartButton);
+  addClassToggler(heartButton, heartIcon);
 }
