@@ -1,7 +1,7 @@
-import type Book from "../models/Book";
+import type IBook from "../interfaces/IBook";
 
-export default function renderProductDetails(product: Book, domElement: HTMLElement): void {
-  domElement.innerHTML = `
+export default function renderProductDetails(product: IBook): string {
+  return `
   <div class="d-flex flex-column product-info">
     <img class="image product-image" src="${product.imageURL}" alt="imagen del producto">
     <div class="d-flex flex-column product-description text-justify">
