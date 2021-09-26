@@ -11,4 +11,5 @@ function run(): App {
   return new App(getHTMLElement("#app"));
 }
 
-run();
+const app: App = run();
+export default app;

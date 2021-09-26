@@ -46,7 +46,7 @@ export default class App {
     }
   }
 
-  private addRouterLinks(selector: string): void {
+  public addRouterLinks(selector: string): void {
     Array.from(document.querySelectorAll(selector)).forEach((item: Element) => {
       const link = item as HTMLLinkElement;
       link.addEventListener("click", (e: MouseEvent): void => {
