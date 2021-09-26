@@ -4,9 +4,7 @@ import home from "../views/home";
 import notFound from "../views/notFound";
 import productList from "../views/productList";
 import signup from "../views/signup";
-import singupValidators from "../controllers/signup";
 import productDetails from "../views/productDetails";
-import productDetailsEvents from "../controllers/product-details";
 
 export default class App {
   private readonly el: HTMLElement;
@@ -25,27 +23,24 @@ export default class App {
       { path: "/home", renderFunction: home },
       {
         path: "/product-list",
-        renderFunction: () => productList(this.el, this.store.catalog),
-        script: () => this.addRouterLinks(".products-item .js-router-link"),
+        renderFunction: () => {
+          productList(this.el, this.store.catalog);
+          this.addRouterLinks(".products-item .js-router-link");
+        },
       },
       {
         path: "/product-details",
         renderFunction: productDetails,
-        script: productDetailsEvents,
       },
       {
         path: "/signup",
         renderFunction: signup,
-        script: singupValidators,
       },
     ];
 
     const selectedRoute: IRoute | undefined = routes.find((r: IRoute): boolean => r.path == route);
     if (selectedRoute) {
       selectedRoute.renderFunction(this.el);
-      if (selectedRoute.script) {
-        selectedRoute.script();
-      }
     } else {
       notFound(this.el);
     }
