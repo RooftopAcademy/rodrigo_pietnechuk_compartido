@@ -21,6 +21,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
 
     - name: Build
       run: |
