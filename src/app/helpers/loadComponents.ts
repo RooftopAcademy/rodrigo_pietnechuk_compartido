@@ -3,7 +3,7 @@ import Brand from "../components/Brand";
 import Footer from "../components/Footer";
 import getHTMLElement from "./getHTMLElement";
 import StoreApi from "../services/StoreApi";
-import renderSuggestions from "../views/renderSuggestions";
+import renderSuggestions from "../components/renderSuggestions";
 
 export default function loadComponents(): void {
   // add components
@@ -36,5 +36,11 @@ export default function loadComponents(): void {
     const data = await res.json();
 
     renderSuggestions(data, suggestions);
+    Array.from(document.querySelectorAll(".option .js-router-link")).forEach((item) => {
+      item.addEventListener("click", () => {
+        searchBar.value = "";
+        suggestions.innerHTML = "";
+      });
+    });
   });
 }

@@ -3,10 +3,10 @@ export default class Header extends HTMLElement {
     this.innerHTML = `
     <header>
       <nav class="hidden d-flex flex-column text-left navigation">
-        <a class="link" href="index.html">
+        <a class="link js-router-link" href="/home">
           <i class="fas fa-store-alt"></i> Inicio
         </a>
-        <a class="link" href="product-list.html">
+        <a class="link js-router-link" href="/product-list">
           <i class="fas fa-list-ul"></i> Lista de productos
         </a>
         <div class="link">
@@ -17,7 +17,7 @@ export default class Header extends HTMLElement {
         <a class="link" href="#">
           <i class="fas fa-shopping-cart"></i> Carrito
         </a>
-        <a class="link" href="signup.html">
+        <a class="link js-router-link" href="/signup">
           <i class="fas fa-user"></i> Iniciar sesión
         </a>
       </nav>
