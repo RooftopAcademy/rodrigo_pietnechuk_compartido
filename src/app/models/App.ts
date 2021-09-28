@@ -14,16 +14,18 @@ export default class App {
     this.el = el;
     this.store = new Store();
     window.addEventListener("hashchange", () => this.navigate(getCurrentRoute()));
+    this.loadRouteOnStartup();
+  }
+
+  private async loadRouteOnStartup() {
+    await this.store.fetchCatalog();
     this.navigate(getCurrentRoute());
   }
 
   private navigate(route: string): void {
     const routes: Record<string, (el: HTMLElement) => void> = {
       "": renderHome,
-      "#product-list": async () => {
-        await this.store.fetchCatalog();
-        renderProductList(this.el, this.store.catalog);
-      },
+      "#product-list": () => renderProductList(this.el, this.store.catalog),
       "#product-details": renderProductDetails,
       "#signup": renderSignup,
     };
