@@ -1,8 +1,8 @@
 import "../../public/resources/css/signup.css";
 import getHTMLElement from "../helpers/getHTMLElement";
 
-function addEvents(): void {
-  const signupForm: HTMLFormElement = getHTMLElement("#signup-form") as HTMLFormElement;
+function addEvents(el: HTMLElement): void {
+  const signupForm: HTMLFormElement = getHTMLElement("#signup-form", el) as HTMLFormElement;
 
   const password: HTMLInputElement = getHTMLElement(
     "input[name=password]",
@@ -54,5 +54,5 @@ export default function renderSignup(el: HTMLElement): void {
   </form>
   `;
 
-  addEvents();
+  addEvents(el);
 }
