@@ -11,16 +11,18 @@ export default class App {
 
   public constructor(el: HTMLElement) {
     this.el = el;
-    this.navigate("");
     this.store = new Store();
-    this.store.fetchCatalog();
     window.addEventListener("hashchange", () => this.navigate(window.location.hash.split("/")[0]));
+    this.navigate(window.location.hash.split("/")[0]);
   }
 
   public navigate(route: string): void {
     const routes: Record<string, (el: HTMLElement) => void> = {
       "": home,
-      "#product-list": () => productList(this.el, this.store.catalog),
+      "#product-list": async () => {
+        await this.store.fetchCatalog();
+        productList(this.el, this.store.catalog);
+      },
       "#product-details": productDetails,
       "#signup": signup,
     };
