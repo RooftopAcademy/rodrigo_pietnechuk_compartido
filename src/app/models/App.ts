@@ -4,6 +4,7 @@ import renderNotFound from "../views/renderNotFound";
 import renderProductList from "../views/renderProductList";
 import renderSignup from "../views/renderSignup";
 import renderProductDetails from "../views/renderProductDetails";
+import getCurrentRoute from "../helpers/getCurrentRoute";
 
 export default class App {
   private readonly el: HTMLElement;
@@ -12,8 +13,8 @@ export default class App {
   public constructor(el: HTMLElement) {
     this.el = el;
     this.store = new Store();
-    window.addEventListener("hashchange", () => this.navigate(window.location.hash.split("/")[0]));
-    this.navigate(window.location.hash.split("/")[0]);
+    window.addEventListener("hashchange", () => this.navigate(getCurrentRoute()));
+    this.navigate(getCurrentRoute());
   }
 
   private navigate(route: string): void {
