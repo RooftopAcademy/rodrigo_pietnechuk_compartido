@@ -6,7 +6,7 @@ import "../../public/resources/css/product-list.css";
 export default function renderProductList(el: HTMLElement, catalog: Catalog): void {
   const listItem = (item: Book): string => `
     <article class="products-item">
-      <a class="link js-router-link d-flex text-left" href="/product-details?id=${item.id}">
+      <a class="link d-flex text-left" href="#product-details/${item.id}">
         <img class="image product-image" src="${item.imageURL}">
         <div class="caption">
           <p class="larger-text"><em>${item.name}</em></p>

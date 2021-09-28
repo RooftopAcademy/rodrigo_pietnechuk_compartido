@@ -17,7 +17,7 @@ function addEvents() {
 }
 
 export default async function productDetails(el: HTMLElement): Promise<void> {
-  const id: string | null = sessionStorage.getItem("id");
+  const id: string = window.location.hash.split("/").at(-1) || "";
 
   if (!id) {
     el.innerHTML = renderErrorMessage("No se especificó un id de producto.");

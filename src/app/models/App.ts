@@ -1,4 +1,3 @@
-import type IRoute from "../interfaces/IRoute";
 import Store from "./Store";
 import home from "../views/home";
 import notFound from "../views/notFound";
@@ -12,50 +11,23 @@ export default class App {
 
   public constructor(el: HTMLElement) {
     this.el = el;
-    this.navigate("/home");
     this.store = new Store();
-    this.store.fetchCatalog();
-    this.addRouterLinks("header .js-router-link");
+    window.addEventListener("hashchange", () => this.navigate(window.location.hash.split("/")[0]));
+    this.navigate(window.location.hash.split("/")[0]);
   }
 
   public navigate(route: string): void {
-    const routes: IRoute[] = [
-      { path: "/home", renderFunction: home },
-      {
-        path: "/product-list",
-        renderFunction: () => {
-          productList(this.el, this.store.catalog);
-          this.addRouterLinks(".products-item .js-router-link");
-        },
+    const routes: Record<string, (el: HTMLElement) => void> = {
+      "": home,
+      "#product-list": async () => {
+        await this.store.fetchCatalog();
+        productList(this.el, this.store.catalog);
       },
-      {
-        path: "/product-details",
-        renderFunction: productDetails,
-      },
-      {
-        path: "/signup",
-        renderFunction: signup,
-      },
-    ];
+      "#product-details": productDetails,
+      "#signup": signup,
+    };
 
-    const selectedRoute: IRoute | undefined = routes.find((r: IRoute): boolean => r.path == route);
-    if (selectedRoute) {
-      selectedRoute.renderFunction(this.el);
-    } else {
-      notFound(this.el);
-    }
-  }
-
-  public addRouterLinks(selector: string): void {
-    Array.from(document.querySelectorAll(selector)).forEach((item: Element) => {
-      const link = item as HTMLLinkElement;
-      link.addEventListener("click", (e: MouseEvent): void => {
-        e.preventDefault();
-        const target: HTMLLinkElement = e.currentTarget as HTMLLinkElement;
-        const url: URL = new URL(target.href);
-        sessionStorage.setItem("id", url.searchParams.get("id") || "");
-        this.navigate(url.pathname);
-      });
-    });
+    const selectedRoute = routes[route] || notFound;
+    selectedRoute(this.el);
   }
 }
