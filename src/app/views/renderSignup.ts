@@ -1,29 +1,29 @@
-import "../../public/resources/css/signup.css";
-import getHTMLElement from "../helpers/getHTMLElement";
+import '../../public/resources/css/signup.css';
+import getHTMLElement from '../helpers/getHTMLElement';
 
 function addEvents(el: HTMLElement): void {
-  const signupForm: HTMLFormElement = getHTMLElement("#signup-form", el) as HTMLFormElement;
+  const signupForm: HTMLFormElement = getHTMLElement('#signup-form', el) as HTMLFormElement;
 
   const password: HTMLInputElement = getHTMLElement(
-    "input[name=password]",
+    'input[name=password]',
     signupForm,
   ) as HTMLInputElement;
 
   const confirmPassword: HTMLInputElement = getHTMLElement(
-    "input[name=confirmpassword]",
+    'input[name=confirmpassword]',
     signupForm,
   ) as HTMLInputElement;
 
-  password.addEventListener("input", function (this: HTMLInputElement) {
+  password.addEventListener('input', function (this: HTMLInputElement) {
     this.setCustomValidity(
       this.validity.patternMismatch
-        ? "Debe tener entre 8 y 30 caracteres, minúsculas, mayúsculas y números" : "",
+        ? 'Debe tener entre 8 y 30 caracteres, minúsculas, mayúsculas y números' : '',
     );
   });
 
-  confirmPassword.addEventListener("input", function (): void {
-    const validityMessage = password.value == this.value ? ""
-      : "Las contraseñas no son iguales";
+  confirmPassword.addEventListener('input', function (): void {
+    const validityMessage = password.value == this.value ? ''
+      : 'Las contraseñas no son iguales';
     this.setCustomValidity(validityMessage);
   });
 }

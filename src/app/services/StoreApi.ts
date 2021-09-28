@@ -1,5 +1,5 @@
 export default class StoreApi {
-  private static readonly baseURL = "https://my-json-server.typicode.com/ghnoob/rooftop-mock-db";
+  private static readonly baseURL = 'https://my-json-server.typicode.com/ghnoob/rooftop-mock-db';
 
   public static getCatalog(): Promise<Response> {
     return fetch(`${this.baseURL}/catalog`);

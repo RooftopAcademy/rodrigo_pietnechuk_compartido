@@ -1,4 +1,4 @@
-import type IBook from "../interfaces/IBook";
+import type IBook from '../interfaces/IBook';
 
 export default class Book implements IBook {
   private _id: string;
@@ -12,15 +12,15 @@ export default class Book implements IBook {
   private _publicationYear: string;
 
   public constructor() {
-    this._id = "";
-    this._name = "";
+    this._id = '';
+    this._name = '';
     this._price = 0;
-    this._description = "";
-    this._imageURL = "";
-    this._author = "";
-    this._isbn = "";
-    this._pages = "";
-    this._publicationYear = "";
+    this._description = '';
+    this._imageURL = '';
+    this._author = '';
+    this._isbn = '';
+    this._pages = '';
+    this._publicationYear = '';
   }
 
   public get id(): string {

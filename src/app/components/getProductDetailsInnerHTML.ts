@@ -1,4 +1,4 @@
-import type IBook from "../interfaces/IBook";
+import type IBook from '../interfaces/IBook';
 
 export default function getProductDetailsInnerHTML(product: IBook): string {
   return `

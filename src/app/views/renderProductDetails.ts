@@ -1,18 +1,18 @@
-import getProductDetailsInnerHTML from "../components/getProductDetailsInnerHTML";
-import getErrorMsgInnerHTML from "../components/getErrorMsgInnerHTML";
-import IBook from "../interfaces/IBook";
-import StoreApi from "../services/StoreApi";
-import getHTMLElement from "../helpers/getHTMLElement";
-import getIdFromAddressBar from "../helpers/getIdFromAddressBar";
-import makeRequest from "../services/makeRequest";
+import getProductDetailsInnerHTML from '../components/getProductDetailsInnerHTML';
+import getErrorMsgInnerHTML from '../components/getErrorMsgInnerHTML';
+import IBook from '../interfaces/IBook';
+import StoreApi from '../services/StoreApi';
+import getHTMLElement from '../helpers/getHTMLElement';
+import getIdFromAddressBar from '../helpers/getIdFromAddressBar';
+import makeRequest from '../services/makeRequest';
 
-import "../../public/resources/css/product-details.css";
+import '../../public/resources/css/product-details.css';
 
 function addEvents() {
-  const heartButton: HTMLElement = getHTMLElement("button.heart-button");
-  const heartIcon: HTMLElement = getHTMLElement(".heart-icon", heartButton);
-  heartButton.addEventListener("click", () => {
-    ["far", "fa", "heart-icon-colored"].forEach((cssClass: string) => {
+  const heartButton: HTMLElement = getHTMLElement('button.heart-button');
+  const heartIcon: HTMLElement = getHTMLElement('.heart-icon', heartButton);
+  heartButton.addEventListener('click', () => {
+    ['far', 'fa', 'heart-icon-colored'].forEach((cssClass: string) => {
       heartIcon.classList.toggle(cssClass);
     });
   });

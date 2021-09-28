@@ -1,4 +1,4 @@
-import type ICartItem from "../interfaces/ICartItem";
+import type ICartItem from '../interfaces/ICartItem';
 
 export default class Cart {
   private _items: ICartItem[];

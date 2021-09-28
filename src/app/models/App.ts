@@ -1,7 +1,7 @@
-import Store from "./Store";
-import renderNotFound from "../views/renderNotFound";
-import getCurrentRoute from "../helpers/getCurrentRoute";
-import routes from "../routes";
+import Store from './Store';
+import renderNotFound from '../views/renderNotFound';
+import getCurrentRoute from '../helpers/getCurrentRoute';
+import routes from '../routes';
 
 export default class App {
   private readonly el: HTMLElement;
@@ -10,7 +10,7 @@ export default class App {
   public constructor(el: HTMLElement) {
     this.el = el;
     this.store = new Store();
-    window.addEventListener("hashchange", () => this.navigate(getCurrentRoute()));
+    window.addEventListener('hashchange', () => this.navigate(getCurrentRoute()));
     this.loadRouteOnStartup();
   }
 

@@ -1,10 +1,10 @@
-import UserBase from "./UserBase";
-import Catalog from "./Catalog";
-import StoreApi from "../services/StoreApi";
-import type IBook from "../interfaces/IBook";
-import BookFactory from "../factories/BookFactory";
-import type Book from "./Book";
-import makeRequest from "../services/makeRequest";
+import UserBase from './UserBase';
+import Catalog from './Catalog';
+import StoreApi from '../services/StoreApi';
+import type IBook from '../interfaces/IBook';
+import BookFactory from '../factories/BookFactory';
+import type Book from './Book';
+import makeRequest from '../services/makeRequest';
 
 export default class Store {
   private _users: UserBase;

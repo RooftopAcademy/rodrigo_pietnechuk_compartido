@@ -1,5 +1,5 @@
-import Cart from "./Cart";
-import FavoritesCollection from "./FavoritesCollection";
+import Cart from './Cart';
+import FavoritesCollection from './FavoritesCollection';
 
 export default class User {
   private _id: string;
@@ -10,10 +10,10 @@ export default class User {
   private _favorites: FavoritesCollection;
 
   public constructor() {
-    this._id = "";
-    this._name = "";
-    this._username = "";
-    this._email = "";
+    this._id = '';
+    this._name = '';
+    this._username = '';
+    this._email = '';
     this._cart = new Cart();
     this._favorites = new FavoritesCollection();
   }

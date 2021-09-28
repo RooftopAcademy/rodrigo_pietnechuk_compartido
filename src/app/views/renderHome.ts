@@ -1,4 +1,4 @@
-import "../../public/resources/css/index.css";
+import '../../public/resources/css/index.css';
 
 export default function renderHome(el: HTMLElement): void {
   el.innerHTML = `

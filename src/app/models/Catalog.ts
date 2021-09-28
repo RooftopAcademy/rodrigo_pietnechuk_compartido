@@ -1,4 +1,4 @@
-import type Book from "./Book";
+import type Book from './Book';
 
 export default class Catalog {
   private _products: Book[];

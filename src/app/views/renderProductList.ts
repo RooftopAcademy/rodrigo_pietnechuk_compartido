@@ -1,7 +1,7 @@
-import type Catalog from "../models/Catalog";
-import type Book from "../models/Book";
+import type Catalog from '../models/Catalog';
+import type Book from '../models/Book';
 
-import "../../public/resources/css/product-list.css";
+import '../../public/resources/css/product-list.css';
 
 export default function renderProductList(el: HTMLElement, catalog: Catalog): void {
   const listItem = (item: Book): string => `
@@ -19,7 +19,7 @@ export default function renderProductList(el: HTMLElement, catalog: Catalog): vo
 
   el.innerHTML = `
     <div class="max-width d-flex flex-column space-between small-text products">
-      ${catalog.products.reduce((a: string, b: Book): string => a + listItem(b), "")}
+      ${catalog.products.reduce((a: string, b: Book): string => a + listItem(b), '')}
     </div>
   `;
 }
