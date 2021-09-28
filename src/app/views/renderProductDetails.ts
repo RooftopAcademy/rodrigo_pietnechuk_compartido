@@ -16,7 +16,7 @@ function addEvents() {
   });
 }
 
-export default async function productDetails(el: HTMLElement): Promise<void> {
+export default async function renderProductDetails(el: HTMLElement): Promise<void> {
   const id: string = window.location.hash.split("/").at(-1) || "";
 
   if (!id) {

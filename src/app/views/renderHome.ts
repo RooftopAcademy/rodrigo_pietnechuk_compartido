@@ -1,6 +1,6 @@
 import "../../public/resources/css/index.css";
 
-export default function home(el: HTMLElement): void {
+export default function renderHome(el: HTMLElement): void {
   el.innerHTML = `
   <section class="about">
     <h2>Sobre nosotros</h2>

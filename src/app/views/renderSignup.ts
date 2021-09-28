@@ -28,7 +28,7 @@ function addEvents(): void {
   });
 }
 
-export default function signup(el: HTMLElement): void {
+export default function renderSignup(el: HTMLElement): void {
   el.innerHTML = `
   <form id="signup-form" class="d-flex flex-column">
     <input class="form-input" name="last-name" type="text" placeholder="Apellido" required>
