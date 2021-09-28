@@ -16,7 +16,7 @@ export default class App {
     this.navigate(window.location.hash.split("/")[0]);
   }
 
-  public navigate(route: string): void {
+  private navigate(route: string): void {
     const routes: Record<string, (el: HTMLElement) => void> = {
       "": renderHome,
       "#product-list": async () => {
