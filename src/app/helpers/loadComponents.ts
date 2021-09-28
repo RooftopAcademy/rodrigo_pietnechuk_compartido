@@ -3,7 +3,7 @@ import Brand from "../components/Brand";
 import Footer from "../components/Footer";
 import getHTMLElement from "./getHTMLElement";
 import StoreApi from "../services/StoreApi";
-import renderSuggestions from "../components/renderSuggestions";
+import getSearchResultsInnerHTML from "../components/getSearchResultsInnerHTML";
 
 export default function loadComponents(): void {
   // add components
@@ -35,7 +35,7 @@ export default function loadComponents(): void {
     const res = await StoreApi.filterCatalog(value);
     const data = await res.json();
 
-    renderSuggestions(data, suggestions);
+    getSearchResultsInnerHTML(data, suggestions);
     Array.from(document.querySelectorAll(".option .link")).forEach((item) => {
       item.addEventListener("click", () => {
         searchBar.value = "";

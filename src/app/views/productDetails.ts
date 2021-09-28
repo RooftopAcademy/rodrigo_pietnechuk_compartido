@@ -1,5 +1,5 @@
-import renderErrorMessage from "../components/renderErrorMessage";
-import renderProductDetails from "../components/renderProductDetails";
+import getProductDetailsInnerHTML from "../components/getProductDetailsInnerHTML";
+import getErrorMsgInnerHTML from "../components/getErrorMsgInnerHTML";
 import IBook from "../interfaces/IBook";
 import StoreApi from "../services/StoreApi";
 import getHTMLElement from "../helpers/getHTMLElement";
@@ -20,18 +20,18 @@ export default async function productDetails(el: HTMLElement): Promise<void> {
   const id: string = window.location.hash.split("/").at(-1) || "";
 
   if (!id) {
-    el.innerHTML = renderErrorMessage("No se especificó un id de producto.");
+    el.innerHTML = getErrorMsgInnerHTML("No se especificó un id de producto.");
     return;
   }
 
   const res: Response = await StoreApi.getBookById(id);
   if (!res.ok) {
-    el.innerHTML = renderErrorMessage(String(res.status));
+    el.innerHTML = getErrorMsgInnerHTML(String(res.status));
     return;
   }
 
   const data: IBook = await res.json();
-  el.innerHTML = renderProductDetails(data);
+  el.innerHTML = getProductDetailsInnerHTML(data);
 
   addEvents();
 }
