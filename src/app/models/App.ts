@@ -1,10 +1,7 @@
 import Store from "./Store";
-import renderHome from "../views/renderHome";
 import renderNotFound from "../views/renderNotFound";
-import renderProductList from "../views/renderProductList";
-import renderSignup from "../views/renderSignup";
-import renderProductDetails from "../views/renderProductDetails";
 import getCurrentRoute from "../helpers/getCurrentRoute";
+import routes from "../routes";
 
 export default class App {
   private readonly el: HTMLElement;
@@ -23,14 +20,7 @@ export default class App {
   }
 
   private navigate(route: string): void {
-    const routes: Record<string, (el: HTMLElement) => void> = {
-      "": renderHome,
-      "#product-list": () => renderProductList(this.el, this.store.catalog),
-      "#product-details": renderProductDetails,
-      "#signup": renderSignup,
-    };
-
     const selectedRoute = routes[route] || renderNotFound;
-    selectedRoute(this.el);
+    selectedRoute(this.el, this.store.catalog);
   }
 }
