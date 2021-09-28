@@ -102,10 +102,6 @@ main {
   display: none;
 }
 
-.main-container {
-  min-height: 100vh;
-}
-
 .min-height-100vh {
   min-height: 100vh;
 }
