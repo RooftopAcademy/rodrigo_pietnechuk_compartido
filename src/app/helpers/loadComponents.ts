@@ -36,7 +36,7 @@ export default function loadComponents(): void {
     const data = await res.json();
 
     renderSuggestions(data, suggestions);
-    Array.from(document.querySelectorAll(".option .js-router-link")).forEach((item) => {
+    Array.from(document.querySelectorAll(".option .link")).forEach((item) => {
       item.addEventListener("click", () => {
         searchBar.value = "";
         suggestions.innerHTML = "";
