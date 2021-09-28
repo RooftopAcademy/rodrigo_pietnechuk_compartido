@@ -3,7 +3,7 @@ import Brand from "../components/Brand";
 import Footer from "../components/Footer";
 import getHTMLElement from "./getHTMLElement";
 import StoreApi from "../services/StoreApi";
-import getSearchResultsInnerHTML from "../components/getSearchResultsInnerHTML";
+import renderSearchResults from "../components/renderSearchResults";
 import type IBook from "../interfaces/IBook";
 import makeRequest from "../services/makeRequest";
 
@@ -35,7 +35,7 @@ export default function loadComponents(): void {
     }
 
     const data: IBook[] = await makeRequest(StoreApi.filterCatalog(value));
-    getSearchResultsInnerHTML(data, suggestions);
+    renderSearchResults(data, suggestions);
 
     Array.from(document.querySelectorAll(".option .link")).forEach((item) => {
       item.addEventListener("click", () => {
