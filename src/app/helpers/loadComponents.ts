@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import getHTMLElement from "./getHTMLElement";
 import StoreApi from "../services/StoreApi";
 import getSearchResultsInnerHTML from "../components/getSearchResultsInnerHTML";
+import type IBook from "../interfaces/IBook";
+import makeRequest from "../services/makeRequest";
 
 export default function loadComponents(): void {
   // add components
@@ -32,10 +34,9 @@ export default function loadComponents(): void {
       return;
     }
 
-    const res = await StoreApi.filterCatalog(value);
-    const data = await res.json();
-
+    const data: IBook[] = await makeRequest(StoreApi.filterCatalog(value));
     getSearchResultsInnerHTML(data, suggestions);
+
     Array.from(document.querySelectorAll(".option .link")).forEach((item) => {
       item.addEventListener("click", () => {
         searchBar.value = "";
