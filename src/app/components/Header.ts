@@ -3,7 +3,7 @@ export default class Header extends HTMLElement {
     this.innerHTML = `
     <header>
       <nav class="hidden d-flex flex-column text-left navigation">
-        <a class="link js-router-link" href="/home">
+        <a class="link js-router-link" href="/">
           <i class="fas fa-store-alt"></i> Inicio
         </a>
         <a class="link js-router-link" href="/product-list">

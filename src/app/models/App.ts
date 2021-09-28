@@ -1,4 +1,3 @@
-import type IRoute from "../interfaces/IRoute";
 import Store from "./Store";
 import home from "../views/home";
 import notFound from "../views/notFound";
@@ -12,35 +11,26 @@ export default class App {
 
   public constructor(el: HTMLElement) {
     this.el = el;
-    this.navigate("/home");
+    this.navigate("/");
     this.store = new Store();
     this.store.fetchCatalog();
     this.addRouterLinks("header .js-router-link");
   }
 
   public navigate(route: string): void {
-    const routes: IRoute[] = [
-      { path: "/home", renderFunction: home },
-      {
-        path: "/product-list",
-        renderFunction: () => {
-          productList(this.el, this.store.catalog);
-          this.addRouterLinks(".products-item .js-router-link");
-        },
+    const routes: Record<string, (el: HTMLElement) => void> = {
+      "/": home,
+      "/product-list": () => {
+        productList(this.el, this.store.catalog);
+        this.addRouterLinks(".products-item .js-router-link");
       },
-      {
-        path: "/product-details",
-        renderFunction: productDetails,
-      },
-      {
-        path: "/signup",
-        renderFunction: signup,
-      },
-    ];
+      "/product-details": productDetails,
+      "/signup": signup,
+    };
 
-    const selectedRoute: IRoute | undefined = routes.find((r: IRoute): boolean => r.path == route);
+    const selectedRoute = routes[route];
     if (selectedRoute) {
-      selectedRoute.renderFunction(this.el);
+      selectedRoute(this.el);
     } else {
       notFound(this.el);
     }
