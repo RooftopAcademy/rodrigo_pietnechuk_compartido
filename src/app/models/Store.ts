@@ -1,9 +1,10 @@
-import UserBase from "./UserBase";
-import Catalog from "./Catalog";
-import StoreApi from "../services/StoreApi";
-import type IBook from "../interfaces/IBook";
-import BookFactory from "../factories/BookFactory";
-import type Book from "./Book";
+import UserBase from './UserBase';
+import Catalog from './Catalog';
+import StoreApi from '../services/StoreApi';
+import type IBook from '../interfaces/IBook';
+import BookFactory from '../factories/BookFactory';
+import type Book from './Book';
+import makeRequest from '../services/makeRequest';
 
 export default class Store {
   private _users: UserBase;
@@ -23,12 +24,7 @@ export default class Store {
   }
 
   public async fetchCatalog(): Promise<void> {
-    const res: Response = await StoreApi.getCatalog();
-    if (!res.ok) {
-      throw new Error(String(res.status));
-    }
-
-    const data: IBook[] = await res.json();
+    const data: IBook[] = await makeRequest(StoreApi.getCatalog());
     this.catalog.products = data.map((item: IBook): Book => BookFactory.create(item));
   }
 }

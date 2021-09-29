@@ -1,4 +1,4 @@
-import type User from "./User";
+import type User from './User';
 
 export default class UserBase {
   private _users: User[];
@@ -25,11 +25,11 @@ export default class UserBase {
 
   public add(user: User): void {
     if (this.usernameExists(user.username)) {
-      throw new Error("This username already exists");
+      throw new Error('This username already exists');
     }
 
     if (this.emailExists(user.email)) {
-      throw new Error("This email already exists");
+      throw new Error('This email already exists');
     }
 
     this.users.push(user);

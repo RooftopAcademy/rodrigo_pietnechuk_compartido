@@ -1,4 +1,4 @@
-import type Book from "../models/Book";
+import type Book from '../models/Book';
 
 interface ICartItem {
   id: string;

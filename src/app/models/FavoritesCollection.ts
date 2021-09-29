@@ -1,4 +1,4 @@
-import type Book from "./Book";
+import type Book from './Book';
 
 export default class FavoritesCollection {
   private _favorites: Set<Book>;
