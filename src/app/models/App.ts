@@ -2,6 +2,7 @@ import Store from './Store';
 import renderNotFound from '../views/renderNotFound';
 import getCurrentRoute from '../helpers/getCurrentRoute';
 import routes from '../routes';
+import setupLoginOnStartup from '../helpers/setupLoginOnStartup';
 
 export default class App {
   private readonly el: HTMLElement;
@@ -11,6 +12,7 @@ export default class App {
     this.el = el;
     this.store = new Store();
     window.addEventListener('hashchange', () => this.navigate(getCurrentRoute()));
+    setupLoginOnStartup();
     this.loadRouteOnStartup();
   }
 
