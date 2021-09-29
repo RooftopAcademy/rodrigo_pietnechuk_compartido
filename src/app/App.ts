@@ -1,7 +1,7 @@
-import Store from './Store';
-import renderNotFound from '../views/renderNotFound';
-import getCurrentRoute from '../helpers/getCurrentRoute';
-import routes from '../routes';
+import Store from './models/Store';
+import renderNotFound from './views/renderNotFound';
+import getCurrentRoute from './helpers/getCurrentRoute';
+import routes from './routes';
 
 export default class App {
   private readonly el: HTMLElement;
