@@ -1,5 +1,5 @@
-import UserBase from './UserBase';
-import Catalog from './Catalog';
+import UserBase from '../collections/UserBase';
+import Catalog from '../collections/Catalog';
 import StoreApi from '../services/StoreApi';
 import type IBook from '../interfaces/IBook';
 import BookFactory from '../factories/BookFactory';

@@ -1,5 +1,5 @@
-import Cart from './Cart';
-import FavoritesCollection from './FavoritesCollection';
+import Cart from '../collections/Cart';
+import FavoritesCollection from '../collections/FavoritesCollection';
 
 export default class User {
   private _id: string;

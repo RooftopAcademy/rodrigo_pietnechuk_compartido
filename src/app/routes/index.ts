@@ -1,4 +1,4 @@
-import type Catalog from '../models/Catalog';
+import type Catalog from '../collections/Catalog';
 import renderHome from '../views/renderHome';
 import renderProductList from '../views/renderProductList';
 import renderSignup from '../views/renderSignup';
