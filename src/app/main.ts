@@ -4,8 +4,9 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import App from './App';
 import loadComponents from './helpers/loadComponents';
 
+loadComponents(document.body);
+
 function run(el: HTMLElement): App {
-  loadComponents();
   return new App(el);
 }
 

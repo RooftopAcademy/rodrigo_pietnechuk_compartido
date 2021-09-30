@@ -6,14 +6,14 @@ import renderSearchResults from '../components/renderSearchResults';
 import type IBook from '../interfaces/IBook';
 import makeRequest from '../services/makeRequest';
 
-export default function loadComponents(): void {
+export default function loadComponents(el: HTMLElement): void {
   // add components
   customElements.define('header-component', Header);
   customElements.define('brand-component', Brand);
   customElements.define('footer-component', Footer);
 
   // add events
-  const header: HTMLElement = document.querySelector('header') as HTMLElement;
+  const header: HTMLElement = el.querySelector('header') as HTMLElement;
   const navigation: HTMLElement = header.querySelector('.navigation') as HTMLElement;
   const suggestions: HTMLUListElement = navigation
     .querySelector('#suggestions') as HTMLUListElement;
@@ -34,7 +34,7 @@ export default function loadComponents(): void {
     const data: IBook[] = await makeRequest(StoreApi.filterCatalog(value));
     renderSearchResults(data, suggestions);
 
-    Array.from(document.querySelectorAll('.option .link')).forEach((item) => {
+    Array.from(el.querySelectorAll('.option .link')).forEach((item) => {
       item.addEventListener('click', () => {
         searchBar.value = '';
         suggestions.innerHTML = '';
