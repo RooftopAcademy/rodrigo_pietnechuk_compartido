@@ -16,9 +16,9 @@ export default class Footer extends HTMLElement {
           <i class="far fa-envelope"></i> contacto@empresa-sa.com
         </a><br>
         <div class="social-media">
-          <a class="link" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-          <a class="link" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
-          <a class="link" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+          <a class="link" href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a class="link" href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a class="link" href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
       </address>
     </footer>
