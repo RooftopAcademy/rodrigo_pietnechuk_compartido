@@ -1,10 +1,10 @@
-import type IBook from '../interfaces/IBook';
+import type BookInterface from '../interfaces/BookInterface';
 import getSearchResultInnerHTML from './getSearchResultInnerHTML';
 
 export default function renderSearchResults(
-  data: IBook[],
+  data: BookInterface[],
   domElement: HTMLUListElement,
 ): void {
   domElement.innerHTML = data
-    .reduce((acc: string, cur: IBook) => acc + getSearchResultInnerHTML(cur), '');
+    .reduce((acc: string, cur: BookInterface) => acc + getSearchResultInnerHTML(cur), '');
 }

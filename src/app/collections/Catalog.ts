@@ -1,5 +1,5 @@
-import type Book from '../models/Book';
-import type IBook from '../interfaces/IBook';
+import type Book from '../entities/Book';
+import type BookInterface from '../interfaces/BookInterface';
 import makeRequest from '../services/makeRequest';
 import BookFactory from '../factories/BookFactory';
 import StoreApi from '../services/StoreApi';
@@ -24,7 +24,7 @@ export default class Catalog {
   }
 
   public async fetchCatalog(): Promise<void> {
-    const data: IBook[] = await makeRequest(StoreApi.getCatalog());
-    this._products = data.map((item: IBook): Book => BookFactory.create(item));
+    const data: BookInterface[] = await makeRequest(StoreApi.getCatalog());
+    this._products = data.map((item: BookInterface): Book => BookFactory.create(item));
   }
 }

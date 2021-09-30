@@ -1,4 +1,4 @@
-import type Book from '../models/Book';
+import type Book from '../entities/Book';
 
 export default class FavoritesCollection {
   private _favorites: Set<Book>;

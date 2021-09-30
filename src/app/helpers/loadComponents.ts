@@ -3,7 +3,7 @@ import Brand from '../components/Brand';
 import Footer from '../components/Footer';
 import StoreApi from '../services/StoreApi';
 import renderSearchResults from '../components/renderSearchResults';
-import type IBook from '../interfaces/IBook';
+import type BookInterface from '../interfaces/BookInterface';
 import makeRequest from '../services/makeRequest';
 
 async function searchProducts(
@@ -17,7 +17,7 @@ async function searchProducts(
     return;
   }
 
-  const data: IBook[] = await makeRequest(StoreApi.filterCatalog(value));
+  const data: BookInterface[] = await makeRequest(StoreApi.filterCatalog(value));
   renderSearchResults(data, suggestions);
 
   Array.from(suggestions.querySelectorAll('.option')).forEach((item) => {

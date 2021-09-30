@@ -1,4 +1,4 @@
-interface IBook {
+interface BookInterface {
   id: string;
   name: string;
   price: number;
@@ -10,4 +10,4 @@ interface IBook {
   publicationYear: string;
 }
 
-export default IBook;
+export default BookInterface;

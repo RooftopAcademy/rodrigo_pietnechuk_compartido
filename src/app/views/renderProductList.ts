@@ -1,5 +1,5 @@
 import type Catalog from '../collections/Catalog';
-import type Book from '../models/Book';
+import type Book from '../entities/Book';
 
 import '../../public/resources/css/product-list.css';
 

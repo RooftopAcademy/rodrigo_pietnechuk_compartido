@@ -1,10 +1,13 @@
-import type IApiUser from '../interfaces/IApiUser';
+import type ApiUserInterface from '../interfaces/ApiUserInterface';
 import UserApi from '../services/UserApi';
 import makeRequest from '../services/makeRequest';
 
-async function getUserLoginFromApi(username: string, email: string): Promise<IApiUser> {
-  const users: IApiUser[] = await makeRequest(UserApi.getByUsernameAndEmail(username, email));
-  const user: IApiUser = users[0];
+async function getUserLoginFromApi(username: string, email: string): Promise<ApiUserInterface> {
+  const users: ApiUserInterface[] = await makeRequest(
+    UserApi.getByUsernameAndEmail(username, email),
+  );
+
+  const user: ApiUserInterface = users[0];
   if (!user) {
     throw new Error('Usuario o contraseña incorrectos.');
   }

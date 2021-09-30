@@ -1,8 +1,8 @@
-import IBook from '../interfaces/IBook';
-import Book from '../models/Book';
+import BookInterface from '../interfaces/BookInterface';
+import Book from '../entities/Book';
 
 export default class BookFactory {
-  public static create(obj: IBook): Book {
+  public static create(obj: BookInterface): Book {
     const book = new Book();
     book.id = obj.id;
     book.name = obj.name;
