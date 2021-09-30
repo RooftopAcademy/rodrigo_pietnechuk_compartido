@@ -17,8 +17,8 @@ export default class Header extends HTMLElement {
         <a class="link" href="#">
           <i class="fas fa-shopping-cart"></i> Carrito
         </a>
-        <a class="link" href="#signup">
-          <i class="fas fa-user"></i> Iniciar sesión
+        <a class="link" href="#login">
+          <i class="fas fa-user"></i> <span id="username"></span>
         </a>
       </nav>
       <button class="burger-menu">
