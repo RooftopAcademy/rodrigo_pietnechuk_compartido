@@ -1,6 +1,6 @@
-import type IBook from '../interfaces/IBook';
+import type BookInterface from '../interfaces/BookInterface';
 
-export default class Book implements IBook {
+export default class Book implements BookInterface {
   private _id: string;
   private _name: string;
   private _price: number;

@@ -2,12 +2,12 @@ import '../../public/resources/css/login.css';
 import getUserIdFromApi from '../helpers/getUserIdFromApi';
 import login from '../helpers/login';
 import logout from '../helpers/logout';
-import type IApiUser from '../interfaces/IApiUser';
+import type ApiUserInterface from '../interfaces/ApiUserInterface';
 
 async function authenticateUser(username: string, email: string, output: HTMLOutputElement) {
   try {
     output.value = '';
-    const user: IApiUser = await getUserIdFromApi(username, email);
+    const user: ApiUserInterface = await getUserIdFromApi(username, email);
     login(user);
     window.location.hash = '';
   } catch (error) {

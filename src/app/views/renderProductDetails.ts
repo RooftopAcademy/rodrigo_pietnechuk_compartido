@@ -1,6 +1,6 @@
 import getProductDetailsInnerHTML from '../components/getProductDetailsInnerHTML';
 import getErrorMsgInnerHTML from '../components/getErrorMsgInnerHTML';
-import IBook from '../interfaces/IBook';
+import BookInterface from '../interfaces/BookInterface';
 import StoreApi from '../services/StoreApi';
 import getIdFromAddressBar from '../helpers/getIdFromAddressBar';
 import makeRequest from '../services/makeRequest';
@@ -22,7 +22,7 @@ function addEvents(el: HTMLElement) {
 
 export default async function renderProductDetails(el: HTMLElement): Promise<void> {
   try {
-    const data: IBook = await makeRequest(StoreApi.getBookById(getIdFromAddressBar()));
+    const data: BookInterface = await makeRequest(StoreApi.getBookById(getIdFromAddressBar()));
     el.innerHTML = getProductDetailsInnerHTML(data);
     addEvents(el);
   } catch (error) {

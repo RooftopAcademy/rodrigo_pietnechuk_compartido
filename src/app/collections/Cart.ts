@@ -1,22 +1,22 @@
-import type ICartItem from '../interfaces/ICartItem';
+import type CartItemInterface from '../interfaces/CartItemInterface';
 
 export default class Cart {
-  private _items: ICartItem[];
+  private _items: CartItemInterface[];
 
   public constructor() {
     this._items = [];
   }
 
-  public get items(): ICartItem[] {
+  public get items(): CartItemInterface[] {
     return this._items;
   }
 
-  public add(item: ICartItem): void {
+  public add(item: CartItemInterface): void {
     this.items.push(item);
   }
 
   public remove(id: string): void {
-    this._items = this._items.filter((item: ICartItem): boolean => item.id != id);
+    this._items = this._items.filter((item: CartItemInterface): boolean => item.id != id);
   }
 
   public removeAll(): void {
@@ -24,6 +24,6 @@ export default class Cart {
   }
 
   public getTotalPrice(): number {
-    return this.items.reduce((a: number, b: ICartItem): number => a + b.product.price, 0);
+    return this.items.reduce((a: number, b: CartItemInterface): number => a + b.product.price, 0);
   }
 }

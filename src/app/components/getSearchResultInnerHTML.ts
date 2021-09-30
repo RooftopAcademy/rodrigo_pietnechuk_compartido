@@ -1,6 +1,6 @@
-import type IBook from '../interfaces/IBook';
+import type BookInterface from '../interfaces/BookInterface';
 
-export default function (item: IBook): string {
+export default function (item: BookInterface): string {
   return `
     <li class="option">
     <a class="link max-width" href="#product-details/${item.id}">

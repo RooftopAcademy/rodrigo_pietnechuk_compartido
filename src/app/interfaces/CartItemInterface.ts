@@ -1,8 +1,8 @@
 import type Book from '../entities/Book';
 
-interface ICartItem {
+interface CartItemInterface {
   id: string;
   product: Book;
 }
 
-export default ICartItem;
+export default CartItemInterface;

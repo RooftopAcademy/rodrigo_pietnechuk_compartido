@@ -1,4 +1,4 @@
-import type IApiUser from '../interfaces/IApiUser';
+import type ApiUserInterface from '../interfaces/ApiUserInterface';
 import makeRequest from '../services/makeRequest';
 import UserApi from '../services/UserApi';
 import login from './login';
@@ -13,7 +13,7 @@ export default async function setupLoginOnStartup(): Promise<void> {
   }
 
   try {
-    const user: IApiUser = await makeRequest(UserApi.getById(id));
+    const user: ApiUserInterface = await makeRequest(UserApi.getById(id));
     login(user);
   } catch {
     logout();
