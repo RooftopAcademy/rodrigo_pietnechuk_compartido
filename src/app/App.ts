@@ -3,7 +3,7 @@ import renderNotFound from './views/renderNotFound';
 import getCurrentRoute from './helpers/getCurrentRoute';
 import renderHome from './views/renderHome';
 import renderProductList from './views/renderProductList';
-import renderSignup from './views/renderSignup';
+import renderLogin from './views/renderLogin';
 import renderProductDetails from './views/renderProductDetails';
 
 export default class App {
@@ -27,7 +27,7 @@ export default class App {
       '': renderHome,
       '#product-list': (el) => renderProductList(el, this.store.catalog),
       '#product-details': renderProductDetails,
-      '#signup': renderSignup,
+      '#login': renderLogin,
     };
 
     const selectedRoute = routes[route] || renderNotFound;
