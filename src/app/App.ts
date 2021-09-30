@@ -1,4 +1,4 @@
-import Store from './models/Store';
+import Store from './entities/Store';
 import renderNotFound from './views/renderNotFound';
 import getCurrentRoute from './helpers/getCurrentRoute';
 import renderHome from './views/renderHome';

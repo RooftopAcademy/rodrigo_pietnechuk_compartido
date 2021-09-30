@@ -1,4 +1,4 @@
-import type Book from '../models/Book';
+import type Book from '../entities/Book';
 import type IBook from '../interfaces/IBook';
 import makeRequest from '../services/makeRequest';
 import BookFactory from '../factories/BookFactory';

@@ -1,5 +1,5 @@
 import IBook from '../interfaces/IBook';
-import Book from '../models/Book';
+import Book from '../entities/Book';
 
 export default class BookFactory {
   public static create(obj: IBook): Book {

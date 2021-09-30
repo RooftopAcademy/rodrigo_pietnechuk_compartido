@@ -1,4 +1,4 @@
-import type User from '../models/User';
+import type User from '../entities/User';
 
 export default class UserBase {
   private _users: User[];
