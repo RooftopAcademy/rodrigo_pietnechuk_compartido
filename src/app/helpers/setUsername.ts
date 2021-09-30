@@ -1,6 +1,4 @@
-import getHTMLElement from './getHTMLElement';
-
 export default function setUsername(name: string): void {
-  const username: HTMLSpanElement = getHTMLElement('span#username') as HTMLSpanElement;
+  const username: HTMLSpanElement = document.querySelector('span#username') as HTMLSpanElement;
   username.innerText = name;
 }

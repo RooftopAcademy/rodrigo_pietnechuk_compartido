@@ -1,4 +1,4 @@
-import type Catalog from '../models/Catalog';
+import type Catalog from '../collections/Catalog';
 import type Book from '../models/Book';
 
 import '../../public/resources/css/product-list.css';

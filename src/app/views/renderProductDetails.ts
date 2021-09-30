@@ -2,15 +2,17 @@ import getProductDetailsInnerHTML from '../components/getProductDetailsInnerHTML
 import getErrorMsgInnerHTML from '../components/getErrorMsgInnerHTML';
 import IBook from '../interfaces/IBook';
 import StoreApi from '../services/StoreApi';
-import getHTMLElement from '../helpers/getHTMLElement';
 import getIdFromAddressBar from '../helpers/getIdFromAddressBar';
 import makeRequest from '../services/makeRequest';
 
 import '../../public/resources/css/product-details.css';
 
-function addEvents() {
-  const heartButton: HTMLElement = getHTMLElement('button.heart-button');
-  const heartIcon: HTMLElement = getHTMLElement('.heart-icon', heartButton);
+function addEvents(el: HTMLElement) {
+  const heartButton: HTMLButtonElement = el
+    .querySelector('button.heart-button') as HTMLButtonElement;
+
+  const heartIcon: HTMLElement = heartButton.querySelector('.heart-icon') as HTMLElement;
+
   heartButton.addEventListener('click', () => {
     ['far', 'fa', 'heart-icon-colored'].forEach((cssClass: string) => {
       heartIcon.classList.toggle(cssClass);
@@ -22,7 +24,7 @@ export default async function renderProductDetails(el: HTMLElement): Promise<voi
   try {
     const data: IBook = await makeRequest(StoreApi.getBookById(getIdFromAddressBar()));
     el.innerHTML = getProductDetailsInnerHTML(data);
-    addEvents();
+    addEvents(el);
   } catch (error) {
     const err = error as Error;
     el.innerHTML = getErrorMsgInnerHTML(err.message);

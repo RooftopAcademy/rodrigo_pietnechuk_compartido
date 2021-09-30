@@ -1,4 +1,4 @@
-import type User from './User';
+import type User from '../models/User';
 
 export default class UserBase {
   private _users: User[];
@@ -9,10 +9,6 @@ export default class UserBase {
 
   public get users(): User[] {
     return this._users;
-  }
-
-  public set users(value: User[]) {
-    this._users = value;
   }
 
   private usernameExists(username: string): boolean {
@@ -36,6 +32,6 @@ export default class UserBase {
   }
 
   public remove(id: string): void {
-    this.users = this.users.filter((item: User): boolean => item.id != id);
+    this._users = this.users.filter((item: User): boolean => item.id != id);
   }
 }
