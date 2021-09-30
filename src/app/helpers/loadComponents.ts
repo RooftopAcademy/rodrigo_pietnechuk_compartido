@@ -1,7 +1,6 @@
 import Header from '../components/Header';
 import Brand from '../components/Brand';
 import Footer from '../components/Footer';
-import getHTMLElement from './getHTMLElement';
 import StoreApi from '../services/StoreApi';
 import renderSearchResults from '../components/renderSearchResults';
 import type IBook from '../interfaces/IBook';
@@ -14,18 +13,16 @@ export default function loadComponents(): void {
   customElements.define('footer-component', Footer);
 
   // add events
-  const header: HTMLElement = getHTMLElement('header');
-  const navigation: HTMLElement = getHTMLElement('.navigation', header);
-  const suggestions: HTMLUListElement = getHTMLElement(
-    '#suggestions',
-    navigation,
-  ) as HTMLUListElement;
+  const header: HTMLElement = document.querySelector('header') as HTMLElement;
+  const navigation: HTMLElement = header.querySelector('.navigation') as HTMLElement;
+  const suggestions: HTMLUListElement = navigation
+    .querySelector('#suggestions') as HTMLUListElement;
 
-  getHTMLElement('.burger-menu', header).addEventListener('click', () => {
+  (<HTMLButtonElement>header.querySelector('.burger-menu')).addEventListener('click', () => {
     navigation.classList.toggle('hidden');
   });
 
-  const searchBar: HTMLInputElement = getHTMLElement('#search-bar', navigation) as HTMLInputElement;
+  const searchBar: HTMLInputElement = navigation.querySelector('#search-bar') as HTMLInputElement;
   searchBar.addEventListener('input', async function () {
     const value = this.value.trim();
 

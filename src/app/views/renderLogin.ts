@@ -1,5 +1,4 @@
 import '../../public/resources/css/login.css';
-import getHTMLElement from '../helpers/getHTMLElement';
 import getUserIdFromApi from '../helpers/getUserIdFromApi';
 import login from '../helpers/login';
 import logout from '../helpers/logout';
@@ -18,8 +17,8 @@ async function authenticateUser(username: string, email: string, output: HTMLOut
 }
 
 function addEvents(el: HTMLElement): void {
-  const loginForm: HTMLFormElement = getHTMLElement('#login-form', el) as HTMLFormElement;
-  const output: HTMLOutputElement = getHTMLElement('#output', el) as HTMLOutputElement;
+  const loginForm: HTMLFormElement = el.querySelector('#login-form') as HTMLFormElement;
+  const output: HTMLOutputElement = el.querySelector('#output') as HTMLOutputElement;
 
   logout();
 

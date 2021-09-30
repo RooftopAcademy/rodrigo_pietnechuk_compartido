@@ -5,7 +5,7 @@ import login from './login';
 import logout from './logout';
 
 export default async function setupLoginOnStartup(): Promise<void> {
-  const id: string | null = window.localStorage.getItem('userId');
+  const id: string = window.localStorage.getItem('userId') ?? '';
 
   if (!id) {
     logout();

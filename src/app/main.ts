@@ -3,11 +3,11 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 import App from './App';
 import loadComponents from './helpers/loadComponents';
-import getHTMLElement from './helpers/getHTMLElement';
 
-function run(): App {
+function run(el: HTMLElement): App {
   loadComponents();
-  return new App(getHTMLElement('#app'));
+  return new App(el);
 }
 
-run();
+const el: HTMLElement = document.querySelector('#app') as HTMLElement;
+run(el);
