@@ -5,6 +5,7 @@ import renderHome from './views/renderHome';
 import renderProductList from './views/renderProductList';
 import renderLogin from './views/renderLogin';
 import renderProductDetails from './views/renderProductDetails';
+import setupLoginOnStartup from './helpers/setupLoginOnStartup';
 
 export default class App {
   private readonly el: HTMLElement;
@@ -14,6 +15,7 @@ export default class App {
     this.el = el;
     this.store = new Store();
     window.addEventListener('hashchange', () => this.navigate(getCurrentRoute()));
+    setupLoginOnStartup();
     this.loadRouteOnStartup();
   }
 
