@@ -6,13 +6,29 @@ import renderSearchResults from '../components/renderSearchResults';
 import type IBook from '../interfaces/IBook';
 import makeRequest from '../services/makeRequest';
 
-export default function loadComponents(el: HTMLElement): void {
-  // add components
-  customElements.define('header-component', Header);
-  customElements.define('brand-component', Brand);
-  customElements.define('footer-component', Footer);
+async function searchProducts(
+  input: HTMLInputElement,
+  suggestions: HTMLUListElement,
+): Promise<void> {
+  const value = input.value.trim();
 
-  // add events
+  if (!value) {
+    suggestions.innerHTML = '';
+    return;
+  }
+
+  const data: IBook[] = await makeRequest(StoreApi.filterCatalog(value));
+  renderSearchResults(data, suggestions);
+
+  Array.from(suggestions.querySelectorAll('.option')).forEach((item) => {
+    item.addEventListener('click', () => {
+      input.value = '';
+      suggestions.innerHTML = '';
+    });
+  });
+}
+
+function addEvents(el: HTMLElement): void {
   const header: HTMLElement = el.querySelector('header') as HTMLElement;
   const navigation: HTMLElement = header.querySelector('.navigation') as HTMLElement;
   const suggestions: HTMLUListElement = navigation
@@ -23,22 +39,15 @@ export default function loadComponents(el: HTMLElement): void {
   });
 
   const searchBar: HTMLInputElement = navigation.querySelector('#search-bar') as HTMLInputElement;
-  searchBar.addEventListener('input', async function () {
-    const value = this.value.trim();
-
-    if (value == '') {
-      suggestions.innerHTML = '';
-      return;
-    }
-
-    const data: IBook[] = await makeRequest(StoreApi.filterCatalog(value));
-    renderSearchResults(data, suggestions);
-
-    Array.from(el.querySelectorAll('.option .link')).forEach((item) => {
-      item.addEventListener('click', () => {
-        searchBar.value = '';
-        suggestions.innerHTML = '';
-      });
-    });
+  searchBar.addEventListener('input', function (this: HTMLInputElement) {
+    searchProducts(this, suggestions);
   });
+}
+
+export default function loadComponents(el: HTMLElement): void {
+  customElements.define('header-component', Header);
+  customElements.define('brand-component', Brand);
+  customElements.define('footer-component', Footer);
+
+  addEvents(el);
 }
