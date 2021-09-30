@@ -54,15 +54,7 @@ export default class User {
     return this._cart;
   }
 
-  public set cart(value: Cart) {
-    this._cart = value;
-  }
-
   public get favorites(): FavoritesCollection {
     return this._favorites;
-  }
-
-  public set favorites(value: FavoritesCollection) {
-    this._favorites = value;
   }
 }

@@ -11,10 +11,6 @@ export default class UserBase {
     return this._users;
   }
 
-  public set users(value: User[]) {
-    this._users = value;
-  }
-
   private usernameExists(username: string): boolean {
     return this.users.find((user: User): boolean => user.username == username) != undefined;
   }
@@ -36,6 +32,6 @@ export default class UserBase {
   }
 
   public remove(id: string): void {
-    this.users = this.users.filter((item: User): boolean => item.id != id);
+    this._users = this.users.filter((item: User): boolean => item.id != id);
   }
 }

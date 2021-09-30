@@ -18,7 +18,7 @@ export default class App {
   }
 
   private async loadRouteOnStartup() {
-    await this.store.fetchCatalog();
+    await this.store.catalog.fetchCatalog();
     this.navigate(getCurrentRoute());
   }
 

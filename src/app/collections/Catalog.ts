@@ -1,4 +1,8 @@
 import type Book from '../models/Book';
+import type IBook from '../interfaces/IBook';
+import makeRequest from '../services/makeRequest';
+import BookFactory from '../factories/BookFactory';
+import StoreApi from '../services/StoreApi';
 
 export default class Catalog {
   private _products: Book[];
@@ -11,15 +15,16 @@ export default class Catalog {
     return this._products;
   }
 
-  public set products(value: Book[]) {
-    this._products = value;
-  }
-
   public add(item: Book): void {
     this.products.push(item);
   }
 
   public remove(id: string): void {
-    this.products = this.products.filter((item: Book): boolean => item.id != id);
+    this._products = this.products.filter((item: Book): boolean => item.id != id);
+  }
+
+  public async fetchCatalog(): Promise<void> {
+    const data: IBook[] = await makeRequest(StoreApi.getCatalog());
+    this._products = data.map((item: IBook): Book => BookFactory.create(item));
   }
 }

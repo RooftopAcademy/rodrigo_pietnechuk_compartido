@@ -11,10 +11,6 @@ export default class Cart {
     return this._items;
   }
 
-  public set items(value: ICartItem[]) {
-    this._items = value;
-  }
-
   public add(item: ICartItem): void {
     this.items.push(item);
   }
