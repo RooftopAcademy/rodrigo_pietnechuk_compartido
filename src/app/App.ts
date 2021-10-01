@@ -1,38 +1,35 @@
-import Store from './entities/Store';
-import renderNotFound from './views/renderNotFound';
+import View from './abstract/View';
 import getCurrentRoute from './helpers/getCurrentRoute';
-import renderHome from './views/renderHome';
-import renderProductList from './views/renderProductList';
-import renderLogin from './views/renderLogin';
-import renderProductDetails from './views/renderProductDetails';
 import setupLoginOnStartup from './helpers/setupLoginOnStartup';
+import Home from './views/Home';
+import Login from './views/Login';
+import NotFound from './views/NotFound';
+import ProductDetails from './views/ProductDetails';
+import ProductList from './views/ProductList';
 
 export default class App {
   private readonly el: HTMLElement;
-  private readonly store: Store;
 
   public constructor(el: HTMLElement) {
     this.el = el;
-    this.store = new Store();
     window.addEventListener('hashchange', () => this.navigate(getCurrentRoute()));
     setupLoginOnStartup();
-    this.loadRouteOnStartup();
-  }
-
-  private async loadRouteOnStartup() {
-    await this.store.catalog.fetchCatalog();
     this.navigate(getCurrentRoute());
   }
 
-  private navigate(route: string): void {
-    const routes: Record<string, (el: HTMLElement) => void> = {
-      '': renderHome,
-      '#product-list': (el) => renderProductList(el, this.store.catalog),
-      '#product-details': renderProductDetails,
-      '#login': renderLogin,
+  private async navigate(route: string): Promise<void> {
+    const routes: Record<string, typeof View> = {
+      '': Home,
+      '#product-list': ProductList,
+      '#product-details': ProductDetails,
+      '#login': Login,
     };
 
-    const selectedRoute = routes[route] || renderNotFound;
-    selectedRoute(this.el);
+    // eslint-disable-next-line
+    const selectedRoute: View = new (<any>routes[route])(this.el) || new NotFound(this.el);
+    await selectedRoute.render();
+    if (selectedRoute.addEvents) {
+      selectedRoute.addEvents();
+    }
   }
 }
