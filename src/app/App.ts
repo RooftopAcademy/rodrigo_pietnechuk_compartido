@@ -1,38 +1,27 @@
-import Store from './entities/Store';
-import renderNotFound from './views/renderNotFound';
+import type View from './abstract/View';
 import getCurrentRoute from './helpers/getCurrentRoute';
-import renderHome from './views/renderHome';
-import renderProductList from './views/renderProductList';
-import renderLogin from './views/renderLogin';
-import renderProductDetails from './views/renderProductDetails';
 import setupLoginOnStartup from './helpers/setupLoginOnStartup';
+import selectRoute from './routes';
 
 export default class App {
   private readonly el: HTMLElement;
-  private readonly store: Store;
 
   public constructor(el: HTMLElement) {
     this.el = el;
-    this.store = new Store();
     window.addEventListener('hashchange', () => this.navigate(getCurrentRoute()));
     setupLoginOnStartup();
-    this.loadRouteOnStartup();
-  }
-
-  private async loadRouteOnStartup() {
-    await this.store.catalog.fetchCatalog();
     this.navigate(getCurrentRoute());
   }
 
-  private navigate(route: string): void {
-    const routes: Record<string, (el: HTMLElement) => void> = {
-      '': renderHome,
-      '#product-list': (el) => renderProductList(el, this.store.catalog),
-      '#product-details': renderProductDetails,
-      '#login': renderLogin,
-    };
-
-    const selectedRoute = routes[route] || renderNotFound;
-    selectedRoute(this.el);
+  private async navigate(route: string): Promise<void> {
+    try {
+      const selectedRoute: View = selectRoute(route, this.el);
+      await selectedRoute.render();
+      if (selectedRoute.addEvents) {
+        selectedRoute.addEvents();
+      }
+    } catch {
+      window.location.hash = '#404';
+    }
   }
 }
