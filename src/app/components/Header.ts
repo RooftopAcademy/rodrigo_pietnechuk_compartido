@@ -14,6 +14,9 @@ export default class Header extends HTMLElement {
           <input id="search-bar" type="text" placeholder="Buscar">
           <ul class="max-width suggestions" id="suggestions" class="suggestions"></ul>
         </div>
+        <a class="link" href="#favorites">
+          <i class="fa fa-heart"></i> Favoritos
+        </a>
         <a class="link" href="#">
           <i class="fas fa-shopping-cart"></i> Carrito
         </a>
