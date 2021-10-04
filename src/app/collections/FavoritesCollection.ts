@@ -1,4 +1,8 @@
 import type Book from '../entities/Book';
+import BookFactory from '../factories/BookFactory';
+import BookInterface from '../interfaces/BookInterface';
+import makeRequest from '../services/makeRequest';
+import StoreApi from '../services/StoreApi';
 
 export default class FavoritesCollection {
   private _favorites: Book[];
@@ -19,5 +23,19 @@ export default class FavoritesCollection {
     this._favorites = this.favorites.filter((f) => f.id != id);
   }
 
+  public async fetchFavorites(): Promise<void> {
+    const ids: string[] = JSON.parse(window.localStorage.getItem('favorites') || '[]');
+
+    const promises = await Promise.allSettled(
+      ids.map((id) => makeRequest(StoreApi.getBookById(id))),
+    );
+
+    this._favorites = promises
+      .filter((f) => f.status == 'fulfilled')
+      .map((f) => BookFactory.create((<PromiseFulfilledResult<BookInterface>>f).value));
+  }
+
+  public updateLocalStorage(): void {
+    window.localStorage.setItem('favorites', JSON.stringify(this.favorites.map((f) => f.id)));
   }
 }
