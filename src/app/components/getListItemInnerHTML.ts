@@ -1,6 +1,6 @@
 import type Book from '../entities/Book';
 
-export default function listItem(item: Book): string {
+export default function getListItemInnerHTML(item: Book): string {
   return `
     <article class="products-item">
       <a class="link d-flex text-left" href="#product-details/${item.id}">
