@@ -4,11 +4,13 @@ import ProductList from '../views/ProductList';
 import Home from '../views/Home';
 import Login from '../views/Login';
 import NotFound from '../views/NotFound';
+import Favorites from '../views/Favorites';
 
 const routes: Record<string, typeof View> = {
   '': Home,
   '#product-list': ProductList,
   '#product-details': ProductDetails,
+  '#favorites': Favorites,
   '#login': Login,
   '#404': NotFound,
 };
