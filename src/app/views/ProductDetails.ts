@@ -44,20 +44,31 @@ export default class ProductDetails extends View {
     this.isFavorite = !this.isFavorite;
   }
 
-  public async addEvents(): Promise<void> {
+  private async setupFavoriteButton(icon: HTMLElement, classes: string[]): Promise<void> {
+    const [disabled, ...enabled] = classes;
+
+    await this.favorites.fetchFavorites();
+
+    this.isFavorite = this.favorites.favorites.some((b) => b.id == this.book.id);
+
+    if (this.isFavorite) {
+      icon.classList.add(...enabled);
+    } else {
+      icon.classList.add(disabled);
+    }
+  }
+
+  public addEvents(): void {
     const heartButton: HTMLButtonElement = this.el
       .querySelector('button.heart-button') as HTMLButtonElement;
 
     const heartIcon: HTMLElement = heartButton.querySelector('.heart-icon') as HTMLElement;
+    const heartIconClasses: string[] = ['far', 'fa', 'heart-icon-colored'];
 
-    await this.favorites.fetchFavorites();
-
-    this.isFavorite = this.favorites.favorites.includes(this.book);
-
-    heartIcon.classList.add(this.isFavorite ? 'fa' : 'far');
+    this.setupFavoriteButton(heartIcon, heartIconClasses);
 
     heartButton.addEventListener('click', () => {
-      ['far', 'fa', 'heart-icon-colored'].forEach((cssClass: string) => {
+      heartIconClasses.forEach((cssClass: string) => {
         heartIcon.classList.toggle(cssClass);
       });
 
