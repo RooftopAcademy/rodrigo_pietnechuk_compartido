@@ -23,7 +23,7 @@ export default class FavoritesCollection {
     this._favorites = this.favorites.filter((f) => f.id != id);
   }
 
-  public async fetch(): Promise<void> {
+  public async fetchFavorites(): Promise<void> {
     const ids: string[] = JSON.parse(window.localStorage.getItem('favorites') || '[]');
 
     const promises = await Promise.allSettled(
