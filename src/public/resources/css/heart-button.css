@@ -8,3 +8,7 @@
 .heart-icon-colored {
   color: #d2042d;
 }
+
+.heart-button:hover {
+  opacity: 50%;
+}
