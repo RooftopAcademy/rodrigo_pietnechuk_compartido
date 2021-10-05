@@ -1,4 +1,4 @@
-import '../../public/resources/css/product-list.css';
+import '../../public/resources/css/heart-button.css';
 import View from '../abstract/View';
 import getFavoriteItemInnerHTML from '../components/getFavoriteItemInnerHTML';
 import FavoritesCollection from '../collections/FavoritesCollection';
