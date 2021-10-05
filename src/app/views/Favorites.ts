@@ -1,4 +1,5 @@
 import '../../public/resources/css/heart-button.css';
+import '../../public/resources/css/favorites.css';
 import View from '../abstract/View';
 import getFavoriteItemInnerHTML from '../components/getFavoriteItemInnerHTML';
 import FavoritesCollection from '../collections/FavoritesCollection';
@@ -22,7 +23,7 @@ export default class Favorites extends View {
     this.el.innerHTML = `
       <div class="favorites">
         <h1>Favoritos</h1>
-        <div class="max-width d-flex flex-column space-between small-text products">
+        <div class="d-flex flex-column small-text favorites-container">
           ${htmlList.length > 0 ? htmlList : '<p>No hay productos marcados como favoritos.</p>'}
         </div>
       </div>

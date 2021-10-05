@@ -1,0 +1,10 @@
+@media screen and (min-width: 1024px) {
+  .favorites-container {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .favorites-item {
+    width: 40%;
+  }
+}
