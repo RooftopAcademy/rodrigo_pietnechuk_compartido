@@ -25,5 +25,6 @@ export default class Home extends View {
       </article>
     </section>
     `;
+    super.render();
   }
 }

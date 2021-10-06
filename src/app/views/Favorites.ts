@@ -28,6 +28,7 @@ export default class Favorites extends View {
         </div>
       </div>
     `;
+    super.render();
   }
 
   public addEvents(): void {
