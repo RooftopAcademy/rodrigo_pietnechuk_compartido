@@ -9,7 +9,13 @@ abstract class View {
     this.el = el;
   }
 
-  public abstract render(): void;
+  public render(): void {
+    this.el.innerHTML = '';
+
+    if (this.addEvents) {
+      this.addEvents();
+    }
+  }
 }
 
 export default View;
