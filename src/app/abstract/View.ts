@@ -10,8 +10,6 @@ abstract class View {
   }
 
   public render(): void {
-    this.el.innerHTML = '';
-
     if (this.addEvents) {
       this.addEvents();
     }
