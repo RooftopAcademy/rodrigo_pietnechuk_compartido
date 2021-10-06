@@ -22,6 +22,8 @@ export default class App {
       }
     } catch {
       window.location.hash = '#404';
+    } finally {
+      document.querySelector('.navigation')?.classList.add('hidden');
     }
   }
 }
