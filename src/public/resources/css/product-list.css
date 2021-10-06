@@ -21,7 +21,7 @@
     align-content: flex-start;
   }
 
-  .products-item {
+  .products > .products-item {
     max-width: 45%;
   }
 
@@ -31,11 +31,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .products {
-    flex-flow: row wrap;
-  }
-
-  .products-item {
+  .products > .products-item {
     max-width: 30%;
   }
 }

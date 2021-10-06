@@ -24,7 +24,7 @@ header > .burger-menu {
   font-size: 1.4em;
 }
 
-main {
+.flex-grow-1 {
   flex-grow: 1;
 }
 
