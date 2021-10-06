@@ -14,7 +14,7 @@ export default class Favorites extends View {
   }
 
   public async render(): Promise<void> {
-    await this.favorites.fetchFavorites();
+    await this.favorites.fetch();
     this.favorites.updateLocalStorage();
 
     const htmlList = this.favorites.favorites
