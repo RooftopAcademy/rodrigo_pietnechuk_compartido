@@ -47,7 +47,7 @@ export default class ProductDetails extends View {
   private async setupFavoriteButton(icon: HTMLElement, classes: string[]): Promise<void> {
     const [disabled, ...enabled] = classes;
 
-    await this.favorites.fetchFavorites();
+    await this.favorites.fetch();
 
     this.isFavorite = this.favorites.favorites.some((b) => b.id == this.book.id);
 
