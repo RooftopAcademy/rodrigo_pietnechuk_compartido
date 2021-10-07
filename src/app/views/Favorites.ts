@@ -15,7 +15,6 @@ export default class Favorites extends View {
 
   public async render(): Promise<void> {
     await this.favorites.fetch();
-    this.favorites.updateLocalStorage();
 
     const htmlList = this.favorites.favorites
       .reduce((a: string, b: Book) => a + getFavoriteItemInnerHTML(b), '');
@@ -35,7 +34,6 @@ export default class Favorites extends View {
       button.addEventListener('click', (e: Event) => {
         const target: HTMLButtonElement = e.currentTarget as HTMLButtonElement;
         this.favorites.remove(target.dataset.id ?? '');
-        this.favorites.updateLocalStorage();
         target.parentElement?.remove();
       });
     });

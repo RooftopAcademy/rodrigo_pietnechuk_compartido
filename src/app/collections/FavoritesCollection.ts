@@ -17,10 +17,12 @@ export default class FavoritesCollection {
 
   public add(item: Book): void {
     this.favorites.push(item);
+    this.updateLocalStorage();
   }
 
   public remove(id: string): void {
     this._favorites = this.favorites.filter((f) => f.id != id);
+    this.updateLocalStorage();
   }
 
   public async fetch(): Promise<void> {
@@ -33,9 +35,11 @@ export default class FavoritesCollection {
     this._favorites = promises
       .filter((f) => f.status == 'fulfilled')
       .map((f) => BookFactory.create((<PromiseFulfilledResult<BookInterface>>f).value));
+
+    this.updateLocalStorage();
   }
 
-  public updateLocalStorage(): void {
+  private updateLocalStorage(): void {
     window.localStorage.setItem('favorites', JSON.stringify(this.favorites.map((f) => f.id)));
   }
 }

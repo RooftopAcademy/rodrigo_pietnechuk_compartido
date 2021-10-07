@@ -40,7 +40,6 @@ export default class ProductDetails extends View {
     } else {
       this.favorites.add(this.book);
     }
-    this.favorites.updateLocalStorage();
     this.isFavorite = !this.isFavorite;
   }
 
