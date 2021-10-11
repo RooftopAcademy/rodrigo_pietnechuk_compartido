@@ -47,19 +47,19 @@ export default class Cart extends View {
   private generateTable(): string {
     return `
       <div class="table-responsive">
-        <table class="cart-table no-wrap text-left">
+        <table class="cart-table no-wrap text-left m-auto">
           <thead>
-            <th scope="col" class="cart-table-cell">Título</th>
-            <th scope="col" class="cart-table-cell">Precio</th>
+            <th scope="col" class="px-1">Título</th>
+            <th scope="col" class="px-1">Precio</th>
           </thead>
           <tbody>
             ${this.cart.items.reduce((a: string, b: CartItem) => a + getCartItemInnerHTML(b), '')}
           </tbody>
           <tfoot>
             <tr>
-              <th scope="row" class="cart-table-cell">Total</th>
-              <th scope="col" class="cart-table-cell">$${this.cart.getTotalPrice().toFixed(2)}</th>
-              <td class="cart-table-cell">
+              <th scope="row" class="px-1">Total</th>
+              <th scope="col" class="px-1">$${this.cart.getTotalPrice().toFixed(2)}</th>
+              <td class="px-1">
                 <button id="empty-cart" class="button">Vaciar</button>
               </td>
             </tr>

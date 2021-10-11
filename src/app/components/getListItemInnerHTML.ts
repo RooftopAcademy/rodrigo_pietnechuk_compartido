@@ -2,7 +2,7 @@ import type Book from '../entities/Book';
 
 export default function getListItemInnerHTML(item: Book): string {
   return `
-    <article class="products-item">
+    <article class="products-item p-1">
       <a class="link d-flex text-left" href="#product-details/${item.id}">
         <img class="image product-image" src="${item.imageURL}">
         <div class="caption">

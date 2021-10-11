@@ -1,7 +1,7 @@
 export default class Footer extends HTMLElement {
   private connectedCallback() {
     this.innerHTML = `
-    <footer class="footer max-width d-flex flex-column text-left small-text">
+    <footer class="footer w-100 d-flex flex-column text-left small-text">
       <p>
         Copyright &copy;
         <time datetime="2021-1-1">2021</time>

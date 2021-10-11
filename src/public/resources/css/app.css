@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+/* app elements */
 :root {
   --main-color: #202020;
   --sidebar-fixed-padding: 230px;
@@ -13,8 +14,6 @@ body {
   font-family: 'Nunito', 'sans-serif';
   font-size: 16px;
   align-items: center;
-  text-align: center;
-  margin: 0;
 }
 
 header,
@@ -24,46 +23,10 @@ header > .burger-menu {
   font-size: 1.4em;
 }
 
-.flex-grow-1 {
-  flex-grow: 1;
-}
-
 .footer {
   background-color: #3af070;
   color: var(--main-color);
   padding-left: 1%;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.space-between {
-  justify-content: space-between;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.small-text {
-  font-size: small;
-}
-
-.max-width {
-  width: 100%;
 }
 
 .link {
@@ -98,23 +61,6 @@ header > .burger-menu {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
-.min-height-100vh {
-  min-height: 100vh;
-}
-
-.image {
-  height: auto;
-}
-
-.justify-align-center {
-  justify-content: center;
-  align-items: center;
-}
-
 .button {
   box-shadow:inset 0px 1px 0px 0px #cf866c;
   background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
@@ -144,17 +90,11 @@ header > .burger-menu {
   margin-top: 1rem;
 }
 
-.text-red {
-  color: red;
-}
-
 .suggestions {
   list-style-type: none;
   background-color: white;
   color: #333333;
   font-size: small;
-  padding: 0;
-  margin: 0;
   position: absolute;
 }
 
@@ -164,6 +104,88 @@ header > .burger-menu {
 
 .option:hover {
   background-color: lightgreen;
+}
+
+.image {
+  height: auto;
+}
+
+/* flex  */
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.justify-align-center {
+  justify-content: center;
+  align-items: center;
+}
+
+/* text */
+
+.text-left {
+  text-align: left;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.small-text {
+  font-size: small;
+}
+
+.text-red {
+  color: red;
+}
+
+/* size */
+
+.w-100 {
+  width: 100%;
+}
+
+.min-height-100vh {
+  min-height: 100vh;
+}
+
+/* spacing */
+.m-auto {
+  margin: auto;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: 1em;
+}
+
+/* display */
+
+.hidden {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
