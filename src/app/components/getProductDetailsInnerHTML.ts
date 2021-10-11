@@ -21,7 +21,7 @@ export default function getProductDetailsInnerHTML(product: BookInterface): stri
   </div>
   <div class="d-flex cart-button-container">
     <p class="text-left price">$${product.price}</p>
-    <button class="button">Agregar al carrito</button>
+    <button class="button js-add-to-cart">Agregar al carrito</button>
     <button class="heart-button"><i class="fa-heart heart-icon"></i></button>
   </div>
   `;
