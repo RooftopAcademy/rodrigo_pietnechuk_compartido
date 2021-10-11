@@ -1,0 +1,12 @@
+.table-responsive {
+  overflow-x: auto;
+}
+
+.cart-table {
+  margin: auto;
+  white-space: nowrap;
+}
+
+.cart-table-cell {
+  padding: 0 1em;
+}
