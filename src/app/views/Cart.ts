@@ -22,7 +22,7 @@ export default class Cart extends View {
     this.el.innerHTML = `
       <div class="favorites">
         <h1>Carrito</h1>
-        ${this.cart.items.length > 0 ? this.generateTable() : '<p>Carrito vacío.</p>'}
+        ${this.cart.getItems().length > 0 ? this.generateTable() : '<p>Carrito vacío.</p>'}
       </div>
     `;
 
@@ -53,7 +53,7 @@ export default class Cart extends View {
             <th scope="col" class="px-1">Precio</th>
           </thead>
           <tbody>
-            ${this.cart.items.reduce((a: string, b: CartItem) => a + getCartItemInnerHTML(b), '')}
+        ${this.cart.getItems().reduce((a: string, b: CartItem) => a + getCartItemInnerHTML(b), '')}
           </tbody>
           <tfoot>
             <tr>
