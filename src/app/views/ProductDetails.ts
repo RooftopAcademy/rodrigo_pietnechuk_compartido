@@ -32,6 +32,7 @@ export default class ProductDetails extends View {
       const err = error as Error;
       this.el.innerHTML = getErrorMsgInnerHTML(err.message);
     }
+    super.render();
   }
 
   private toggleFavorite(): void {
