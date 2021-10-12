@@ -3,28 +3,29 @@ import type BookInterface from '../interfaces/BookInterface';
 import makeRequest from '../services/makeRequest';
 import BookFactory from '../factories/BookFactory';
 import StoreApi from '../services/StoreApi';
+import type CollectionInterface from '../interfaces/CollectionInterface';
 
-export default class Catalog {
-  private _products: Book[];
+export default class Catalog implements CollectionInterface<Book> {
+  private _items: Book[];
 
   public constructor() {
-    this._products = [];
+    this._items = [];
   }
 
-  public get products(): Book[] {
-    return this._products;
+  public getItems(): Book[] {
+    return this._items;
   }
 
   public add(item: Book): void {
-    this.products.push(item);
+    this._items.push(item);
   }
 
   public remove(id: string): void {
-    this._products = this.products.filter((item: Book): boolean => item.id != id);
+    this._items = this._items.filter((item: Book): boolean => item.id != id);
   }
 
-  public async fetchCatalog(): Promise<void> {
+  public async fetch(): Promise<void> {
     const data: BookInterface[] = await makeRequest(StoreApi.getCatalog());
-    this._products = data.map((item: BookInterface): Book => BookFactory.create(item));
+    this._items = data.map((item: BookInterface): Book => BookFactory.create(item));
   }
 }
