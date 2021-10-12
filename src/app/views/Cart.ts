@@ -4,6 +4,7 @@ import View from '../abstract/View';
 import CartCollection from '../collections/Cart';
 import CartItem from '../entities/CartItem';
 import getCartItemInnerHTML from '../components/getCartItemInnerHTML';
+import setItemAmountInCart from '../helpers/setItemAmountInCart';
 
 export default class Cart extends View {
   private cart: CartCollection;
@@ -25,6 +26,8 @@ export default class Cart extends View {
         ${this.cart.getItems().length > 0 ? this.generateTable() : '<p>Carrito vacío.</p>'}
       </div>
     `;
+
+    setItemAmountInCart(this.cart.getItems().length);
 
     this.addEvents();
   }
