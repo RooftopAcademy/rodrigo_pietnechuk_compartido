@@ -12,6 +12,7 @@ import Book from '../entities/Book';
 import BookFactory from '../factories/BookFactory';
 import Cart from '../collections/Cart';
 import CartItem from '../entities/CartItem';
+import setItemAmountInCart from '../helpers/setItemAmountInCart';
 
 export default class ProductDetails extends View {
   private book: Book;
@@ -82,6 +83,7 @@ export default class ProductDetails extends View {
 
     this.el.querySelector('.js-add-to-cart')?.addEventListener('click', () => {
       this.cart.add(new CartItem(this.book));
+      setItemAmountInCart(this.cart.getItems().length);
     });
   }
 }
