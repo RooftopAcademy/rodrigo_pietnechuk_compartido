@@ -35,6 +35,10 @@ export default class Cart implements CollectionInterface<CartItem> {
     return this._items.reduce((a: number, b: CartItem): number => a + b.getProduct().price, 0);
   }
 
+  public getLength(): number {
+    return this._items.length;
+  }
+
   public removeFirstWithProductId(id: string): void {
     return this.remove(this._items.find((item) => item.getProduct().id == id)?.getId() ?? '');
   }

@@ -23,11 +23,11 @@ export default class Cart extends View {
     this.el.innerHTML = `
       <div class="favorites">
         <h1>Carrito</h1>
-        ${this.cart.getItems().length > 0 ? this.generateTable() : '<p>Carrito vacío.</p>'}
+        ${this.cart.getLength() > 0 ? this.generateTable() : '<p>Carrito vacío.</p>'}
       </div>
     `;
 
-    setItemAmountInCart(this.cart.getItems().length);
+    setItemAmountInCart(this.cart.getLength());
 
     this.addEvents();
   }

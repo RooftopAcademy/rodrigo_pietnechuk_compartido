@@ -82,12 +82,12 @@ export default class ProductDetails extends View {
 
     this.el.querySelector('#add-to-cart')?.addEventListener('click', () => {
       this.cart.add(new CartItem(this.book));
-      setItemAmountInCart(this.cart.getItems().length);
+      setItemAmountInCart(this.cart.getLength());
     });
 
     this.el.querySelector('#remove-from-cart')?.addEventListener('click', () => {
       this.cart.removeFirstWithProductId(this.book.id);
-      setItemAmountInCart(this.cart.getItems().length);
+      setItemAmountInCart(this.cart.getLength());
     });
   }
 }
