@@ -35,6 +35,10 @@ export default class Cart implements CollectionInterface<CartItem> {
     return this._items.reduce((a: number, b: CartItem): number => a + b.getProduct().price, 0);
   }
 
+  public removeFirstWithProductId(id: string): void {
+    return this.remove(this._items.find((item) => item.getProduct().id == id)?.getId() ?? '');
+  }
+
   public async fetch(): Promise<void> {
     const ids: string[] = JSON.parse(window.localStorage.getItem('cart') || '[]');
 

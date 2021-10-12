@@ -25,6 +25,7 @@ export default class ProductDetails extends View {
     this.book = new Book();
     this.favorites = new FavoritesCollection();
     this.cart = new Cart();
+    this.cart.fetch();
     this.isFavorite = false;
   }
 
@@ -79,10 +80,13 @@ export default class ProductDetails extends View {
       this.toggleFavorite();
     });
 
-    this.cart.fetch();
-
-    this.el.querySelector('.js-add-to-cart')?.addEventListener('click', () => {
+    this.el.querySelector('#add-to-cart')?.addEventListener('click', () => {
       this.cart.add(new CartItem(this.book));
+      setItemAmountInCart(this.cart.getItems().length);
+    });
+
+    this.el.querySelector('#remove-from-cart')?.addEventListener('click', () => {
+      this.cart.removeFirstWithProductId(this.book.id);
       setItemAmountInCart(this.cart.getItems().length);
     });
   }
