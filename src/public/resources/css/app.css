@@ -179,6 +179,10 @@ button[disabled]:hover{
   width: 100%;
 }
 
+.w-75 {
+  width: 75%;
+}
+
 .min-height-100vh {
   min-height: 100vh;
 }
