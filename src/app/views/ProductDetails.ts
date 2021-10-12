@@ -72,9 +72,18 @@ export default class ProductDetails extends View {
     counter.innerHTML = amount.toString();
   }
 
+  private setRemoveButtonStatus() {
+    const removeButton: HTMLButtonElement = this.el.querySelector(
+      '#remove-from-cart',
+    ) as HTMLButtonElement;
+
+    removeButton.disabled = this.cart.countByProductId(this.book.id) < 1;
+  }
+
   private updateCartCounters(): void {
     setItemAmountInCart(this.cart.getLength());
     this.setCurrentProductCounter();
+    this.setRemoveButtonStatus();
   }
 
   private async setupCart(): Promise<void> {
