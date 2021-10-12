@@ -52,7 +52,7 @@ export default class ProductDetails extends View {
 
     await this.favorites.fetch();
 
-    this.isFavorite = this.favorites.favorites.some((b) => b.id == this.book.id);
+    this.isFavorite = this.favorites.getItems().some((b) => b.id == this.book.id);
 
     if (this.isFavorite) {
       icon.classList.add(...enabled);
