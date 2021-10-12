@@ -39,6 +39,10 @@ export default class Cart implements CollectionInterface<CartItem> {
     return this._items.length;
   }
 
+  public countByProductId(id: string): number {
+    return this._items.filter((item) => item.getProduct().id == id).length;
+  }
+
   public removeFirstWithProductId(id: string): void {
     return this.remove(this._items.find((item) => item.getProduct().id == id)?.getId() ?? '');
   }

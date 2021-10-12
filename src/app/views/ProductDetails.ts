@@ -25,7 +25,6 @@ export default class ProductDetails extends View {
     this.book = new Book();
     this.favorites = new FavoritesCollection();
     this.cart = new Cart();
-    this.cart.fetch();
     this.isFavorite = false;
   }
 
@@ -63,6 +62,26 @@ export default class ProductDetails extends View {
     }
   }
 
+  private setCurrentProductCounter(): void {
+    const amount: number = this.cart.countByProductId(this.book.id);
+
+    const counter: HTMLSpanElement = this.el.querySelector(
+      '#amount-in-cart-this-product',
+    ) as HTMLSpanElement;
+
+    counter.innerHTML = amount.toString();
+  }
+
+  private updateCartCounters(): void {
+    setItemAmountInCart(this.cart.getLength());
+    this.setCurrentProductCounter();
+  }
+
+  private async setupCart(): Promise<void> {
+    await this.cart.fetch();
+    this.updateCartCounters();
+  }
+
   public addEvents(): void {
     const heartButton: HTMLButtonElement = this.el
       .querySelector('button.heart-button') as HTMLButtonElement;
@@ -71,6 +90,7 @@ export default class ProductDetails extends View {
     const heartIconClasses: string[] = ['far', 'fa', 'heart-icon-colored'];
 
     this.setupFavoriteButton(heartIcon, heartIconClasses);
+    this.setupCart();
 
     heartButton.addEventListener('click', () => {
       heartIconClasses.forEach((cssClass: string) => {
@@ -82,12 +102,13 @@ export default class ProductDetails extends View {
 
     this.el.querySelector('#add-to-cart')?.addEventListener('click', () => {
       this.cart.add(new CartItem(this.book));
-      setItemAmountInCart(this.cart.getLength());
+      this.updateCartCounters();
     });
 
     this.el.querySelector('#remove-from-cart')?.addEventListener('click', () => {
       this.cart.removeFirstWithProductId(this.book.id);
       setItemAmountInCart(this.cart.getLength());
+      this.updateCartCounters();
     });
   }
 }
