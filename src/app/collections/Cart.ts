@@ -6,45 +6,45 @@ import makeRequest from '../services/makeRequest';
 import StoreApi from '../services/StoreApi';
 
 export default class Cart implements CollectionInterface<CartItem> {
-  private _items: CartItem[];
+  private items: CartItem[];
 
   public constructor() {
-    this._items = [];
+    this.items = [];
   }
 
   public getItems(): CartItem[] {
-    return this._items;
+    return this.items;
   }
 
   public add(item: CartItem): void {
-    this._items.push(item);
+    this.items.push(item);
     this.updateLocalStorage();
   }
 
   public remove(id: string): void {
-    this._items = this._items.filter((item) => item.getId() != id);
+    this.items = this.items.filter((item) => item.getId() != id);
     this.updateLocalStorage();
   }
 
   public removeAll(): void {
-    this._items = [];
+    this.items = [];
     this.updateLocalStorage();
   }
 
   public getTotalPrice(): number {
-    return this._items.reduce((a: number, b: CartItem): number => a + b.getProduct().price, 0);
+    return this.items.reduce((a: number, b: CartItem): number => a + b.getProduct().price, 0);
   }
 
   public getLength(): number {
-    return this._items.length;
+    return this.items.length;
   }
 
   public countByProductId(id: string): number {
-    return this._items.filter((item) => item.getProduct().id == id).length;
+    return this.items.filter((item) => item.getProduct().id == id).length;
   }
 
   public removeFirstWithProductId(id: string): void {
-    return this.remove(this._items.find((item) => item.getProduct().id == id)?.getId() ?? '');
+    return this.remove(this.items.find((item) => item.getProduct().id == id)?.getId() ?? '');
   }
 
   public async fetch(): Promise<void> {
@@ -54,7 +54,7 @@ export default class Cart implements CollectionInterface<CartItem> {
       ids.map((id) => makeRequest(StoreApi.getBookById(id))),
     );
 
-    this._items = promises
+    this.items = promises
       .filter((f) => f.status == 'fulfilled')
       .map((f) => new CartItem(
         BookFactory.create((<PromiseFulfilledResult<BookInterface>>f).value),
@@ -64,6 +64,6 @@ export default class Cart implements CollectionInterface<CartItem> {
   }
 
   private updateLocalStorage(): void {
-    window.localStorage.setItem('cart', JSON.stringify(this._items.map((f) => f.getProduct().id)));
+    window.localStorage.setItem('cart', JSON.stringify(this.items.map((f) => f.getProduct().id)));
   }
 }
