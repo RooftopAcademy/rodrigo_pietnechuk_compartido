@@ -1,26 +1,26 @@
-import type BookInterface from '../interfaces/BookInterface';
+import type Book from '../entities/Book';
 
-export default function getProductDetailsInnerHTML(product: BookInterface): string {
+export default function getProductDetailsInnerHTML(product: Book): string {
   return `
   <div class="d-flex flex-column product-info">
-    <img class="image product-image" src="${product.imageURL}" alt="imagen del producto">
+    <img class="image product-image" src="${product.getImageURL()}" alt="imagen del producto">
     <div class="d-flex flex-column product-description text-justify">
-      <h2 class="text-left">${product.name}</h2>
-      <p class="author">${product.author}</p>
+      <h2 class="text-left">${product.getName()}</h2>
+      <p class="author">${product.getAuthor()}</p>
       <h3>Sinopsis</h3>
-      <p class="small-text description-text">${product.description}</p>
+      <p class="small-text description-text">${product.getDescription()}</p>
       <h4>Ficha técnica</h4>
       <div class="product-details">
         <ul>
-          <li>Año de publicación: ${product.publicationYear}</li>
-          <li>Páginas: ${product.pages}</li>
-          <li>ISBN: ${product.isbn}</li>
+          <li>Año de publicación: ${product.getPublicationYear()}</li>
+          <li>Páginas: ${product.getPages()}</li>
+          <li>ISBN: ${product.getIsbn()}</li>
         </ul>
       </div>
     </div>
   </div>
   <div class="d-flex cart-button-container">
-    <p class="text-left price">$${product.price}</p>
+    <p class="text-left price">$${product.getPrice()}</p>
     <p>En carrito: <span id="amount-in-cart-this-product">0</span></p>
     <button id="add-to-cart" class="button">+</button>
     <button id="remove-from-cart" class="button">-</button>

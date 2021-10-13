@@ -1,97 +1,95 @@
-import type BookInterface from '../interfaces/BookInterface';
-
-export default class Book implements BookInterface {
-  private _id: string;
-  private _name: string;
-  private _price: number;
-  private _description: string;
-  private _imageURL: string;
-  private _author: string;
-  private _isbn: string;
-  private _pages: string;
-  private _publicationYear: string;
+export default class Book {
+  private id: string;
+  private name: string;
+  private price: number;
+  private description: string;
+  private imageURL: string;
+  private author: string;
+  private isbn: string;
+  private pages: string;
+  private publicationYear: string;
 
   public constructor() {
-    this._id = '';
-    this._name = '';
-    this._price = 0;
-    this._description = '';
-    this._imageURL = '';
-    this._author = '';
-    this._isbn = '';
-    this._pages = '';
-    this._publicationYear = '';
+    this.id = '';
+    this.name = '';
+    this.price = 0;
+    this.description = '';
+    this.imageURL = '';
+    this.author = '';
+    this.isbn = '';
+    this.pages = '';
+    this.publicationYear = '';
   }
 
-  public get id(): string {
-    return this._id;
+  public getId(): string {
+    return this.id;
   }
 
-  public set id(value: string) {
-    this._id = value;
+  public setId(value: string): void {
+    this.id = value;
   }
 
-  public get name(): string {
-    return this._name;
+  public getName(): string {
+    return this.name;
   }
 
-  public set name(value: string) {
-    this._name = value;
+  public setName(value: string): void {
+    this.name = value;
   }
 
-  public get price(): number {
-    return this._price;
+  public getPrice(): number {
+    return this.price;
   }
 
-  public set price(value: number) {
-    this._price = value >= 0 ? value : 0;
+  public setPrice(value: number): void {
+    this.price = value >= 0 ? value : 0;
   }
 
-  public get description(): string {
-    return this._description;
+  public getDescription(): string {
+    return this.description;
   }
 
-  public set description(value: string) {
-    this._description = value;
+  public setDescription(value: string): void {
+    this.description = value;
   }
 
-  public get imageURL(): string {
-    return this._imageURL;
+  public getImageURL(): string {
+    return this.imageURL;
   }
 
-  public set imageURL(value: string) {
-    this._imageURL = value;
+  public setImageURL(value: string): void {
+    this.imageURL = value;
   }
 
-  public get author(): string {
-    return this._author;
+  public getAuthor(): string {
+    return this.author;
   }
 
-  public set author(value: string) {
-    this._author = value;
+  public setAuthor(value: string): void {
+    this.author = value;
   }
 
-  public get isbn(): string {
-    return this._isbn;
+  public getIsbn(): string {
+    return this.isbn;
   }
 
-  public set isbn(value: string) {
-    this._isbn = value;
+  public setIsbn(value: string): void {
+    this.isbn = value;
   }
 
-  public get pages(): string {
-    return this._pages;
+  public getPages(): string {
+    return this.pages;
   }
 
-  public set pages(value: string) {
-    this._pages = value;
+  public setPages(value: string): void {
+    this.pages = value;
   }
 
-  public get publicationYear(): string {
-    return this._publicationYear;
+  public getPublicationYear(): string {
+    return this.publicationYear;
   }
 
-  public set publicationYear(value: string) {
-    this._publicationYear = value;
+  public setPublicationYear(value: string): void {
+    this.publicationYear = value;
   }
 }

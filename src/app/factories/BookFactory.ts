@@ -4,15 +4,15 @@ import Book from '../entities/Book';
 export default class BookFactory {
   public static create(obj: BookInterface): Book {
     const book = new Book();
-    book.id = obj.id;
-    book.name = obj.name;
-    book.price = obj.price;
-    book.description = obj.description;
-    book.imageURL = obj.imageURL;
-    book.author = obj.author;
-    book.isbn = obj.isbn;
-    book.pages = obj.pages;
-    book.publicationYear = obj.publicationYear;
+    book.setId(obj.id);
+    book.setName(obj.name);
+    book.setPrice(obj.price);
+    book.setDescription(obj.description);
+    book.setImageURL(obj.imageURL);
+    book.setAuthor(obj.author);
+    book.setIsbn(obj.isbn);
+    book.setPages(obj.pages);
+    book.setPublicationYear(obj.publicationYear);
 
     return book;
   }

@@ -22,7 +22,7 @@ export default class FavoritesCollection implements CollectionInterface<Book> {
   }
 
   public remove(id: string): void {
-    this.items = this.items.filter((f) => f.id != id);
+    this.items = this.items.filter((f) => f.getId() != id);
     this.updateLocalStorage();
   }
 
@@ -41,6 +41,6 @@ export default class FavoritesCollection implements CollectionInterface<Book> {
   }
 
   private updateLocalStorage(): void {
-    window.localStorage.setItem('favorites', JSON.stringify(this.items.map((f) => f.id)));
+    window.localStorage.setItem('favorites', JSON.stringify(this.items.map((f) => f.getId())));
   }
 }

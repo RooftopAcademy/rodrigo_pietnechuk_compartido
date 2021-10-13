@@ -32,7 +32,7 @@ export default class Cart implements CollectionInterface<CartItem> {
   }
 
   public getTotalPrice(): number {
-    return this.items.reduce((a: number, b: CartItem): number => a + b.getProduct().price, 0);
+    return this.items.reduce((a: number, b: CartItem): number => a + b.getProduct().getPrice(), 0);
   }
 
   public getLength(): number {
@@ -40,11 +40,11 @@ export default class Cart implements CollectionInterface<CartItem> {
   }
 
   public countByProductId(id: string): number {
-    return this.items.filter((item) => item.getProduct().id == id).length;
+    return this.items.filter((item) => item.getProduct().getId() == id).length;
   }
 
   public removeFirstWithProductId(id: string): void {
-    return this.remove(this.items.find((item) => item.getProduct().id == id)?.getId() ?? '');
+    return this.remove(this.items.find((item) => item.getProduct().getId() == id)?.getId() ?? '');
   }
 
   public async fetch(): Promise<void> {
@@ -64,6 +64,9 @@ export default class Cart implements CollectionInterface<CartItem> {
   }
 
   private updateLocalStorage(): void {
-    window.localStorage.setItem('cart', JSON.stringify(this.items.map((f) => f.getProduct().id)));
+    window.localStorage.setItem(
+      'cart',
+      JSON.stringify(this.items.map((f) => f.getProduct().getId())),
+    );
   }
 }

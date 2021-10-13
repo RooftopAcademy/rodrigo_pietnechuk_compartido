@@ -21,7 +21,7 @@ export default class Catalog implements CollectionInterface<Book> {
   }
 
   public remove(id: string): void {
-    this.items = this.items.filter((item: Book): boolean => item.id != id);
+    this.items = this.items.filter((item: Book): boolean => item.getId() != id);
   }
 
   public async fetch(): Promise<void> {
