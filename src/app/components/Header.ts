@@ -12,12 +12,12 @@ export default class Header extends HTMLElement {
         <div class="link">
           <i class="fas fa-search"></i>
           <input id="search-bar" type="text" placeholder="Buscar">
-          <ul class="max-width suggestions" id="suggestions" class="suggestions"></ul>
+          <ul class="w-100 suggestions" id="suggestions" class="suggestions m-0 p-0"></ul>
         </div>
         <a class="link" href="#favorites">
           <i class="fa fa-heart"></i> Favoritos
         </a>
-        <a class="link" href="#">
+        <a class="link" href="#cart">
           <i class="fas fa-shopping-cart"></i> Carrito
         </a>
         <a class="link" href="#login">

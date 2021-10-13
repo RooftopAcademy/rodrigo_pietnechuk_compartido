@@ -11,7 +11,7 @@ export default class ProductList extends View {
     await catalog.fetchCatalog();
 
     this.el.innerHTML = `
-      <div class="max-width d-flex flex-column space-between small-text products">
+      <div class="w-100 d-flex flex-column space-between small-text products">
         ${catalog.products.reduce((a: string, b: Book): string => a + getListItemInnerHTML(b), '')}
       </div>
     `;

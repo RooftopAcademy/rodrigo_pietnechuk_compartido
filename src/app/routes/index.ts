@@ -5,12 +5,14 @@ import Home from '../views/Home';
 import Login from '../views/Login';
 import NotFound from '../views/NotFound';
 import Favorites from '../views/Favorites';
+import Cart from '../views/Cart';
 
 const routes: Map<string, ViewAdapter> = new Map([
   ['', Home],
   ['#product-list', ProductList],
   ['#product-details', ProductDetails],
   ['#favorites', Favorites],
+  ['#cart', Cart],
   ['#login', Login],
   ['#404', NotFound],
 ]);

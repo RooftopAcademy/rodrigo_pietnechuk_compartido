@@ -4,7 +4,7 @@ import type Book from '../entities/Book';
 
 export default function getFavoriteItemInnerHTML(item: Book): string {
   return `
-    <div class="favorites-item max-width d-flex">
+    <div class="favorites-item w-100 d-flex">
       <div class="favorites-item-product flex-grow-1">
         ${getListItemInnerHTML(item)}
       </div>

@@ -10,16 +10,20 @@ import View from '../abstract/View';
 import FavoritesCollection from '../collections/FavoritesCollection';
 import Book from '../entities/Book';
 import BookFactory from '../factories/BookFactory';
+import Cart from '../collections/Cart';
+import CartItem from '../entities/CartItem';
 
 export default class ProductDetails extends View {
   private book: Book;
   private favorites: FavoritesCollection;
+  private cart: Cart;
   private isFavorite: boolean;
 
   public constructor(el: HTMLElement) {
     super(el);
     this.book = new Book();
     this.favorites = new FavoritesCollection();
+    this.cart = new Cart();
     this.isFavorite = false;
   }
 
@@ -73,6 +77,12 @@ export default class ProductDetails extends View {
       });
 
       this.toggleFavorite();
+    });
+
+    this.cart.fetch();
+
+    this.el.querySelector('.js-add-to-cart')?.addEventListener('click', () => {
+      this.cart.add(new CartItem(this.book));
     });
   }
 }
