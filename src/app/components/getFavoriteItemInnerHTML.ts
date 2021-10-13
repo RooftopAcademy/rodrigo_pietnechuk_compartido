@@ -8,7 +8,7 @@ export default function getFavoriteItemInnerHTML(item: Book): string {
       <div class="favorites-item-product flex-grow-1">
         ${getListItemInnerHTML(item)}
       </div>
-      <button class="js-favorite-button heart-button" data-id="${item.id}">
+      <button class="js-favorite-button heart-button" data-id="${item.getId()}">
         <i class="fa fa-heart heart-icon-colored"></i>
       </button>
     </div>

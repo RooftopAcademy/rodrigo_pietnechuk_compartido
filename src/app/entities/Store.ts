@@ -2,19 +2,19 @@ import UserBase from '../collections/UserBase';
 import Catalog from '../collections/Catalog';
 
 export default class Store {
-  private _users: UserBase;
-  private _catalog: Catalog;
+  private users: UserBase;
+  private catalog: Catalog;
 
   public constructor() {
-    this._users = new UserBase();
-    this._catalog = new Catalog();
+    this.users = new UserBase();
+    this.catalog = new Catalog();
   }
 
-  public get users(): UserBase {
-    return this._users;
+  public getUsers(): UserBase {
+    return this.users;
   }
 
-  public get catalog(): Catalog {
-    return this._catalog;
+  public getCatalog(): Catalog {
+    return this.catalog;
   }
 }

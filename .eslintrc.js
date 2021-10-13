@@ -28,7 +28,6 @@ module.exports = {
   rules: {
     'quotes': ['warn', 'single'],
     'quote-props': ['warn', 'consistent-as-needed'],
-    'no-underscore-dangle': 'off',
     'no-param-reassign': ['error', { props: false }],
     'lines-between-class-members': ['warn', 'always', { exceptAfterSingleLine: true }],
     'import/extensions': ['error', 'ignorePackages', { js: 'never', ts: 'never' }],

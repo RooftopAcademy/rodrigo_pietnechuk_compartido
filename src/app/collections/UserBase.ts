@@ -1,30 +1,30 @@
 import type User from '../entities/User';
 
 export default class UserBase {
-  private _users: User[];
+  private users: User[];
 
   public constructor() {
-    this._users = [];
+    this.users = [];
   }
 
-  public get users(): User[] {
-    return this._users;
+  public getUsers(): User[] {
+    return this.users;
   }
 
   private usernameExists(username: string): boolean {
-    return this.users.find((user: User): boolean => user.username == username) != undefined;
+    return this.users.find((user: User): boolean => user.getUsername() == username) != undefined;
   }
 
   private emailExists(email: string): boolean {
-    return this.users.find((user: User): boolean => user.email == email) !== undefined;
+    return this.users.find((user: User): boolean => user.getEmail() == email) !== undefined;
   }
 
   public add(user: User): void {
-    if (this.usernameExists(user.username)) {
+    if (this.usernameExists(user.getUsername())) {
       throw new Error('This username already exists');
     }
 
-    if (this.emailExists(user.email)) {
+    if (this.emailExists(user.getEmail())) {
       throw new Error('This email already exists');
     }
 
@@ -32,6 +32,6 @@ export default class UserBase {
   }
 
   public remove(id: string): void {
-    this._users = this.users.filter((item: User): boolean => item.id != id);
+    this.users = this.users.filter((item: User): boolean => item.getId() != id);
   }
 }

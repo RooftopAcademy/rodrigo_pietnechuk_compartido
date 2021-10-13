@@ -6,23 +6,23 @@ import makeRequest from '../services/makeRequest';
 import StoreApi from '../services/StoreApi';
 
 export default class FavoritesCollection implements CollectionInterface<Book> {
-  private _items: Book[];
+  private items: Book[];
 
   public constructor() {
-    this._items = [];
+    this.items = [];
   }
 
   public getItems(): Book[] {
-    return this._items;
+    return this.items;
   }
 
   public add(item: Book): void {
-    this._items.push(item);
+    this.items.push(item);
     this.updateLocalStorage();
   }
 
   public remove(id: string): void {
-    this._items = this._items.filter((f) => f.id != id);
+    this.items = this.items.filter((f) => f.getId() != id);
     this.updateLocalStorage();
   }
 
@@ -33,7 +33,7 @@ export default class FavoritesCollection implements CollectionInterface<Book> {
       ids.map((id) => makeRequest(StoreApi.getBookById(id))),
     );
 
-    this._items = promises
+    this.items = promises
       .filter((f) => f.status == 'fulfilled')
       .map((f) => BookFactory.create((<PromiseFulfilledResult<BookInterface>>f).value));
 
@@ -41,6 +41,6 @@ export default class FavoritesCollection implements CollectionInterface<Book> {
   }
 
   private updateLocalStorage(): void {
-    window.localStorage.setItem('favorites', JSON.stringify(this._items.map((f) => f.id)));
+    window.localStorage.setItem('favorites', JSON.stringify(this.items.map((f) => f.getId())));
   }
 }

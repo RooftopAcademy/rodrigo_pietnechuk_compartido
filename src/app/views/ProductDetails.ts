@@ -42,7 +42,7 @@ export default class ProductDetails extends View {
 
   private toggleFavorite(): void {
     if (this.isFavorite) {
-      this.favorites.remove(this.book.id);
+      this.favorites.remove(this.book.getId());
     } else {
       this.favorites.add(this.book);
     }
@@ -54,7 +54,7 @@ export default class ProductDetails extends View {
 
     await this.favorites.fetch();
 
-    this.isFavorite = this.favorites.getItems().some((b) => b.id == this.book.id);
+    this.isFavorite = this.favorites.getItems().some((b) => b.getId() == this.book.getId());
 
     if (this.isFavorite) {
       icon.classList.add(...enabled);
@@ -64,7 +64,7 @@ export default class ProductDetails extends View {
   }
 
   private setCurrentProductCounter(): void {
-    const amount: number = this.cart.countByProductId(this.book.id);
+    const amount: number = this.cart.countByProductId(this.book.getId());
 
     const counter: HTMLSpanElement = this.el.querySelector(
       '#amount-in-cart-this-product',
@@ -78,7 +78,7 @@ export default class ProductDetails extends View {
       '#remove-from-cart',
     ) as HTMLButtonElement;
 
-    removeButton.disabled = this.cart.countByProductId(this.book.id) < 1;
+    removeButton.disabled = this.cart.countByProductId(this.book.getId()) < 1;
   }
 
   private updateCartCounters(): void {
@@ -116,7 +116,7 @@ export default class ProductDetails extends View {
     });
 
     this.el.querySelector('#remove-from-cart')?.addEventListener('click', () => {
-      this.cart.removeFirstWithProductId(this.book.id);
+      this.cart.removeFirstWithProductId(this.book.getId());
       setItemAmountInCart(this.cart.getLength());
       this.updateCartCounters();
     });
