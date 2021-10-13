@@ -16,7 +16,7 @@ export default class Favorites extends View {
   public async render(): Promise<void> {
     await this.favorites.fetch();
 
-    const htmlList = this.favorites.favorites
+    const htmlList = this.favorites.getItems()
       .reduce((a: string, b: Book) => a + getFavoriteItemInnerHTML(b), '');
 
     this.el.innerHTML = `

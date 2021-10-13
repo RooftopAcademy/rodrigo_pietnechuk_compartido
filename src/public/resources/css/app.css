@@ -62,7 +62,6 @@ header > .burger-menu {
 }
 
 .button {
-  box-shadow:inset 0px 1px 0px 0px #cf866c;
   background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
   background-color:#d0451b;
   border-radius:3px;
@@ -83,6 +82,21 @@ header > .burger-menu {
 .button:active {
   position:relative;
   top:1px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background: #cccccc;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+button:disabled:hover,
+button[disabled]:hover{
+  background: #cccccc;
+  background-color: #cccccc;
 }
 
 .logo {
@@ -147,6 +161,10 @@ header > .burger-menu {
   text-align: justify;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .small-text {
   font-size: small;
 }
@@ -159,6 +177,10 @@ header > .burger-menu {
 
 .w-100 {
   width: 100%;
+}
+
+.w-75 {
+  width: 75%;
 }
 
 .min-height-100vh {

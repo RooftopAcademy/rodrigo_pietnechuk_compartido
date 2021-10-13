@@ -4,6 +4,7 @@ import View from '../abstract/View';
 import CartCollection from '../collections/Cart';
 import CartItem from '../entities/CartItem';
 import getCartItemInnerHTML from '../components/getCartItemInnerHTML';
+import setItemAmountInCart from '../helpers/setItemAmountInCart';
 
 export default class Cart extends View {
   private cart: CartCollection;
@@ -22,9 +23,11 @@ export default class Cart extends View {
     this.el.innerHTML = `
       <div class="favorites">
         <h1>Carrito</h1>
-        ${this.cart.items.length > 0 ? this.generateTable() : '<p>Carrito vacío.</p>'}
+        ${this.cart.getLength() > 0 ? this.generateTable() : '<p>Carrito vacío.</p>'}
       </div>
     `;
+
+    setItemAmountInCart(this.cart.getLength());
 
     this.addEvents();
   }
@@ -53,7 +56,7 @@ export default class Cart extends View {
             <th scope="col" class="px-1">Precio</th>
           </thead>
           <tbody>
-            ${this.cart.items.reduce((a: string, b: CartItem) => a + getCartItemInnerHTML(b), '')}
+        ${this.cart.getItems().reduce((a: string, b: CartItem) => a + getCartItemInnerHTML(b), '')}
           </tbody>
           <tfoot>
             <tr>

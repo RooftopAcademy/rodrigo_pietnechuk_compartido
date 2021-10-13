@@ -1,22 +1,23 @@
 import CartItem from '../entities/CartItem';
 import BookFactory from '../factories/BookFactory';
 import type BookInterface from '../interfaces/BookInterface';
+import type CollectionInterface from '../interfaces/CollectionInterface';
 import makeRequest from '../services/makeRequest';
 import StoreApi from '../services/StoreApi';
 
-export default class Cart {
+export default class Cart implements CollectionInterface<CartItem> {
   private _items: CartItem[];
 
   public constructor() {
     this._items = [];
   }
 
-  public get items(): CartItem[] {
+  public getItems(): CartItem[] {
     return this._items;
   }
 
   public add(item: CartItem): void {
-    this.items.push(item);
+    this._items.push(item);
     this.updateLocalStorage();
   }
 
@@ -31,7 +32,19 @@ export default class Cart {
   }
 
   public getTotalPrice(): number {
-    return this.items.reduce((a: number, b: CartItem): number => a + b.getProduct().price, 0);
+    return this._items.reduce((a: number, b: CartItem): number => a + b.getProduct().price, 0);
+  }
+
+  public getLength(): number {
+    return this._items.length;
+  }
+
+  public countByProductId(id: string): number {
+    return this._items.filter((item) => item.getProduct().id == id).length;
+  }
+
+  public removeFirstWithProductId(id: string): void {
+    return this.remove(this._items.find((item) => item.getProduct().id == id)?.getId() ?? '');
   }
 
   public async fetch(): Promise<void> {
@@ -51,6 +64,6 @@ export default class Cart {
   }
 
   private updateLocalStorage(): void {
-    window.localStorage.setItem('cart', JSON.stringify(this.items.map((f) => f.getProduct().id)));
+    window.localStorage.setItem('cart', JSON.stringify(this._items.map((f) => f.getProduct().id)));
   }
 }

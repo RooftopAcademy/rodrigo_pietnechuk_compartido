@@ -8,7 +8,7 @@ import type ApiUserInterface from '../interfaces/ApiUserInterface';
 export default class Login extends View {
   public render(): void {
     this.el.innerHTML = `
-    <form id="login-form" class="d-flex flex-column">
+    <form id="login-form" class="d-flex flex-column w-75 m-auto">
       <input class="form-input" name="username" type="text" placeholder="Usuario" required>
       <input class="form-input" name="email" type="email" placeholder="Correo electrónico" required>
       <button class="button" type="submit">Iniciar sesión</button>

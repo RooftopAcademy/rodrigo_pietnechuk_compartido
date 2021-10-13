@@ -12,6 +12,7 @@ import Book from '../entities/Book';
 import BookFactory from '../factories/BookFactory';
 import Cart from '../collections/Cart';
 import CartItem from '../entities/CartItem';
+import setItemAmountInCart from '../helpers/setItemAmountInCart';
 
 export default class ProductDetails extends View {
   private book: Book;
@@ -53,13 +54,42 @@ export default class ProductDetails extends View {
 
     await this.favorites.fetch();
 
-    this.isFavorite = this.favorites.favorites.some((b) => b.id == this.book.id);
+    this.isFavorite = this.favorites.getItems().some((b) => b.id == this.book.id);
 
     if (this.isFavorite) {
       icon.classList.add(...enabled);
     } else {
       icon.classList.add(disabled);
     }
+  }
+
+  private setCurrentProductCounter(): void {
+    const amount: number = this.cart.countByProductId(this.book.id);
+
+    const counter: HTMLSpanElement = this.el.querySelector(
+      '#amount-in-cart-this-product',
+    ) as HTMLSpanElement;
+
+    counter.innerHTML = amount.toString();
+  }
+
+  private setRemoveButtonStatus() {
+    const removeButton: HTMLButtonElement = this.el.querySelector(
+      '#remove-from-cart',
+    ) as HTMLButtonElement;
+
+    removeButton.disabled = this.cart.countByProductId(this.book.id) < 1;
+  }
+
+  private updateCartCounters(): void {
+    setItemAmountInCart(this.cart.getLength());
+    this.setCurrentProductCounter();
+    this.setRemoveButtonStatus();
+  }
+
+  private async setupCart(): Promise<void> {
+    await this.cart.fetch();
+    this.updateCartCounters();
   }
 
   public addEvents(): void {
@@ -70,6 +100,7 @@ export default class ProductDetails extends View {
     const heartIconClasses: string[] = ['far', 'fa', 'heart-icon-colored'];
 
     this.setupFavoriteButton(heartIcon, heartIconClasses);
+    this.setupCart();
 
     heartButton.addEventListener('click', () => {
       heartIconClasses.forEach((cssClass: string) => {
@@ -79,10 +110,15 @@ export default class ProductDetails extends View {
       this.toggleFavorite();
     });
 
-    this.cart.fetch();
-
-    this.el.querySelector('.js-add-to-cart')?.addEventListener('click', () => {
+    this.el.querySelector('#add-to-cart')?.addEventListener('click', () => {
       this.cart.add(new CartItem(this.book));
+      this.updateCartCounters();
+    });
+
+    this.el.querySelector('#remove-from-cart')?.addEventListener('click', () => {
+      this.cart.removeFirstWithProductId(this.book.id);
+      setItemAmountInCart(this.cart.getLength());
+      this.updateCartCounters();
     });
   }
 }

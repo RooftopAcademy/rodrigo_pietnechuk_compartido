@@ -1,27 +1,28 @@
 import type Book from '../entities/Book';
 import BookFactory from '../factories/BookFactory';
 import BookInterface from '../interfaces/BookInterface';
+import type CollectionInterface from '../interfaces/CollectionInterface';
 import makeRequest from '../services/makeRequest';
 import StoreApi from '../services/StoreApi';
 
-export default class FavoritesCollection {
-  private _favorites: Book[];
+export default class FavoritesCollection implements CollectionInterface<Book> {
+  private _items: Book[];
 
   public constructor() {
-    this._favorites = [];
+    this._items = [];
   }
 
-  public get favorites(): Book[] {
-    return this._favorites;
+  public getItems(): Book[] {
+    return this._items;
   }
 
   public add(item: Book): void {
-    this.favorites.push(item);
+    this._items.push(item);
     this.updateLocalStorage();
   }
 
   public remove(id: string): void {
-    this._favorites = this.favorites.filter((f) => f.id != id);
+    this._items = this._items.filter((f) => f.id != id);
     this.updateLocalStorage();
   }
 
@@ -32,7 +33,7 @@ export default class FavoritesCollection {
       ids.map((id) => makeRequest(StoreApi.getBookById(id))),
     );
 
-    this._favorites = promises
+    this._items = promises
       .filter((f) => f.status == 'fulfilled')
       .map((f) => BookFactory.create((<PromiseFulfilledResult<BookInterface>>f).value));
 
@@ -40,6 +41,6 @@ export default class FavoritesCollection {
   }
 
   private updateLocalStorage(): void {
-    window.localStorage.setItem('favorites', JSON.stringify(this.favorites.map((f) => f.id)));
+    window.localStorage.setItem('favorites', JSON.stringify(this._items.map((f) => f.id)));
   }
 }
