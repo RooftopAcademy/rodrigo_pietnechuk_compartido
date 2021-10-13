@@ -1,5 +1,6 @@
 import type View from './abstract/View';
 import getCurrentRoute from './helpers/getCurrentRoute';
+import setupCartOnStartup from './helpers/setupCartOnStartup';
 import setupLoginOnStartup from './helpers/setupLoginOnStartup';
 import selectRoute from './routes';
 
@@ -10,6 +11,7 @@ export default class App {
     this.el = el;
     window.addEventListener('hashchange', () => this.navigate(getCurrentRoute()));
     setupLoginOnStartup();
+    setupCartOnStartup();
     this.navigate(getCurrentRoute());
   }
 
