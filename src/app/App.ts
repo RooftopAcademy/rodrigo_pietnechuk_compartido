@@ -1,4 +1,3 @@
-import type View from './abstract/View';
 import getCurrentRoute from './helpers/getCurrentRoute';
 import setupLoginOnStartup from './helpers/setupLoginOnStartup';
 import selectRoute from './routes';
@@ -13,17 +12,10 @@ export default class App {
     this.navigate(getCurrentRoute());
   }
 
-  private async navigate(route: string): Promise<void> {
-    try {
-      const selectedRoute: View = selectRoute(route, this.el);
-      await selectedRoute.render();
-      if (selectedRoute.addEvents) {
-        selectedRoute.addEvents();
-      }
-    } catch {
-      window.location.hash = '#404';
-    } finally {
-      document.querySelector('.navigation')?.classList.add('hidden');
-    }
+  private navigate(route: string): void {
+    const SelectedRoute = selectRoute(route);
+    const view = new SelectedRoute(this.el);
+    view.render();
+    document.querySelector('.navigation')?.classList.add('hidden');
   }
 }

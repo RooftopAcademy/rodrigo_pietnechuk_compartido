@@ -1,4 +1,4 @@
-import type View from '../abstract/View';
+import type ViewAdapter from '../types/ViewAdapter';
 import ProductDetails from '../views/ProductDetails';
 import ProductList from '../views/ProductList';
 import Home from '../views/Home';
@@ -7,17 +7,17 @@ import NotFound from '../views/NotFound';
 import Favorites from '../views/Favorites';
 import Cart from '../views/Cart';
 
-const routes: Record<string, typeof View> = {
-  '': Home,
-  '#product-list': ProductList,
-  '#product-details': ProductDetails,
-  '#favorites': Favorites,
-  '#cart': Cart,
-  '#login': Login,
-  '#404': NotFound,
-};
+const routes: Map<string, ViewAdapter> = new Map([
+  ['', Home],
+  ['#product-list', ProductList],
+  ['#product-details', ProductDetails],
+  ['#favorites', Favorites],
+  ['#cart', Cart],
+  ['#login', Login],
+  ['#404', NotFound],
+]);
 
-export default function selectRoute(route: string, el: HTMLElement): View {
-  // eslint-disable-next-line
-  return new (<any>routes[route])(el);
+export default function selectRoute(route: string): ViewAdapter {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  return routes.has(route) ? routes.get(route)! : routes.get('#404')!;
 }

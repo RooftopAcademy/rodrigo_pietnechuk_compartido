@@ -15,5 +15,6 @@ export default class ProductList extends View {
         ${catalog.products.reduce((a: string, b: Book): string => a + getListItemInnerHTML(b), '')}
       </div>
     `;
+    super.render();
   }
 }

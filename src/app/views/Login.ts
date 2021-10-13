@@ -15,6 +15,7 @@ export default class Login extends View {
     </form>
     <output id="output" class="text-red">
     `;
+    super.render();
   }
 
   private static async authenticateUser(user: string, email: string, output: HTMLOutputElement) {
