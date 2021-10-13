@@ -1,14 +1,14 @@
 import type User from '../entities/User';
 
 export default class UserBase {
-  private _users: User[];
+  private users: User[];
 
   public constructor() {
-    this._users = [];
+    this.users = [];
   }
 
-  public get users(): User[] {
-    return this._users;
+  public getUsers(): User[] {
+    return this.users;
   }
 
   private usernameExists(username: string): boolean {
@@ -32,6 +32,6 @@ export default class UserBase {
   }
 
   public remove(id: string): void {
-    this._users = this.users.filter((item: User): boolean => item.id != id);
+    this.users = this.users.filter((item: User): boolean => item.id != id);
   }
 }
