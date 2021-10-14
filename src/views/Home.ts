@@ -1,4 +1,4 @@
-import '../../public/resources/css/index.css';
+import '../../public/css/index.css';
 import View from '../abstract/View';
 import Catalog from '../collections/Catalog';
 import getRecommendedProductInnerHTML from '../components/getRecommendedProductInnerHTML';

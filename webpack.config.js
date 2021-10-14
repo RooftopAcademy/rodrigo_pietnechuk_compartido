@@ -3,12 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/app/main.ts',
+  entry: './src/main.ts',
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/public/index.html',
-      favicon: 'src/public/resources/favicon.ico',
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
     }),
   ],
   module: {
