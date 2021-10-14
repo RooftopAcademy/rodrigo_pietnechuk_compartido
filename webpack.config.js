@@ -1,14 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   entry: './src/main.ts',
   plugins: [
+    new FaviconWebpackPlugin({
+      logo: 'public/logo.png',
+      cache: true,
+      prefix: 'static/img/',
+      inject: true,
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'public/index.html',
-      favicon: 'public/favicon.ico',
     }),
   ],
   module: {
