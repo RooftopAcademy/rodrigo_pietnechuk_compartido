@@ -4,7 +4,7 @@ export default function getRecommendedProductInnerHTML(product: Book): string {
   return `
   <div class="d-flex flex-column product-info">
   <img class="image product-image" src="${product.getImageURL()}" alt="imagen del producto">
-  <div class="d-flex flex-column product-description text-justify">
+  <div class="d-flex flex-column text-justify w-100 p-1">
     <h2 class="text-left">${product.getName()}</h2>
     <p class="author">${product.getAuthor()}</p>
     <details>
