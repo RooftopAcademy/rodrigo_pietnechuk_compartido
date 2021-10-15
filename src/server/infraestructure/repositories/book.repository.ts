@@ -12,12 +12,17 @@ class BookRepository implements RepositoryInterface<Book> {
   public async findOneById(id: string): Promise<Book | null> {
     const book: Book | undefined = this.books.find((b) => b.id == id);
 
-    return book || null;
     return book ?? null;
   }
 
   public async findAll(): Promise<Book[]> {
     return this.books;
+  }
+
+  public async findRandom(): Promise<Book | null> {
+    const book: Book | undefined = this.books[Math.floor(Math.random() * this.books.length)];
+
+    return book ?? null;
   }
 }
 
