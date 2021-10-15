@@ -1,12 +1,22 @@
 import '../../../public/css/index.css';
 import View from '../abstract/View';
-import Catalog from '../collections/Catalog';
 import getRecommendedProductInnerHTML from '../components/getRecommendedProductInnerHTML';
+import makeRequest from '../services/makeRequest';
+import StoreApi from '../services/StoreApi';
+import type Book from '../entities/Book';
+import BookFactory from '../factories/BookFactory';
+import getErrorMsgInnerHTML from '../components/getErrorMsgInnerHTML';
 
 export default class Home extends View {
   public async render(): Promise<void> {
-    const catalog: Catalog = new Catalog();
-    await catalog.fetch();
+    let recommendedInnerHTML: string;
+
+    try {
+      const book: Book = BookFactory.create(await makeRequest(StoreApi.getRandomBook()));
+      recommendedInnerHTML = getRecommendedProductInnerHTML(book);
+    } catch (error) {
+      recommendedInnerHTML = getErrorMsgInnerHTML((error as Error).message);
+    }
 
     this.el.innerHTML = `
       <div class="landing">
@@ -31,7 +41,7 @@ export default class Home extends View {
         </div>
         <h1 class="text-left">Recomendado para tí</h1>
         <div>
-          ${getRecommendedProductInnerHTML(catalog.getRandomItem())}
+          ${recommendedInnerHTML}
         </div>
       </div>
     `;

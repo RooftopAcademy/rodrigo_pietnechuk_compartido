@@ -14,4 +14,8 @@ export default class StoreApi {
   public static getBookById(id: string): Promise<Response> {
     return fetch(`${this.baseURL}/catalog/${id}`);
   }
+
+  public static getRandomBook(): Promise<Response> {
+    return fetch(`${this.baseURL}/catalog/random`);
+  }
 }
