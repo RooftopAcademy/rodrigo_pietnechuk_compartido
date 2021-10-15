@@ -12,7 +12,7 @@ class UserRepository implements RepositoryInterface<User> {
   public async findOneById(id: string): Promise<User | null> {
     const user: User | undefined = this.users.find((u) => u.id == id);
 
-    return user || null;
+    return user ?? null;
   }
 
   public async findAll(): Promise<User[]> {

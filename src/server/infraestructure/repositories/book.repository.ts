@@ -13,6 +13,7 @@ class BookRepository implements RepositoryInterface<Book> {
     const book: Book | undefined = this.books.find((b) => b.id == id);
 
     return book || null;
+    return book ?? null;
   }
 
   public async findAll(): Promise<Book[]> {
