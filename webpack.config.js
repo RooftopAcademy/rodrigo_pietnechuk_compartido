@@ -36,6 +36,13 @@ module.exports = {
         },
       },
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/img/[hash][ext][query]',
+        },
+      },
+      {
         test: /\.(ttf|eot|woff2?)$/i,
         type: 'asset/resource',
         generator: {
