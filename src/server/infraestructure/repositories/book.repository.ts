@@ -3,20 +3,20 @@ import type RepositoryInterface from '../interfaces/RepositoryInterface';
 import bookData from '../data/catalog.json';
 
 class BookRepository implements RepositoryInterface<Book> {
-  private book: Book[];
+  private books: Book[];
 
   public constructor() {
-    this.book = bookData;
+    this.books = bookData;
   }
 
   public async findOneById(id: string): Promise<Book | null> {
-    const book: Book | undefined = this.book.find((b) => b.id == id);
+    const book: Book | undefined = this.books.find((b) => b.id == id);
 
     return book || null;
   }
 
   public async findAll(): Promise<Book[]> {
-    return this.book;
+    return this.books;
   }
 }
 
