@@ -1,5 +1,5 @@
 import getListItemInnerHTML from './getListItemInnerHTML';
-import '../../public/css/product-details.css';
+import '../../../public/css/product-details.css';
 import type Book from '../entities/Book';
 
 export default function getFavoriteItemInnerHTML(item: Book): string {

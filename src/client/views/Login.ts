@@ -1,4 +1,4 @@
-import '../../public/css/login.css';
+import '../../../public/css/login.css';
 import View from '../abstract/View';
 import getUserIdFromApi from '../helpers/getUserIdFromApi';
 import login from '../helpers/login';
