@@ -16,6 +16,10 @@ export default class Catalog implements CollectionInterface<Book> {
     return this.items;
   }
 
+  public getRandomItem(): Book {
+    return this.items[Math.floor(Math.random() * this.items.length)];
+  }
+
   public add(item: Book): void {
     this.items.push(item);
   }

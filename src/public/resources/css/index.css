@@ -2,6 +2,29 @@
   margin: 1em;
 }
 
+.banner {
+  max-width: 100%;
+  height: auto;
+}
+
+.shipment {
+  background-color: #85ffb886;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.shipment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 0px;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
 @media screen and (min-width: 480px) {
   .about {
     width: 90%;

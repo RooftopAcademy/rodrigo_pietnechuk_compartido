@@ -32,7 +32,7 @@ module.exports = {
     'lines-between-class-members': ['warn', 'always', { exceptAfterSingleLine: true }],
     'import/extensions': ['error', 'ignorePackages', { js: 'never', ts: 'never' }],
     'eqeqeq': 'off',
-    'max-len': ['warn', 100],
+    'max-len': ['warn', 100, { ignoreUrls: true }],
     '@typescript-eslint/explicit-member-accessibility': 'off',
     'func-names': 'off',
     '@typescript-eslint/no-var-requires': 'off',

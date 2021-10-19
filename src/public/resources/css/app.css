@@ -196,6 +196,15 @@ button[disabled]:hover{
   margin: 0;
 }
 
+.mt-2 {
+  margin-top: 2em;
+}
+
+.mx-1 {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 .p-0 {
   padding: 0;
 }
