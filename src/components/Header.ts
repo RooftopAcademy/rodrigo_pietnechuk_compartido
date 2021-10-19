@@ -4,7 +4,7 @@ export default class Header extends HTMLElement {
     <header>
       <nav class="hidden d-flex flex-column text-left navigation">
         <a class="link" href="#">
-          <i class="fas fa-store-alt"></i> Inicio
+          <i class="fas fa-home"></i> Inicio
         </a>
         <a class="link" href="#product-list">
           <i class="fas fa-list-ul"></i> Lista de productos

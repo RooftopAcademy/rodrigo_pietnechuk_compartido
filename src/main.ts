@@ -1,4 +1,4 @@
-import '../public/resources/css/app.css';
+import '../public/css/app.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 import App from './App';

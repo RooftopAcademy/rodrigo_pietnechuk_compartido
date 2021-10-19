@@ -1,5 +1,5 @@
-import '../../public/resources/css/cart.css';
-import '../../public/resources/css/heart-button.css';
+import '../../public/css/cart.css';
+import '../../public/css/heart-button.css';
 import View from '../abstract/View';
 import CartCollection from '../collections/Cart';
 import CartItem from '../entities/CartItem';

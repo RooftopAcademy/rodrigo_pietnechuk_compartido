@@ -1,5 +1,5 @@
-import '../../public/resources/css/product-details.css';
-import '../../public/resources/css/heart-button.css';
+import '../../public/css/product-details.css';
+import '../../public/css/heart-button.css';
 import getProductDetailsInnerHTML from '../components/getProductDetailsInnerHTML';
 import getErrorMsgInnerHTML from '../components/getErrorMsgInnerHTML';
 import BookInterface from '../interfaces/BookInterface';

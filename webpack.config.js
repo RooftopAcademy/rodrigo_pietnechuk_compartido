@@ -1,14 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/app/main.ts',
+  entry: './src/main.ts',
   plugins: [
+    new FaviconWebpackPlugin({
+      logo: 'public/logo.png',
+      cache: true,
+      prefix: 'static/img/',
+      inject: true,
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/public/index.html',
-      favicon: 'src/public/resources/favicon.ico',
+      template: 'public/index.html',
     }),
   ],
   module: {
@@ -22,13 +28,34 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.svg$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/svg/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/img/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.(ttf|eot|woff2?)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/fonts/[hash][ext][query]',
+        },
+      },
     ],
   },
   resolve: {
     extensions: ['.ts', '.js'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'static/js/bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },

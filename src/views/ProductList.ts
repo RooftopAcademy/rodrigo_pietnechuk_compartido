@@ -3,7 +3,7 @@ import getListItemInnerHTML from '../components/getListItemInnerHTML';
 import View from '../abstract/View';
 import Catalog from '../collections/Catalog';
 
-import '../../public/resources/css/product-list.css';
+import '../../public/css/product-list.css';
 
 export default class ProductList extends View {
   public async render(): Promise<void> {
