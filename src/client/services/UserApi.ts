@@ -7,6 +7,6 @@ export default class UserApi {
   }
 
   public static getByUsernameAndEmail(username: string, email: string): Promise<Response> {
-    return fetch(`/users/${this.baseURL}?username=${username}&email=${email}`);
+    return fetch(`${this.baseURL}/users?username=${username}&email=${email}`);
   }
 }
