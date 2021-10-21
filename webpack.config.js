@@ -1,10 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconWebpackPlugin = require('favicons-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'production',
-  entry: './src/main.ts',
+  entry: './src/client/main.ts',
   plugins: [
     new FaviconWebpackPlugin({
       logo: 'public/logo.png',
@@ -16,6 +17,7 @@ module.exports = {
       filename: 'index.html',
       template: 'public/index.html',
     }),
+    new Dotenv(),
   ],
   module: {
     rules: [
@@ -36,7 +38,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'static/img/[hash][ext][query]',

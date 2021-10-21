@@ -1,7 +1,6 @@
 {
   "name": "rodrigo_pietnechuk_compartido",
   "version": "1.0.0",
-  "main": "index.js",
   "public": "false",
   "homepage": "https://rooftopacademy.github.io/rodrigo_pietnechuk_compartido/",
   "repository": "git@github.com:RooftopAcademy/rodrigo_pietnechuk_compartido.git",
@@ -13,7 +12,7 @@
     "build": "webpack --mode production",
     "builddev": "webpack --mode development",
     "devserver": "webpack-dev-server --mode development --open",
-    "start": "tsnd --respawn src/server/server.ts",
+    "start": "tsnd --respawn src/server/index.ts",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -30,6 +29,7 @@
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "css-loader": "^6.3.0",
+    "dotenv-webpack": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.2",

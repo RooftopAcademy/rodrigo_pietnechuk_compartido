@@ -1,7 +1,7 @@
 import getCurrentRoute from './helpers/getCurrentRoute';
 import setupCartOnStartup from './helpers/setupCartOnStartup';
 import setupLoginOnStartup from './helpers/setupLoginOnStartup';
-import selectRoute from './routes';
+import selectRoute from './router';
 
 export default class App {
   private readonly el: HTMLElement;
