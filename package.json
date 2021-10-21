@@ -45,5 +45,10 @@
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.2.1"
+  },
+  "resolutions": {
+    "favicons/**/ansi-regex": "^5.0.1",
+    "favicons/**/jpeg-js": "^0.4.0",
+    "favicons/**/minimist": "^0.2.1"
   }
 }
