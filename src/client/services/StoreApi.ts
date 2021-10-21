@@ -6,9 +6,8 @@ export default class StoreApi {
     return fetch(`${this.baseURL}/catalog`);
   }
 
-  // TODO: add filetering to api
   public static filterCatalog(filter: string): Promise<Response> {
-    return fetch(`${this.fallback}/catalog?name_like=${filter}&_limit=10`);
+    return fetch(`${this.baseURL}/catalog?name_like=${filter}`);
   }
 
   public static getBookById(id: string): Promise<Response> {
