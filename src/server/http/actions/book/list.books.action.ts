@@ -1,16 +1,18 @@
 import { Request, Response } from 'express';
 import type Book from '../../../domain/entities/book.entity';
-import bookRepository from '../../../infraestructure/repositories/book.repository';
+import type ListBooksComand from '../../../appplication/commands/book/list.books.command';
+import ListBooksHandler from '../../../appplication/handlers/book/list.books.handler';
 
 export default class ListBooksAction {
   public static async run(req: Request, res: Response): Promise<Response> {
-    let books: Book[] = await bookRepository.findAll();
+    const command: ListBooksComand = {
+      name: req.query.name?.toString(),
+      name_like: req.query.name_like?.toString(),
+      author: req.query.author?.toString(),
+      publicationYear: req.query.publicationYear?.toString(),
+    };
 
-    const filter: string = req.query.name_like?.toString().toLowerCase() ?? '';
-
-    if (filter) {
-      books = books.filter((b) => b.name.toLowerCase().includes(filter));
-    }
+    const books: Book[] = await ListBooksHandler.execute(command);
 
     return res.status(200).json(books);
   }
