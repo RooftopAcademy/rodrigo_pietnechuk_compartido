@@ -1,8 +1,7 @@
 import type User from '../../domain/entities/user.entity';
-import type RepositoryInterface from '../interfaces/RepositoryInterface';
 import usersData from '../data/users.json';
 
-class UserRepository implements RepositoryInterface<User> {
+class UserRepository {
   private users: User[];
 
   public constructor() {
