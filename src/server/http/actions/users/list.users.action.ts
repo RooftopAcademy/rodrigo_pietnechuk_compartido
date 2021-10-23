@@ -1,21 +1,17 @@
 import { Request, Response } from 'express';
+import type ListUsersCommand from '../../../appplication/commands/user/list.users.command';
+import ListUsersHandler from '../../../appplication/handlers/user/list.users.handler';
 import type User from '../../../domain/entities/user.entity';
-import userRepository from '../../../infraestructure/repositories/user.repository';
 
 export default class ListUsersAction {
   public static async run(req: Request, res: Response): Promise<Response> {
-    let users: User[] = await userRepository.findAll();
+    const command: ListUsersCommand = {
+      name: req.query.name?.toString(),
+      email: req.query.email?.toString(),
+      username: req.query.username?.toString(),
+    };
 
-    const filters: Map<keyof User, string> = new Map([
-      ['email', req.query.email?.toString() ?? ''],
-      ['username', req.query.username?.toString() ?? ''],
-    ]);
-
-    filters.forEach((value, key) => {
-      if (value) {
-        users = users.filter((u) => u[key] == value);
-      }
-    });
+    const users: User[] = await ListUsersHandler.execute(command);
 
     return res.status(200).json(users);
   }
