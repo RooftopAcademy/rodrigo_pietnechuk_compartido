@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import type User from '../../../domain/entities/user.entity';
-import type FindUserByIdCommand from '../../../appplication/commands/user/find.user.by.id.command';
-import FindUserByIdHandler from '../../../appplication/handlers/user/find.user.by.id.handler';
+import type FindUserByIdCommand from '../../../application/commands/user/find.user.by.id.command';
+import FindUserByIdHandler from '../../../application/handlers/user/find.user.by.id.handler';
 
 export default class FindUserByIdAction {
   public static async run(req: Request, res: Response): Promise<Response> {

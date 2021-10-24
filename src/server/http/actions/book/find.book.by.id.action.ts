@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import type Book from '../../../domain/entities/book.entity';
-import type FindBookByIdCommand from '../../../appplication/commands/book/find.book.by.id.command';
-import FindBookByIdHandler from '../../../appplication/handlers/book/find.book.by.id.handler';
+import type FindBookByIdCommand from '../../../application/commands/book/find.book.by.id.command';
+import FindBookByIdHandler from '../../../application/handlers/book/find.book.by.id.handler';
 
 export default class FindBookByIdAction {
   public static async run(req: Request, res: Response): Promise<Response> {

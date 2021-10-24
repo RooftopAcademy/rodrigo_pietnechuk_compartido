@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import type ListUsersCommand from '../../../appplication/commands/user/list.users.command';
-import ListUsersHandler from '../../../appplication/handlers/user/list.users.handler';
+import type ListUsersCommand from '../../../application/commands/user/list.users.command';
+import ListUsersHandler from '../../../application/handlers/user/list.users.handler';
 import type User from '../../../domain/entities/user.entity';
 
 export default class ListUsersAction {

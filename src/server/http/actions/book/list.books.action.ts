@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import type Book from '../../../domain/entities/book.entity';
-import type ListBooksComand from '../../../appplication/commands/book/list.books.command';
-import ListBooksHandler from '../../../appplication/handlers/book/list.books.handler';
+import type ListBooksComand from '../../../application/commands/book/list.books.command';
+import ListBooksHandler from '../../../application/handlers/book/list.books.handler';
 
 export default class ListBooksAction {
   public static async run(req: Request, res: Response): Promise<Response> {
