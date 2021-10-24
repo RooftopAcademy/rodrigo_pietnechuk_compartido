@@ -1,8 +1,7 @@
 import type Book from '../../domain/entities/book.entity';
-import type RepositoryInterface from '../interfaces/RepositoryInterface';
 import bookData from '../data/catalog.json';
 
-class BookRepository implements RepositoryInterface<Book> {
+class BookRepository {
   private books: Book[];
 
   public constructor() {
