@@ -1,6 +1,6 @@
 import { Application } from 'express';
-import ListUsersAction from '../actions/users/list.users.action';
-import FindUserByIdAction from '../actions/users/find.user.by.id.action';
+import ListUsersAction from '../actions/user/list.users.action';
+import FindUserByIdAction from '../actions/user/find.user.by.id.action';
 import CommonRoutes from './common.routes';
 
 export default class UserRoutes extends CommonRoutes {
